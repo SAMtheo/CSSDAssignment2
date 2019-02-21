@@ -10,16 +10,22 @@ using System.Windows.Forms;
 
 namespace EVotingSystem
 {
-    public partial class Form1 : Form
+    public partial class Explanation : Form
     {
-        public Form1()
+        public Explanation()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Explanation_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new VotingScreen().Show();
+            this.Close();
         }
     }
 }
