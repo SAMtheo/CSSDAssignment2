@@ -10,13 +10,16 @@ namespace EVotingSystem
     class Election
     {
         private string electionName { public get; private set; }
+        private long votingArea { public get; private set; }
         private List<Candidate> candidates { public get; private set; }
         private DateTime startDate { public get; private set; }
         private DateTime endDate { public get; private set; }
 
-        public Election(string electionName,
+        public Election(string electionName, long votingArea,
+            List<Candidate> candidates, DateTime startDate, DateTime endDate)
         {
             this.electionName = electionName;
+            this.votingArea = votingArea;
             this.candidates = candidates;
             this.startDate = startDate;
             this.endDate = endDate;
@@ -56,6 +59,8 @@ namespace EVotingSystem
                 return false;
             }
         }
+
+        // -- [TODO?] public bool validateVotingArea() { }
     }
 
     class Candidate
