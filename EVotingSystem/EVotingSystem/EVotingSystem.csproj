@@ -46,18 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Confirmation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Confirmation.Designer.cs">
-      <DependentUpon>Confirmation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Explanation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Explanation.Designer.cs">
-      <DependentUpon>Explanation.cs</DependentUpon>
-    </Compile>
     <Compile Include="LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,18 +54,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThankYou.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ThankYou.Designer.cs">
-      <DependentUpon>ThankYou.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VotingScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VotingScreen.Designer.cs">
-      <DependentUpon>VotingScreen.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
