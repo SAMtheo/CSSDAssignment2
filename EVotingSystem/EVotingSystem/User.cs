@@ -8,6 +8,7 @@ namespace EVotingSystem
 {
     public abstract class User
     {
+        private static readonly int MAX_ATTEMPTS = 3;
         private string username;
         private string hashedPassword;
         private int authAttempts;
@@ -39,6 +40,20 @@ namespace EVotingSystem
             authAttempts = 0;
         }
 
+        // Takes a password to compare 
+        // returns true if password is valid and auth attempts are less than MAX_ATTEMPTS
+        public bool validatePassword(string passwordToCheck)
+        {
+            if(checkAttempts())
+                if (passwordToCheck.CompareTo(this.hashedPassword) == 0)
+                    return true;
+            return false;
+        }
+
+        public bool checkAttempts()
+        {
+            return (authAttempts < MAX_ATTEMPTS);
+        }
     }
 
     public class Voter : User
