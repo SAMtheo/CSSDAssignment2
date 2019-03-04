@@ -8,3 +8,4 @@ C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssig
 C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.exe
 C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.pdb
 C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.LoginScreen.resources
+C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.UserGUI.resources
