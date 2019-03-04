@@ -12,6 +12,9 @@ namespace EVotingSystem
 {
     public partial class LoginScreen : Form
     {
+
+        List<CheckBox> candidateCheckBoxes = new List<CheckBox>();
+
         public LoginScreen()
         {
             InitializeComponent();
@@ -38,12 +41,16 @@ namespace EVotingSystem
 
         private void candidateButtons(List<Candidate> Candidates)
         {
+            candidateCheckBoxes = new List<CheckBox>();
             for (int i = 0; i < Candidates.Count; i++)
             {
-                Button newButton = new Button();
-                newButton.Text = Candidates[i].title;
-                newButton.Location = new Point(100, i * 100);
-                votePanel.Controls.Add(newButton);
+                CheckBox newChk = new CheckBox();
+                newChk.Text = Candidates[i].title;
+                newChk.Location = new Point(20, (i * 50) + 30);
+                newChk.Name = Candidates[i].title + "Chk";
+                candidatesGrp.Controls.Add(newChk);
+                votePanel.Refresh();
+                candidateCheckBoxes.Add(newChk);
             }
         }
 
