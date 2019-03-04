@@ -228,7 +228,7 @@
             // 
             // signOutLbl
             // 
-            this.signOutLbl.Location = new System.Drawing.Point(307, 174);
+            this.signOutLbl.Location = new System.Drawing.Point(327, 174);
             this.signOutLbl.Name = "signOutLbl";
             this.signOutLbl.Size = new System.Drawing.Size(143, 67);
             this.signOutLbl.TabIndex = 1;
@@ -241,7 +241,7 @@
             this.thankYouLbl.AutoSize = true;
             this.thankYouLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thankYouLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.thankYouLbl.Location = new System.Drawing.Point(320, 96);
+            this.thankYouLbl.Location = new System.Drawing.Point(340, 96);
             this.thankYouLbl.Name = "thankYouLbl";
             this.thankYouLbl.Size = new System.Drawing.Size(117, 24);
             this.thankYouLbl.TabIndex = 0;
@@ -251,7 +251,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 374);
+            this.ClientSize = new System.Drawing.Size(798, 379);
             this.Controls.Add(this.thankYouPanel);
             this.Controls.Add(this.confirmPanel);
             this.Controls.Add(this.votePanel);
