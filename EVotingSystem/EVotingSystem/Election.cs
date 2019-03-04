@@ -9,11 +9,11 @@ namespace EVotingSystem
 {
     class Election
     {
-        private string electionName { public get; private set; }
-        private long votingArea { public get; private set; }
-        private List<Candidate> candidates { public get; private set; }
-        private DateTime startDate { public get; private set; }
-        private DateTime endDate { public get; private set; }
+        public string electionName { get; private set; }
+        public long votingArea { get; private set; }
+        public List<Candidate> candidates { get; private set; }
+        public DateTime startDate { get; private set; }
+        public DateTime endDate { get; private set; }
 
         public Election(string electionName, long votingArea,
             List<Candidate> candidates, DateTime startDate, DateTime endDate)
@@ -65,9 +65,9 @@ namespace EVotingSystem
 
     class Candidate
     {
-        private string name { public get; private set; }
-        private string party { public get; private set; }
-        private Bitmap photo { public get; private set; } // Photo of the candidate used on UI
+        public string name { get; private set; }
+        public string party { get; private set; }
+        public Bitmap photo { get; private set; } // Photo of the candidate used on UI
 
         public Candidate(string name, string party, string photoFilePath)
         {
