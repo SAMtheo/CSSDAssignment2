@@ -9,12 +9,12 @@ namespace EVotingSystem
 {
     class Election
     {
-        String electionName;
+        string electionName;
         List<Candidate> candidates;
         DateTime startDate;
         DateTime endDate;
 
-        public Boolean voteChoice(Candidate chosenVote) {
+        public bool vote(Candidate chosenVote) {
             // [TODO] Implement user voting for a candidate
             if (validateVoteTime())
             {
@@ -26,7 +26,7 @@ namespace EVotingSystem
             }
         }
 
-        public Boolean validateVoteTime() {
+        public bool validateVoteTime() {
             DateTime now = DateTime.Now;
             if ((now.CompareTo(startDate) >= 0) && (now.CompareTo(endDate) <= 0)) {
                 return true;
@@ -38,11 +38,10 @@ namespace EVotingSystem
 
     class Candidate
     {
-        private String name;
-        private String party;
-        private Bitmap photo;
+        private string name;
+        private string party;
 
-        public Candidate(String name, String party, String photoFilePath)
+        public Candidate(string name, string party, string photoFilePath)
         {
             this.name = name;
             this.party = party;
@@ -53,11 +52,11 @@ namespace EVotingSystem
             }
         }
 
-        public String getName() {
+        public string getName() {
             return name;
         }
 
-        public String getParty()
+        public string getParty()
         {
             return party;
         }
