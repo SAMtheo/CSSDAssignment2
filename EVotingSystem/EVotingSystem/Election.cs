@@ -9,10 +9,18 @@ namespace EVotingSystem
 {
     class Election
     {
-        string electionName;
-        List<Candidate> candidates;
-        DateTime startDate;
-        DateTime endDate;
+        private string electionName { public get; private set; }
+        private List<Candidate> candidates { public get; private set; }
+        private DateTime startDate { public get; private set; }
+        private DateTime endDate { public get; private set; }
+
+        public Election(string electionName,
+        {
+            this.electionName = electionName;
+            this.candidates = candidates;
+            this.startDate = startDate;
+            this.endDate = endDate;
+        }
 
         /*
          * voteChance - Chooses a vote to chosen candidate
@@ -52,9 +60,9 @@ namespace EVotingSystem
 
     class Candidate
     {
-        private string name;
-        private string party;
-        private Bitmap photo; // Photo of the candidate used on UI
+        private string name { public get; private set; }
+        private string party { public get; private set; }
+        private Bitmap photo { public get; private set; } // Photo of the candidate used on UI
 
         public Candidate(string name, string party, string photoFilePath)
         {
@@ -65,20 +73,6 @@ namespace EVotingSystem
             {
                 photo = new Bitmap(photoFilePath);
             }
-        }
-
-        public string getName() {
-            return name;
-        }
-
-        public string getParty()
-        {
-            return party;
-        }
-
-        public Bitmap getPicture()
-        {
-            return photo;
         }
     }
 }
