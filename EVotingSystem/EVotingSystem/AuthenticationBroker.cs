@@ -9,8 +9,7 @@ namespace EVotingSystem
 
     class Session
     {
-        User currentUser;
-        
+        public User currentUser;
         public Session (User user)
         {
             currentUser = user;
