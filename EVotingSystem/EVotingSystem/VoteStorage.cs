@@ -11,7 +11,6 @@ namespace EVotingSystem
     {
 
         static public void Vote(string candidate){
-            //check if file for given candidate exists
             //For this use case, election.vote must be pre-created
             //cand:20,cand2:30,
 
@@ -27,6 +26,7 @@ namespace EVotingSystem
 
                 string f = fileContents.Result;
 
+                //create a list of candidate:votes pairs
                 string[] elections = f.Split(',');
 
                 
@@ -41,8 +41,10 @@ namespace EVotingSystem
                     {
                         throw new Exception();
                     }
+                    //covert string val to number
                     int votesNum = Convert.ToInt32(elecPair[1]);
 
+                    //and add them to our dictionary
                     votes.Add(elecPair[0], votesNum);
 
                 }
@@ -61,15 +63,9 @@ namespace EVotingSystem
                             s.Write(newRes);
                         }
                     }
-                } catch (Exception e)
-                {
+                } catch (Exception e) {
                     throw e;
                 }
-
-             }
-            
-
-
-
-        }
+        }     
     }
+}
