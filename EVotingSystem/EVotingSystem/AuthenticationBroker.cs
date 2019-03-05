@@ -28,10 +28,12 @@ namespace EVotingSystem
         {
             accountRegistryInstance = AccountRegistry.Instance;
             User user = findUser(accountRegistryInstance, username);
-
-            user.validatePassword(password);
-
-            return new Session(user);
+            if(user != null) { 
+                if(user.validatePassword(password)) {
+                    return new Session(user);
+                }
+            }
+            return null;
         }
         
         // return user with username from accountRegistry
