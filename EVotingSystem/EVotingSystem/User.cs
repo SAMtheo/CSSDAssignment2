@@ -99,4 +99,13 @@ namespace EVotingSystem
             return dob;
         }
     }
+
+    public class Admin : User
+    {
+        bool isAdmin = true;
+        public Admin(string u, string p) : base(u,p)
+        {
+
+        }
+    }
 }
