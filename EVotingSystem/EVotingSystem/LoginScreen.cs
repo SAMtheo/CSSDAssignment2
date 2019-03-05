@@ -39,8 +39,8 @@ namespace EVotingSystem
             Session sess = authBroker.authenticate(user, hashedP);
 
             
-            new AdminGUI().Show();
-            //new UserGUI().Show();
+            //new AdminGUI().Show();
+            new UserGUI().Show();
         }
     }
 }
