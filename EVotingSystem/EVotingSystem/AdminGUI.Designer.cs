@@ -28,12 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.adminPanel = new System.Windows.Forms.Panel();
+            this.adminTitle = new System.Windows.Forms.Label();
+            this.adminPanel.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // adminPanel
+            // 
+            this.adminPanel.Controls.Add(this.adminTitle);
+            this.adminPanel.Location = new System.Drawing.Point(12, 12);
+            this.adminPanel.Name = "adminPanel";
+            this.adminPanel.Size = new System.Drawing.Size(775, 329);
+            this.adminPanel.TabIndex = 1;
+            // 
+            // adminTitle
+            // 
+            this.adminTitle.AutoSize = true;
+            this.adminTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.adminTitle.Location = new System.Drawing.Point(323, 23);
+            this.adminTitle.Name = "adminTitle";
+            this.adminTitle.Size = new System.Drawing.Size(122, 24);
+            this.adminTitle.TabIndex = 0;
+            this.adminTitle.Text = "Admin View";
+            // 
+            // AdminGUI
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(797, 378);
+            this.Controls.Add(this.adminPanel);
+            this.Name = "AdminGUI";
             this.Text = "AdminGUI";
+            this.adminPanel.ResumeLayout(false);
+            this.adminPanel.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel adminPanel;
+        private System.Windows.Forms.Label adminTitle;
     }
 }
