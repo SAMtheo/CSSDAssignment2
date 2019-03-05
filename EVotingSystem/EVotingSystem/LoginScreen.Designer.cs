@@ -38,6 +38,7 @@
             this.passwordLbl = new System.Windows.Forms.Label();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.usernameBox = new System.Windows.Forms.TextBox();
+            this.errorLbl = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +53,7 @@
             // 
             // loginPanel
             // 
+            this.loginPanel.Controls.Add(this.errorLbl);
             this.loginPanel.Controls.Add(this.loginTitleLbl);
             this.loginPanel.Controls.Add(this.fgtPwdLbl);
             this.loginPanel.Controls.Add(this.loginBtn);
@@ -78,7 +80,7 @@
             // fgtPwdLbl
             // 
             this.fgtPwdLbl.AutoSize = true;
-            this.fgtPwdLbl.Location = new System.Drawing.Point(284, 246);
+            this.fgtPwdLbl.Location = new System.Drawing.Point(284, 266);
             this.fgtPwdLbl.Name = "fgtPwdLbl";
             this.fgtPwdLbl.Size = new System.Drawing.Size(122, 17);
             this.fgtPwdLbl.TabIndex = 5;
@@ -87,7 +89,7 @@
             // 
             // loginBtn
             // 
-            this.loginBtn.Location = new System.Drawing.Point(412, 233);
+            this.loginBtn.Location = new System.Drawing.Point(412, 253);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(86, 42);
             this.loginBtn.TabIndex = 2;
@@ -98,7 +100,7 @@
             // capatchaChk
             // 
             this.capatchaChk.AutoSize = true;
-            this.capatchaChk.Location = new System.Drawing.Point(334, 189);
+            this.capatchaChk.Location = new System.Drawing.Point(334, 209);
             this.capatchaChk.Name = "capatchaChk";
             this.capatchaChk.Size = new System.Drawing.Size(129, 21);
             this.capatchaChk.TabIndex = 4;
@@ -137,6 +139,18 @@
             this.usernameBox.Size = new System.Drawing.Size(210, 22);
             this.usernameBox.TabIndex = 0;
             // 
+            // errorLbl
+            // 
+            this.errorLbl.AutoSize = true;
+            this.errorLbl.BackColor = System.Drawing.Color.Transparent;
+            this.errorLbl.ForeColor = System.Drawing.Color.Red;
+            this.errorLbl.Location = new System.Drawing.Point(296, 172);
+            this.errorLbl.Name = "errorLbl";
+            this.errorLbl.Size = new System.Drawing.Size(58, 17);
+            this.errorLbl.TabIndex = 7;
+            this.errorLbl.Text = "errorLbl";
+            this.errorLbl.Visible = false;
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -167,6 +181,7 @@
         private System.Windows.Forms.Label passwordLbl;
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.TextBox usernameBox;
+        private System.Windows.Forms.Label errorLbl;
     }
 }
 
