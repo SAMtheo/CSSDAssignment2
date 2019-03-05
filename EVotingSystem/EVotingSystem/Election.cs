@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace EVotingSystem
 {
-    class Election
+    public class Election
     {
         public string electionName { get; private set; }
         public long votingArea { get; private set; }
@@ -37,7 +37,7 @@ namespace EVotingSystem
             // [TODO] Implement user voting for a candidate
                 if (validateVoteTime())
                 {
-                    //Storage.vote(candidate.name)
+                    VoteStorage.Vote(chosenVote.name);
                     return true;
                 }
                 else
@@ -63,7 +63,7 @@ namespace EVotingSystem
         // -- [TODO?] public bool validateVotingArea() { }
     }
 
-    class Candidate
+    public class Candidate
     {
         public string name { get; private set; }
         public string party { get; private set; }
