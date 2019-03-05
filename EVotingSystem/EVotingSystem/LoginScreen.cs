@@ -38,7 +38,7 @@ namespace EVotingSystem
 
             Session sess = authBroker.authenticate(user, hashedP);
 
-            
+            // create admin if an admin
             //new AdminGUI().Show();
             new UserGUI().Show();
         }

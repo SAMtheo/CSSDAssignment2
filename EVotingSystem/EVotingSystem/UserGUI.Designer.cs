@@ -35,15 +35,14 @@
             this.continueBtn = new System.Windows.Forms.Button();
             this.explanationTitle = new System.Windows.Forms.Label();
             this.votePanel = new System.Windows.Forms.Panel();
-            this.submitBtn = new System.Windows.Forms.Button();
-            this.voteTitleLbl = new System.Windows.Forms.Label();
-            this.electionTitleLbl = new System.Windows.Forms.Label();
             this.candidatesGrp = new System.Windows.Forms.GroupBox();
+            this.electionTitleLbl = new System.Windows.Forms.Label();
+            this.submitBtn = new System.Windows.Forms.Button();
             this.confirmPanel = new System.Windows.Forms.Panel();
+            this.voteConfirmBox = new System.Windows.Forms.GroupBox();
+            this.denyBtn = new System.Windows.Forms.Button();
             this.confirmBtn = new System.Windows.Forms.Button();
             this.confirmTitleLbl = new System.Windows.Forms.Label();
-            this.denyBtn = new System.Windows.Forms.Button();
-            this.voteConfirmBox = new System.Windows.Forms.GroupBox();
             this.thankYouPanel = new System.Windows.Forms.Panel();
             this.signOutLbl = new System.Windows.Forms.Button();
             this.thankYouLbl = new System.Windows.Forms.Label();
@@ -120,11 +119,30 @@
             this.votePanel.Controls.Add(this.candidatesGrp);
             this.votePanel.Controls.Add(this.electionTitleLbl);
             this.votePanel.Controls.Add(this.submitBtn);
-            this.votePanel.Controls.Add(this.voteTitleLbl);
             this.votePanel.Location = new System.Drawing.Point(815, 12);
             this.votePanel.Name = "votePanel";
             this.votePanel.Size = new System.Drawing.Size(775, 329);
             this.votePanel.TabIndex = 5;
+            // 
+            // candidatesGrp
+            // 
+            this.candidatesGrp.Location = new System.Drawing.Point(59, 82);
+            this.candidatesGrp.Name = "candidatesGrp";
+            this.candidatesGrp.Size = new System.Drawing.Size(337, 187);
+            this.candidatesGrp.TabIndex = 3;
+            this.candidatesGrp.TabStop = false;
+            this.candidatesGrp.Text = "Candidates";
+            // 
+            // electionTitleLbl
+            // 
+            this.electionTitleLbl.AutoSize = true;
+            this.electionTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.electionTitleLbl.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.electionTitleLbl.Location = new System.Drawing.Point(374, 24);
+            this.electionTitleLbl.Name = "electionTitleLbl";
+            this.electionTitleLbl.Size = new System.Drawing.Size(22, 24);
+            this.electionTitleLbl.TabIndex = 2;
+            this.electionTitleLbl.Text = "n";
             // 
             // submitBtn
             // 
@@ -136,37 +154,6 @@
             this.submitBtn.UseVisualStyleBackColor = true;
             this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
-            // voteTitleLbl
-            // 
-            this.voteTitleLbl.AutoSize = true;
-            this.voteTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.voteTitleLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.voteTitleLbl.Location = new System.Drawing.Point(323, 23);
-            this.voteTitleLbl.Name = "voteTitleLbl";
-            this.voteTitleLbl.Size = new System.Drawing.Size(92, 24);
-            this.voteTitleLbl.TabIndex = 0;
-            this.voteTitleLbl.Text = "Election:";
-            // 
-            // electionTitleLbl
-            // 
-            this.electionTitleLbl.AutoSize = true;
-            this.electionTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.electionTitleLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.electionTitleLbl.Location = new System.Drawing.Point(415, 23);
-            this.electionTitleLbl.Name = "electionTitleLbl";
-            this.electionTitleLbl.Size = new System.Drawing.Size(22, 24);
-            this.electionTitleLbl.TabIndex = 2;
-            this.electionTitleLbl.Text = "n";
-            // 
-            // candidatesGrp
-            // 
-            this.candidatesGrp.Location = new System.Drawing.Point(59, 82);
-            this.candidatesGrp.Name = "candidatesGrp";
-            this.candidatesGrp.Size = new System.Drawing.Size(337, 187);
-            this.candidatesGrp.TabIndex = 3;
-            this.candidatesGrp.TabStop = false;
-            this.candidatesGrp.Text = "Candidates";
-            // 
             // confirmPanel
             // 
             this.confirmPanel.Controls.Add(this.voteConfirmBox);
@@ -177,6 +164,25 @@
             this.confirmPanel.Name = "confirmPanel";
             this.confirmPanel.Size = new System.Drawing.Size(775, 329);
             this.confirmPanel.TabIndex = 5;
+            // 
+            // voteConfirmBox
+            // 
+            this.voteConfirmBox.Location = new System.Drawing.Point(148, 96);
+            this.voteConfirmBox.Name = "voteConfirmBox";
+            this.voteConfirmBox.Size = new System.Drawing.Size(468, 118);
+            this.voteConfirmBox.TabIndex = 3;
+            this.voteConfirmBox.TabStop = false;
+            this.voteConfirmBox.Text = "Election Choices";
+            // 
+            // denyBtn
+            // 
+            this.denyBtn.Location = new System.Drawing.Point(222, 236);
+            this.denyBtn.Name = "denyBtn";
+            this.denyBtn.Size = new System.Drawing.Size(112, 45);
+            this.denyBtn.TabIndex = 2;
+            this.denyBtn.Text = "No";
+            this.denyBtn.UseVisualStyleBackColor = true;
+            this.denyBtn.Click += new System.EventHandler(this.denyBtn_Click);
             // 
             // confirmBtn
             // 
@@ -198,24 +204,6 @@
             this.confirmTitleLbl.Size = new System.Drawing.Size(323, 24);
             this.confirmTitleLbl.TabIndex = 0;
             this.confirmTitleLbl.Text = "Are you sure you want to vote for:";
-            // 
-            // denyBtn
-            // 
-            this.denyBtn.Location = new System.Drawing.Point(222, 236);
-            this.denyBtn.Name = "denyBtn";
-            this.denyBtn.Size = new System.Drawing.Size(112, 45);
-            this.denyBtn.TabIndex = 2;
-            this.denyBtn.Text = "No";
-            this.denyBtn.UseVisualStyleBackColor = true;
-            // 
-            // voteConfirmBox
-            // 
-            this.voteConfirmBox.Location = new System.Drawing.Point(148, 96);
-            this.voteConfirmBox.Name = "voteConfirmBox";
-            this.voteConfirmBox.Size = new System.Drawing.Size(468, 118);
-            this.voteConfirmBox.TabIndex = 3;
-            this.voteConfirmBox.TabStop = false;
-            this.voteConfirmBox.Text = "Election Choices";
             // 
             // thankYouPanel
             // 
@@ -251,7 +239,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 379);
+            this.ClientSize = new System.Drawing.Size(797, 378);
             this.Controls.Add(this.thankYouPanel);
             this.Controls.Add(this.confirmPanel);
             this.Controls.Add(this.votePanel);
@@ -284,7 +272,6 @@
         private System.Windows.Forms.GroupBox candidatesGrp;
         private System.Windows.Forms.Label electionTitleLbl;
         private System.Windows.Forms.Button submitBtn;
-        private System.Windows.Forms.Label voteTitleLbl;
         private System.Windows.Forms.Panel confirmPanel;
         private System.Windows.Forms.GroupBox voteConfirmBox;
         private System.Windows.Forms.Button denyBtn;
