@@ -23,52 +23,24 @@ namespace EVotingSystem
 
         }
 
-        private void startupPanels()
-        {
-            loginPanel.Visible = true;
-
-            explanationPanel.Visible = false;
-            votePanel.Visible = false;
-            confirmPanel.Visible = false;
-            thankYouPanel.Visible = false;
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            startupPanels();
+
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
             // get candidates for the current election
-            string user = textBox1.Text;
-            string password = textBox2.Text;
+            string user = usernameBox.Text;
+            string password = passwordBox.Text;
             string hashedP = password;
+            // if error set errorLbl.Visible to true
 
             Session sess = authBroker.authenticate(user, hashedP);
-           
 
-            explanationPanel.Visible = true;
-        }
-
-        private void continueBtn_Click(object sender, EventArgs e)
-        {
-            votePanel.Visible = true;
-        }
-
-        private void sumbitBtn_Click(object sender, EventArgs e)
-        {
-            confirmPanel.Visible = true;
-        }
-
-        private void confirmBtn_Click(object sender, EventArgs e)
-        {
-            thankYouPanel.Visible = true;
-        }
-
-        private void signOutBtn_Click(object sender, EventArgs e)
-        {
-            startupPanels();
+            
+            // new AdminGui().Show();
+            new UserGUI().Show();
         }
     }
 }
