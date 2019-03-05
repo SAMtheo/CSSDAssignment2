@@ -30,15 +30,19 @@
         {
             this.adminPanel = new System.Windows.Forms.Panel();
             this.adminTitle = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.adminPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // adminPanel
             // 
+            this.adminPanel.Controls.Add(this.dataGridView1);
             this.adminPanel.Controls.Add(this.adminTitle);
-            this.adminPanel.Location = new System.Drawing.Point(12, 12);
+            this.adminPanel.Location = new System.Drawing.Point(16, 18);
+            this.adminPanel.Margin = new System.Windows.Forms.Padding(4);
             this.adminPanel.Name = "adminPanel";
-            this.adminPanel.Size = new System.Drawing.Size(775, 329);
+            this.adminPanel.Size = new System.Drawing.Size(1066, 494);
             this.adminPanel.TabIndex = 1;
             // 
             // adminTitle
@@ -46,22 +50,35 @@
             this.adminTitle.AutoSize = true;
             this.adminTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.adminTitle.Location = new System.Drawing.Point(323, 23);
+            this.adminTitle.Location = new System.Drawing.Point(444, 34);
+            this.adminTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.adminTitle.Name = "adminTitle";
-            this.adminTitle.Size = new System.Drawing.Size(122, 24);
+            this.adminTitle.Size = new System.Drawing.Size(159, 30);
             this.adminTitle.TabIndex = 0;
             this.adminTitle.Text = "Admin View";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(236, 78);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 31;
+            this.dataGridView1.Size = new System.Drawing.Size(561, 341);
+            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // AdminGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 378);
+            this.ClientSize = new System.Drawing.Size(1096, 567);
             this.Controls.Add(this.adminPanel);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminGUI";
             this.Text = "AdminGUI";
             this.adminPanel.ResumeLayout(false);
             this.adminPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -70,5 +87,6 @@
 
         private System.Windows.Forms.Panel adminPanel;
         private System.Windows.Forms.Label adminTitle;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

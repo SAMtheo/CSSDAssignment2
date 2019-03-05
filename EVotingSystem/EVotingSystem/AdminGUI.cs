@@ -15,8 +15,16 @@ namespace EVotingSystem
     {
         public AdminGUI()
         {
+
+            InitializeComponent();
+
+
             string elecFile = "election.votes";
             Dictionary<string, int> votes = new Dictionary<string, int>();
+
+            //List<Voter> voters = new List<Voter>();
+
+            //listBox1.DataSource = voters;
 
             //check if file exists, if it doesnt throw a hissy fit
             try
@@ -54,10 +62,30 @@ namespace EVotingSystem
                     votes.Add(elecPair[0], votesNum);
 
                 }
+
+
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Candidate", typeof(string));
+                dt.Columns.Add("Votes", typeof(string));
+                votes
+                    .ToList()
+                    .ForEach(kvp => dt.Rows.Add(new object[] { kvp.Key, kvp.Value }));
+
+                //allows you to add uniqueness constraint to the key column :-)
+                dt.Constraints.Add("keyconstraint", dt.Columns[0], true);
+
+                dataGridView1.DataSource = dt;
+
+                dataGridView1.ReadOnly = true;
             }
 
 
-            InitializeComponent();
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
