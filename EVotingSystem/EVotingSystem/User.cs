@@ -63,7 +63,7 @@ namespace EVotingSystem
         private string lastName;
         private DateTime dob;
         // TODO: Address
-        // TODO: List<Elections>
+        public List<Election> elections = new List<Election>();
             
         public Voter(string username, string password, bool isEligible, string firstName,
             string lastName, DateTime dob) :base(username, password)
