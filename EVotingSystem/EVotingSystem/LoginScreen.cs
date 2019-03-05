@@ -39,7 +39,7 @@ namespace EVotingSystem
             Session sess = authBroker.authenticate(user, hashedP);
 
             
-            // new AdminGui().Show();
+            //new AdminGUI().Show();
             new UserGUI().Show();
         }
     }
