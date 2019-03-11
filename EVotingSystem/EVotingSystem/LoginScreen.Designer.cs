@@ -64,7 +64,7 @@
             this.loginPanel.Controls.Add(this.passwordBox);
             this.loginPanel.Controls.Add(this.usernameBox);
             this.loginPanel.Location = new System.Drawing.Point(9, 10);
-            this.loginPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loginPanel.Margin = new System.Windows.Forms.Padding(2);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(582, 267);
             this.loginPanel.TabIndex = 1;
@@ -107,7 +107,7 @@
             // loginBtn
             // 
             this.loginBtn.Location = new System.Drawing.Point(309, 206);
-            this.loginBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loginBtn.Margin = new System.Windows.Forms.Padding(2);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(64, 34);
             this.loginBtn.TabIndex = 2;
@@ -119,7 +119,7 @@
             // 
             this.capatchaChk.AutoSize = true;
             this.capatchaChk.Location = new System.Drawing.Point(250, 170);
-            this.capatchaChk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.capatchaChk.Margin = new System.Windows.Forms.Padding(2);
             this.capatchaChk.Name = "capatchaChk";
             this.capatchaChk.Size = new System.Drawing.Size(100, 17);
             this.capatchaChk.TabIndex = 4;
@@ -149,7 +149,7 @@
             // passwordBox
             // 
             this.passwordBox.Location = new System.Drawing.Point(216, 119);
-            this.passwordBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
             this.passwordBox.Size = new System.Drawing.Size(158, 20);
@@ -158,7 +158,7 @@
             // usernameBox
             // 
             this.usernameBox.Location = new System.Drawing.Point(216, 68);
-            this.usernameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usernameBox.Margin = new System.Windows.Forms.Padding(2);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(158, 20);
             this.usernameBox.TabIndex = 0;
@@ -167,9 +167,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(599, 288);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Name = "LoginScreen";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
