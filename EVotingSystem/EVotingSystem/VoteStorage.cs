@@ -57,9 +57,18 @@ namespace EVotingSystem
                 {
                     using (StreamWriter s = new StreamWriter(elecFile, false))
                     {
+                    bool isFirst = true;
                         foreach (KeyValuePair<string, int> k in votes)
                         {
-                            string newRes = k.Key + ":" + k.Value + ",";
+                        string newRes = "";
+                        if (isFirst)
+                        {
+                            newRes = k.Key + ":" + k.Value;
+                            isFirst = false;
+                        } else
+                        {
+                            newRes = "," + k.Key + ":" + k.Value;
+                        }
                             s.Write(newRes);
                         }
                     }

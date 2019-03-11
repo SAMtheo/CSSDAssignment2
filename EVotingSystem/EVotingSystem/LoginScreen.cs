@@ -36,11 +36,32 @@ namespace EVotingSystem
             string hashedP = password;
             // if error set errorLbl.Visible to true
 
-            Session sess = authBroker.authenticate(user, hashedP);
+            if(!capatchaChk.Checked)
+            {
+                errorLbl.Visible = true;
+                errorLbl.Text = "Go away evil robot";
+                return;
+            }
 
-            
-            //new AdminGUI().Show();
-            new UserGUI().Show();
+            Session sess = authBroker.authenticate(user, hashedP);
+            usernameBox.Text = "";
+            passwordBox.Text = "";
+
+            if (sess.currentUser == null)
+            {
+                errorLbl.Visible = true;
+                Console.WriteLine(sess.getLogInMessage());
+                errorLbl.Text = sess.getLogInMessage();
+                return;
+            }
+
+            errorLbl.Visible = false;
+
+            if (sess.currentUser is Voter) {
+                new UserGUI().Show();
+            } else if (sess.currentUser is Admin) { 
+                new AdminGUI().Show();
+            }
         }
     }
 }

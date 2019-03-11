@@ -12,7 +12,10 @@ namespace EVotingSystem
 {
     public partial class UserGUI : Form
     {
-        List<CheckBox> candidateCheckBoxes = new List<CheckBox>();
+        List<RadioButton> candidateRadioBox = new List<RadioButton>();
+        List<Candidate> candidates = new List<Candidate>();
+        Candidate selected;
+        Election currentElection;
         public UserGUI()
         {
             InitializeComponent();
@@ -26,36 +29,46 @@ namespace EVotingSystem
             thankYouPanel.Visible = false;
         }
 
-        public struct Candidate
-        {
-            public String title;
-            public Candidate(String title)
-            {
-                this.title = title;
-            }
-        }
-
         private void candidateButtons(List<Candidate> Candidates)
         {
             for (int i = 0; i < Candidates.Count; i++)
             {
-                CheckBox newChk = new CheckBox();
-                newChk.Text = Candidates[i].title;
+                RadioButton newChk = new RadioButton();
+                newChk.Text = Candidates[i].name;
                 newChk.Location = new Point(20, (i * 50) + 30);
-                newChk.Name = Candidates[i].title + "Chk";
+                newChk.Name = Candidates[i].name + "Chk";
                 candidatesGrp.Controls.Add(newChk);
                 votePanel.Refresh();
-                candidateCheckBoxes.Add(newChk);
+                candidateRadioBox.Add(newChk);
             }
+        }
+
+        public void updateConfirmed()
+        {
+            Label candidateDetails = new Label();
+            candidateDetails.Name = "candidateDetailsLbl";
+            candidateDetails.Text = selected.name + ": " + selected.party + " party.";
+            candidateDetails.Location = new Point(50, 50);
+
+            voteConfirmBox.Controls.Add(candidateDetails);
         }
 
         private void UserGUI_Load(object sender, EventArgs e)
         {
-            List<Candidate> candidates = new List<Candidate>();
-            candidates.Add(new Candidate("Sam"));
-            candidates.Add(new Candidate("Mike"));
+            // Get candidates
+            candidates.Add(new Candidate("Sam", "Green", ""));
+            candidates.Add(new Candidate("Mike", "UKIP", ""));
 
+            // Get start and end dates
+            DateTime start = DateTime.Now;
+            DateTime end = start.AddDays(2);
+
+            // create the current election
+            currentElection = new Election("Sheffield Mayor Election", 9090, candidates, start, end);
+
+            // update buttons based on current election
             candidateButtons(candidates);
+            electionTitleLbl.Text = "Election: " + currentElection.electionName;
         }
 
         private void continueBtn_Click(object sender, EventArgs e)
@@ -66,12 +79,23 @@ namespace EVotingSystem
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i< candidateRadioBox.Count; i++)
+            {
+                if (candidateRadioBox[i].Checked)
+                {
+                    selected = candidates[i];
+                }
+            }
+            updateConfirmed();
+
             votePanel.Visible = false;
             confirmPanel.Visible = true;
         }
 
         private void confirmBtn_Click(object sender, EventArgs e)
         {
+            // send result to election
+            currentElection.vote(selected);
             confirmPanel.Visible = false;
             thankYouPanel.Visible = true;
         }
@@ -80,6 +104,13 @@ namespace EVotingSystem
         {
             // end session here
             this.Close();
+        }
+
+        private void denyBtn_Click(object sender, EventArgs e)
+        {
+            voteConfirmBox.Controls.RemoveByKey("candidateDetailsLbl");
+            confirmPanel.Visible = false;
+            votePanel.Visible = true;
         }
     }
 }
