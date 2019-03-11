@@ -60,7 +60,7 @@ namespace EVotingSystem
             if (sess.currentUser is Voter) {
                 new UserGUI().Show();
             } else if (sess.currentUser is Admin) { 
-                new AdminGui().Show();
+                new AdminGUI().Show();
             }
         }
     }
