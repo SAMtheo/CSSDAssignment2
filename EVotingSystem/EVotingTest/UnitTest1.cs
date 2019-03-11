@@ -1,14 +1,18 @@
-﻿using System;
+﻿using EVotingSystem;
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace EVotingTest
+namespace EVotingSystem.Tests
 {
-    [TestClass]
+    [TestClass()]
     public class UnitTest1
     {
-        [TestMethod]
-        public void TestMethod1()
+        [TestMethod()]
+        public void VoteWriteTest()
         {
+            //have known file in elections.votes
+            VoteStorage.Vote("a");
+            //check relevant fields have been updated
         }
     }
 }
