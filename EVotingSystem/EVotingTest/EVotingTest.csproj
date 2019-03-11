@@ -56,6 +56,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Dropbox\PThings\PThings\PThings.csproj">
+      <Project>{35B9B2DD-F1E4-4A94-A4C2-ABF0C6265B95}</Project>
+      <Name>PThings</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EVotingSystem\EVotingSystem.csproj">
       <Project>{9A7F48DC-F2D2-4C19-B99D-D5734474B7F2}</Project>
       <Name>EVotingSystem</Name>

@@ -10,9 +10,8 @@ namespace EVotingSystem.Tests
         [TestMethod()]
         public void VoteWriteTest()
         {
-            //have known file in elections.votes
             VoteStorage.Vote("a");
-            //check relevant fields have been updated
+            Assert.Fail();
         }
     }
 }
