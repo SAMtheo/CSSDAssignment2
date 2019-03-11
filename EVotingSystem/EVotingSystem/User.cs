@@ -42,11 +42,17 @@ namespace EVotingSystem
 
         // Takes a password to compare 
         // returns true if password is valid and auth attempts are less than MAX_ATTEMPTS
-        public bool validatePassword(string passwordToCheck)
+        public bool validatePassword(string passwordToCheck, ref string message)
         {
-            if(checkAttempts())
-                if (passwordToCheck.CompareTo(this.hashedPassword) == 0)
+            if (checkAttempts()) {
+                if (passwordToCheck.CompareTo(this.hashedPassword) == 0) {
+                    resetAuthAttempts();
                     return true;
+                } 
+            } else {
+                message = "Number of login attempts reached account locked: contact site admin";
+            }
+            authAttempts++;
             return false;
         }
 
