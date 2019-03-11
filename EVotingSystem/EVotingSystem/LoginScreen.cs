@@ -56,8 +56,12 @@ namespace EVotingSystem
             }
 
             errorLbl.Visible = false;
-            // new AdminGui().Show();
-            new UserGUI().Show();
+
+            if (sess.currentUser is Voter) {
+                new UserGUI().Show();
+            } else if (sess.currentUser is Admin) { 
+                new AdminGui().Show();
+            }
         }
     }
 }
