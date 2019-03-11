@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace EVotingSystem
 {
 
-    class Session
+    public class Session
     {
         public User currentUser;
         private string logInMessage;
@@ -29,7 +29,7 @@ namespace EVotingSystem
         }
     }
     
-    class AuthenticationBroker
+    public class AuthenticationBroker
     {
         AccountRegistry accountRegistryInstance;
         public AuthenticationBroker () { }
