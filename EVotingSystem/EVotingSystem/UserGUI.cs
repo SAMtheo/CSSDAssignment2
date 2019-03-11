@@ -14,7 +14,7 @@ namespace EVotingSystem
     {
         List<RadioButton> candidateRadioBox = new List<RadioButton>();
         List<Candidate> candidates = new List<Candidate>();
-        Candidate selected;
+        Candidate selected = null;
         Election currentElection;
         public UserGUI()
         {
@@ -86,10 +86,17 @@ namespace EVotingSystem
                     selected = candidates[i];
                 }
             }
-            updateConfirmed();
+            if (selected != null)
+            {
+                updateConfirmed();
 
-            votePanel.Visible = false;
-            confirmPanel.Visible = true;
+                votePanel.Visible = false;
+                confirmPanel.Visible = true;
+                selectionErrLbl.Visible = false;
+            }
+            else {
+                selectionErrLbl.Visible = true;
+            }
         }
 
         private void confirmBtn_Click(object sender, EventArgs e)

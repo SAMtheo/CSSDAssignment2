@@ -46,6 +46,7 @@
             this.thankYouPanel = new System.Windows.Forms.Panel();
             this.signOutLbl = new System.Windows.Forms.Button();
             this.thankYouLbl = new System.Windows.Forms.Label();
+            this.selectionErrLbl = new System.Windows.Forms.Label();
             this.explanationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.votePanel.SuspendLayout();
@@ -60,25 +61,28 @@
             this.explanationPanel.Controls.Add(this.assessabilityLbl);
             this.explanationPanel.Controls.Add(this.continueBtn);
             this.explanationPanel.Controls.Add(this.explanationTitle);
-            this.explanationPanel.Location = new System.Drawing.Point(13, 13);
+            this.explanationPanel.Location = new System.Drawing.Point(10, 11);
+            this.explanationPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.explanationPanel.Name = "explanationPanel";
-            this.explanationPanel.Size = new System.Drawing.Size(775, 329);
+            this.explanationPanel.Size = new System.Drawing.Size(581, 267);
             this.explanationPanel.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(438, 81);
+            this.pictureBox1.Location = new System.Drawing.Point(328, 66);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(276, 173);
+            this.pictureBox1.Size = new System.Drawing.Size(207, 141);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 139);
+            this.label1.Location = new System.Drawing.Point(22, 113);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(358, 51);
+            this.label1.Size = new System.Drawing.Size(270, 39);
             this.label1.TabIndex = 3;
             this.label1.Text = "To Vote:\r\nSelect the check box displaying your desired candidate,\r\nThen select th" +
     "e \'Submit\' button.";
@@ -86,18 +90,20 @@
             // assessabilityLbl
             // 
             this.assessabilityLbl.AutoSize = true;
-            this.assessabilityLbl.Location = new System.Drawing.Point(12, 300);
+            this.assessabilityLbl.Location = new System.Drawing.Point(9, 244);
+            this.assessabilityLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.assessabilityLbl.Name = "assessabilityLbl";
-            this.assessabilityLbl.Size = new System.Drawing.Size(89, 17);
+            this.assessabilityLbl.Size = new System.Drawing.Size(66, 13);
             this.assessabilityLbl.TabIndex = 2;
             this.assessabilityLbl.TabStop = true;
             this.assessabilityLbl.Text = "Assessability";
             // 
             // continueBtn
             // 
-            this.continueBtn.Location = new System.Drawing.Point(650, 272);
+            this.continueBtn.Location = new System.Drawing.Point(488, 221);
+            this.continueBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.continueBtn.Name = "continueBtn";
-            this.continueBtn.Size = new System.Drawing.Size(112, 45);
+            this.continueBtn.Size = new System.Drawing.Size(84, 37);
             this.continueBtn.TabIndex = 1;
             this.continueBtn.Text = "Continue";
             this.continueBtn.UseVisualStyleBackColor = true;
@@ -108,27 +114,32 @@
             this.explanationTitle.AutoSize = true;
             this.explanationTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.explanationTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.explanationTitle.Location = new System.Drawing.Point(323, 23);
+            this.explanationTitle.Location = new System.Drawing.Point(242, 19);
+            this.explanationTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.explanationTitle.Name = "explanationTitle";
-            this.explanationTitle.Size = new System.Drawing.Size(132, 24);
+            this.explanationTitle.Size = new System.Drawing.Size(106, 18);
             this.explanationTitle.TabIndex = 0;
             this.explanationTitle.Text = "How To Vote";
             // 
             // votePanel
             // 
+            this.votePanel.Controls.Add(this.selectionErrLbl);
             this.votePanel.Controls.Add(this.candidatesGrp);
             this.votePanel.Controls.Add(this.electionTitleLbl);
             this.votePanel.Controls.Add(this.submitBtn);
-            this.votePanel.Location = new System.Drawing.Point(815, 12);
+            this.votePanel.Location = new System.Drawing.Point(611, 10);
+            this.votePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.votePanel.Name = "votePanel";
-            this.votePanel.Size = new System.Drawing.Size(775, 329);
+            this.votePanel.Size = new System.Drawing.Size(581, 267);
             this.votePanel.TabIndex = 5;
             // 
             // candidatesGrp
             // 
-            this.candidatesGrp.Location = new System.Drawing.Point(59, 82);
+            this.candidatesGrp.Location = new System.Drawing.Point(44, 67);
+            this.candidatesGrp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.candidatesGrp.Name = "candidatesGrp";
-            this.candidatesGrp.Size = new System.Drawing.Size(337, 187);
+            this.candidatesGrp.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.candidatesGrp.Size = new System.Drawing.Size(253, 152);
             this.candidatesGrp.TabIndex = 3;
             this.candidatesGrp.TabStop = false;
             this.candidatesGrp.Text = "Candidates";
@@ -138,17 +149,19 @@
             this.electionTitleLbl.AutoSize = true;
             this.electionTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.electionTitleLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.electionTitleLbl.Location = new System.Drawing.Point(374, 24);
+            this.electionTitleLbl.Location = new System.Drawing.Point(280, 20);
+            this.electionTitleLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.electionTitleLbl.Name = "electionTitleLbl";
-            this.electionTitleLbl.Size = new System.Drawing.Size(22, 24);
+            this.electionTitleLbl.Size = new System.Drawing.Size(17, 18);
             this.electionTitleLbl.TabIndex = 2;
             this.electionTitleLbl.Text = "n";
             // 
             // submitBtn
             // 
-            this.submitBtn.Location = new System.Drawing.Point(482, 120);
+            this.submitBtn.Location = new System.Drawing.Point(362, 98);
+            this.submitBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.submitBtn.Name = "submitBtn";
-            this.submitBtn.Size = new System.Drawing.Size(220, 86);
+            this.submitBtn.Size = new System.Drawing.Size(165, 70);
             this.submitBtn.TabIndex = 1;
             this.submitBtn.Text = "Submit";
             this.submitBtn.UseVisualStyleBackColor = true;
@@ -160,25 +173,29 @@
             this.confirmPanel.Controls.Add(this.denyBtn);
             this.confirmPanel.Controls.Add(this.confirmBtn);
             this.confirmPanel.Controls.Add(this.confirmTitleLbl);
-            this.confirmPanel.Location = new System.Drawing.Point(13, 386);
+            this.confirmPanel.Location = new System.Drawing.Point(10, 314);
+            this.confirmPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.confirmPanel.Name = "confirmPanel";
-            this.confirmPanel.Size = new System.Drawing.Size(775, 329);
+            this.confirmPanel.Size = new System.Drawing.Size(581, 267);
             this.confirmPanel.TabIndex = 5;
             // 
             // voteConfirmBox
             // 
-            this.voteConfirmBox.Location = new System.Drawing.Point(148, 96);
+            this.voteConfirmBox.Location = new System.Drawing.Point(111, 78);
+            this.voteConfirmBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.voteConfirmBox.Name = "voteConfirmBox";
-            this.voteConfirmBox.Size = new System.Drawing.Size(468, 118);
+            this.voteConfirmBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.voteConfirmBox.Size = new System.Drawing.Size(351, 96);
             this.voteConfirmBox.TabIndex = 3;
             this.voteConfirmBox.TabStop = false;
             this.voteConfirmBox.Text = "Election Choices";
             // 
             // denyBtn
             // 
-            this.denyBtn.Location = new System.Drawing.Point(222, 236);
+            this.denyBtn.Location = new System.Drawing.Point(166, 192);
+            this.denyBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.denyBtn.Name = "denyBtn";
-            this.denyBtn.Size = new System.Drawing.Size(112, 45);
+            this.denyBtn.Size = new System.Drawing.Size(84, 37);
             this.denyBtn.TabIndex = 2;
             this.denyBtn.Text = "No";
             this.denyBtn.UseVisualStyleBackColor = true;
@@ -186,9 +203,10 @@
             // 
             // confirmBtn
             // 
-            this.confirmBtn.Location = new System.Drawing.Point(429, 236);
+            this.confirmBtn.Location = new System.Drawing.Point(322, 192);
+            this.confirmBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.confirmBtn.Name = "confirmBtn";
-            this.confirmBtn.Size = new System.Drawing.Size(112, 45);
+            this.confirmBtn.Size = new System.Drawing.Size(84, 37);
             this.confirmBtn.TabIndex = 1;
             this.confirmBtn.Text = "Yes";
             this.confirmBtn.UseVisualStyleBackColor = true;
@@ -199,9 +217,10 @@
             this.confirmTitleLbl.AutoSize = true;
             this.confirmTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmTitleLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.confirmTitleLbl.Location = new System.Drawing.Point(218, 54);
+            this.confirmTitleLbl.Location = new System.Drawing.Point(164, 44);
+            this.confirmTitleLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.confirmTitleLbl.Name = "confirmTitleLbl";
-            this.confirmTitleLbl.Size = new System.Drawing.Size(323, 24);
+            this.confirmTitleLbl.Size = new System.Drawing.Size(263, 18);
             this.confirmTitleLbl.TabIndex = 0;
             this.confirmTitleLbl.Text = "Are you sure you want to vote for:";
             // 
@@ -209,16 +228,18 @@
             // 
             this.thankYouPanel.Controls.Add(this.signOutLbl);
             this.thankYouPanel.Controls.Add(this.thankYouLbl);
-            this.thankYouPanel.Location = new System.Drawing.Point(815, 386);
+            this.thankYouPanel.Location = new System.Drawing.Point(611, 314);
+            this.thankYouPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.thankYouPanel.Name = "thankYouPanel";
-            this.thankYouPanel.Size = new System.Drawing.Size(775, 329);
+            this.thankYouPanel.Size = new System.Drawing.Size(581, 267);
             this.thankYouPanel.TabIndex = 6;
             // 
             // signOutLbl
             // 
-            this.signOutLbl.Location = new System.Drawing.Point(327, 174);
+            this.signOutLbl.Location = new System.Drawing.Point(245, 141);
+            this.signOutLbl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.signOutLbl.Name = "signOutLbl";
-            this.signOutLbl.Size = new System.Drawing.Size(143, 67);
+            this.signOutLbl.Size = new System.Drawing.Size(107, 54);
             this.signOutLbl.TabIndex = 1;
             this.signOutLbl.Text = "End Session";
             this.signOutLbl.UseVisualStyleBackColor = true;
@@ -229,23 +250,36 @@
             this.thankYouLbl.AutoSize = true;
             this.thankYouLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thankYouLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.thankYouLbl.Location = new System.Drawing.Point(340, 96);
+            this.thankYouLbl.Location = new System.Drawing.Point(255, 78);
+            this.thankYouLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.thankYouLbl.Name = "thankYouLbl";
-            this.thankYouLbl.Size = new System.Drawing.Size(117, 24);
+            this.thankYouLbl.Size = new System.Drawing.Size(92, 18);
             this.thankYouLbl.TabIndex = 0;
             this.thankYouLbl.Text = "Thank You!";
             // 
+            // selectionErrLbl
+            // 
+            this.selectionErrLbl.AutoSize = true;
+            this.selectionErrLbl.ForeColor = System.Drawing.Color.Red;
+            this.selectionErrLbl.Location = new System.Drawing.Point(368, 175);
+            this.selectionErrLbl.Name = "selectionErrLbl";
+            this.selectionErrLbl.Size = new System.Drawing.Size(150, 13);
+            this.selectionErrLbl.TabIndex = 4;
+            this.selectionErrLbl.Text = "Select at least ONE candidate";
+            this.selectionErrLbl.Visible = false;
+            // 
             // UserGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 378);
+            this.ClientSize = new System.Drawing.Size(599, 288);
             this.Controls.Add(this.thankYouPanel);
             this.Controls.Add(this.confirmPanel);
             this.Controls.Add(this.votePanel);
             this.Controls.Add(this.explanationPanel);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UserGUI";
-            this.Text = "UserGUI";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.UserGUI_Load);
             this.explanationPanel.ResumeLayout(false);
             this.explanationPanel.PerformLayout();
@@ -280,5 +314,6 @@
         private System.Windows.Forms.Panel thankYouPanel;
         private System.Windows.Forms.Button signOutLbl;
         private System.Windows.Forms.Label thankYouLbl;
+        private System.Windows.Forms.Label selectionErrLbl;
     }
 }
