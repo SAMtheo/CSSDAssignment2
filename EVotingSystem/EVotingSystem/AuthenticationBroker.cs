@@ -31,7 +31,6 @@ namespace EVotingSystem
     
     public class AuthenticationBroker
     {
-        AccountRegistry accountRegistryInstance;
         public AuthenticationBroker () { }
 
         // Takes username and hashed password
@@ -39,7 +38,7 @@ namespace EVotingSystem
         public Session authenticate(string username, string password)
         {
             string message = "";
-            accountRegistryInstance = AccountRegistry.Instance;
+            AccountRegistry accountRegistryInstance = AccountRegistry.Instance;
             User user = findUser(accountRegistryInstance, username);
 
             if (user != null)
@@ -58,7 +57,7 @@ namespace EVotingSystem
         // return user with username from accountRegistry
         public User findUser(AccountRegistry accountRegistry,string username)
         {
-            return accountRegistryInstance.users.Find(x => x.getUsername().CompareTo(username) == 0);
+            return accountRegistry.users.Find(x => x.getUsername().CompareTo(username) == 0);
         }
 
     }
