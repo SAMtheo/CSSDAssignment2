@@ -17,9 +17,13 @@ namespace EVotingSystem
         List<Candidate> candidates = new List<Candidate>();
         Candidate selected = null;
         Election currentElection;
-        public UserGUI()
+        Voter currentUser;
+
+        public UserGUI(Session sess)
         {
             InitializeComponent();
+            // UserGUI is only called if the currentUser is a Voter
+            currentUser = sess.currentUser as Voter;
             explanationPanel.Location = new Point(13, 13);
             votePanel.Location = new Point(13, 13);
             confirmPanel.Location = new Point(13, 13);
@@ -111,6 +115,9 @@ namespace EVotingSystem
         private void signOutLbl_Click(object sender, EventArgs e)
         {
             // end session here
+
+            // As the session ends the user has voted and is no longer eligible to vote again 
+            currentUser.setIsEligible(false);
             this.Close();
         }
 
