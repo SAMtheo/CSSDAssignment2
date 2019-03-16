@@ -15,6 +15,7 @@ namespace EVotingSystem
             {"OnSite", new Permissions(false, true, true, true, true)},
             {"Auditor",new Permissions(true,false, false, false, false)},
             {"None",new Permissions(false,false, false, false, false)},
+            {"Test", new Permissions(false,true,false,false, false)}
         };
 
         // Auditor permissions
