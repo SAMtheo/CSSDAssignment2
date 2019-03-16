@@ -108,10 +108,13 @@ namespace EVotingSystem
 
     public class Admin : User
     {
-        bool isAdmin = true;
-        public Admin(string u, string p) : base(u,p)
-        {
+        public readonly Permissions permissions;
 
+        // takes username, password combo and a Permissions from the lookup list Permissions.ADMIN_TYPE should defualt to None
+        public Admin(string username, string password, Permissions adminType) : base(username, password)
+        {
+            this.permissions = adminType;
         }
+        
     }
 }
