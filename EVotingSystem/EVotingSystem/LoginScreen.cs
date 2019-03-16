@@ -79,7 +79,15 @@ namespace EVotingSystem
             errorLbl.Visible = false;
 
             if (sess.currentUser is Voter) {
-                new UserGUI().Show();
+
+                var voter = sess.currentUser as Voter;
+                if (voter.getIsEligible())
+                    new UserGUI(sess).Show();
+                else {
+                    errorLbl.Visible = true;
+                    errorLbl.Text = "This account is not eligible to vote";
+                } 
+
             } else if (sess.currentUser is Admin) { 
                 new AdminGUI(sess).Show();
             }
