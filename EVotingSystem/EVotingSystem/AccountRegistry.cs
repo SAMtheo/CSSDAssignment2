@@ -24,9 +24,12 @@ namespace EVotingSystem
             }
         }
 
+        // Takes a new user object and adds it to the collection unless there is a user with that username already
+        // guarantees that usernames are unique
         public void AddUser(User newUser) 
         {
-            INSTANCE.users.Add(newUser);
+            if (INSTANCE.users.Exists(u => u.getUsername() == newUser.getUsername()) == false)
+                INSTANCE.users.Add(newUser);
         }
 
 
