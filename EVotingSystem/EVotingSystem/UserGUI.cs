@@ -24,10 +24,12 @@ namespace EVotingSystem
             votePanel.Location = new Point(13, 13);
             confirmPanel.Location = new Point(13, 13);
             thankYouPanel.Location = new Point(13, 13);
+            accessibilityPanel.Location = new Point(13, 13);
 
             votePanel.Visible = false;
             confirmPanel.Visible = false;
             thankYouPanel.Visible = false;
+            accessibilityPanel.Visible = false;
         }
 
         private void candidateButtons(List<Candidate> Candidates)
@@ -119,6 +121,16 @@ namespace EVotingSystem
             voteConfirmBox.Controls.RemoveByKey("candidateDetailsLbl");
             confirmPanel.Visible = false;
             votePanel.Visible = true;
+        }
+
+        private void accessabilityLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            accessibilityPanel.Visible = true;
+        }
+
+        private void accessibilityBackBtn_Click(object sender, EventArgs e)
+        {
+            accessibilityPanel.Visible = false;
         }
     }
 }
