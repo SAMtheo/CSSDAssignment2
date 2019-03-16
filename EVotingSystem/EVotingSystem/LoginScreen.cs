@@ -19,7 +19,9 @@ namespace EVotingSystem
         {
             InitializeComponent();
             Voter v1 = new Voter("Robin", "password", true, "Robin", "Davies", new DateTime(1996, 9, 3));
+            Admin admin = new Admin("Admin", "password");
             reg.AddUser(v1);
+            reg.AddUser(admin);
 
         }
 
