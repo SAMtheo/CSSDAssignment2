@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountRegistry.cs" />
+    <Compile Include="AdminGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGUI.Designer.cs">
+      <DependentUpon>AdminGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="AuthenticationBroker.cs" />
     <Compile Include="Election.cs" />
     <Compile Include="LoginScreen.cs">
@@ -64,6 +70,10 @@
     <Compile Include="UserGUI.Designer.cs">
       <DependentUpon>UserGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="VoteStorage.cs" />
+    <EmbeddedResource Include="AdminGUI.resx">
+      <DependentUpon>AdminGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
