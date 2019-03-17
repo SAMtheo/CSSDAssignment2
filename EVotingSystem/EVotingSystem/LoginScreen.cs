@@ -19,7 +19,11 @@ namespace EVotingSystem
         {
             InitializeComponent();
             Voter v1 = new Voter("Robin", "password", true, "Robin", "Davies", new DateTime(1996, 9, 3));
+            Voter v2 = new Voter("Sam", "sample", true, "Sam", "Theobald", new DateTime(1995, 10, 11));
+            Admin a1 = new Admin("Admin", "admin1");
             reg.AddUser(v1);
+            reg.AddUser(v2);
+            reg.AddUser(a1);
 
         }
 

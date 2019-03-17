@@ -30,16 +30,18 @@
         {
             this.explanationPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.explanationlbl = new System.Windows.Forms.Label();
             this.accessabilityLbl = new System.Windows.Forms.LinkLabel();
             this.continueBtn = new System.Windows.Forms.Button();
             this.explanationTitle = new System.Windows.Forms.Label();
             this.votePanel = new System.Windows.Forms.Panel();
+            this.voteAccessibilityLbl = new System.Windows.Forms.LinkLabel();
             this.selectionErrLbl = new System.Windows.Forms.Label();
             this.candidatesGrp = new System.Windows.Forms.GroupBox();
             this.electionTitleLbl = new System.Windows.Forms.Label();
             this.submitBtn = new System.Windows.Forms.Button();
             this.confirmPanel = new System.Windows.Forms.Panel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.voteConfirmBox = new System.Windows.Forms.GroupBox();
             this.denyBtn = new System.Windows.Forms.Button();
             this.confirmBtn = new System.Windows.Forms.Button();
@@ -48,12 +50,13 @@
             this.signOutLbl = new System.Windows.Forms.Button();
             this.thankYouLbl = new System.Windows.Forms.Label();
             this.accessibilityPanel = new System.Windows.Forms.Panel();
+            this.textSizeExample = new System.Windows.Forms.Label();
+            this.colorBlindCheckBox = new System.Windows.Forms.CheckBox();
+            this.textSizeTracker = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.accessibilityApplyBtn = new System.Windows.Forms.Button();
             this.accessibilityBackBtn = new System.Windows.Forms.Button();
             this.accessibilityTitleLbl = new System.Windows.Forms.Label();
-            this.accessibilityApplyBtn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textSizeTracker = new System.Windows.Forms.TrackBar();
-            this.colorBlindRadio = new System.Windows.Forms.RadioButton();
             this.explanationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.votePanel.SuspendLayout();
@@ -66,7 +69,7 @@
             // explanationPanel
             // 
             this.explanationPanel.Controls.Add(this.pictureBox1);
-            this.explanationPanel.Controls.Add(this.label1);
+            this.explanationPanel.Controls.Add(this.explanationlbl);
             this.explanationPanel.Controls.Add(this.accessabilityLbl);
             this.explanationPanel.Controls.Add(this.continueBtn);
             this.explanationPanel.Controls.Add(this.explanationTitle);
@@ -85,14 +88,14 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // explanationlbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 139);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(358, 51);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "To Vote:\r\nSelect the check box displaying your desired candidate,\r\nThen select th" +
+            this.explanationlbl.AutoSize = true;
+            this.explanationlbl.Location = new System.Drawing.Point(29, 139);
+            this.explanationlbl.Name = "explanationlbl";
+            this.explanationlbl.Size = new System.Drawing.Size(358, 51);
+            this.explanationlbl.TabIndex = 3;
+            this.explanationlbl.Text = "To Vote:\r\nSelect the check box displaying your desired candidate,\r\nThen select th" +
     "e \'Submit\' button.";
             // 
             // accessabilityLbl
@@ -120,16 +123,17 @@
             // explanationTitle
             // 
             this.explanationTitle.AutoSize = true;
-            this.explanationTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.explanationTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.explanationTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.explanationTitle.Location = new System.Drawing.Point(323, 23);
             this.explanationTitle.Name = "explanationTitle";
-            this.explanationTitle.Size = new System.Drawing.Size(132, 24);
+            this.explanationTitle.Size = new System.Drawing.Size(164, 29);
             this.explanationTitle.TabIndex = 0;
             this.explanationTitle.Text = "How To Vote";
             // 
             // votePanel
             // 
+            this.votePanel.Controls.Add(this.voteAccessibilityLbl);
             this.votePanel.Controls.Add(this.selectionErrLbl);
             this.votePanel.Controls.Add(this.candidatesGrp);
             this.votePanel.Controls.Add(this.electionTitleLbl);
@@ -139,6 +143,17 @@
             this.votePanel.Name = "votePanel";
             this.votePanel.Size = new System.Drawing.Size(775, 329);
             this.votePanel.TabIndex = 5;
+            // 
+            // voteAccessibilityLbl
+            // 
+            this.voteAccessibilityLbl.AutoSize = true;
+            this.voteAccessibilityLbl.Location = new System.Drawing.Point(14, 302);
+            this.voteAccessibilityLbl.Name = "voteAccessibilityLbl";
+            this.voteAccessibilityLbl.Size = new System.Drawing.Size(89, 17);
+            this.voteAccessibilityLbl.TabIndex = 5;
+            this.voteAccessibilityLbl.TabStop = true;
+            this.voteAccessibilityLbl.Text = "Accessability";
+            this.voteAccessibilityLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.accessabilityLbl_LinkClicked);
             // 
             // selectionErrLbl
             // 
@@ -166,11 +181,11 @@
             // electionTitleLbl
             // 
             this.electionTitleLbl.AutoSize = true;
-            this.electionTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.electionTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.electionTitleLbl.ForeColor = System.Drawing.SystemColors.ControlText;
             this.electionTitleLbl.Location = new System.Drawing.Point(288, 25);
             this.electionTitleLbl.Name = "electionTitleLbl";
-            this.electionTitleLbl.Size = new System.Drawing.Size(22, 24);
+            this.electionTitleLbl.Size = new System.Drawing.Size(27, 29);
             this.electionTitleLbl.TabIndex = 2;
             this.electionTitleLbl.Text = "n";
             // 
@@ -187,6 +202,7 @@
             // 
             // confirmPanel
             // 
+            this.confirmPanel.Controls.Add(this.linkLabel2);
             this.confirmPanel.Controls.Add(this.voteConfirmBox);
             this.confirmPanel.Controls.Add(this.denyBtn);
             this.confirmPanel.Controls.Add(this.confirmBtn);
@@ -196,6 +212,17 @@
             this.confirmPanel.Name = "confirmPanel";
             this.confirmPanel.Size = new System.Drawing.Size(775, 329);
             this.confirmPanel.TabIndex = 5;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(12, 302);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(89, 17);
+            this.linkLabel2.TabIndex = 6;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Accessability";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.accessabilityLbl_LinkClicked);
             // 
             // voteConfirmBox
             // 
@@ -233,11 +260,11 @@
             // confirmTitleLbl
             // 
             this.confirmTitleLbl.AutoSize = true;
-            this.confirmTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmTitleLbl.ForeColor = System.Drawing.SystemColors.ControlText;
             this.confirmTitleLbl.Location = new System.Drawing.Point(219, 54);
             this.confirmTitleLbl.Name = "confirmTitleLbl";
-            this.confirmTitleLbl.Size = new System.Drawing.Size(323, 24);
+            this.confirmTitleLbl.Size = new System.Drawing.Size(398, 29);
             this.confirmTitleLbl.TabIndex = 0;
             this.confirmTitleLbl.Text = "Are you sure you want to vote for:";
             // 
@@ -265,17 +292,18 @@
             // thankYouLbl
             // 
             this.thankYouLbl.AutoSize = true;
-            this.thankYouLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thankYouLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thankYouLbl.ForeColor = System.Drawing.SystemColors.ControlText;
             this.thankYouLbl.Location = new System.Drawing.Point(340, 96);
             this.thankYouLbl.Name = "thankYouLbl";
-            this.thankYouLbl.Size = new System.Drawing.Size(117, 24);
+            this.thankYouLbl.Size = new System.Drawing.Size(145, 29);
             this.thankYouLbl.TabIndex = 0;
             this.thankYouLbl.Text = "Thank You!";
             // 
             // accessibilityPanel
             // 
-            this.accessibilityPanel.Controls.Add(this.colorBlindRadio);
+            this.accessibilityPanel.Controls.Add(this.textSizeExample);
+            this.accessibilityPanel.Controls.Add(this.colorBlindCheckBox);
             this.accessibilityPanel.Controls.Add(this.textSizeTracker);
             this.accessibilityPanel.Controls.Add(this.label2);
             this.accessibilityPanel.Controls.Add(this.accessibilityApplyBtn);
@@ -286,6 +314,55 @@
             this.accessibilityPanel.Name = "accessibilityPanel";
             this.accessibilityPanel.Size = new System.Drawing.Size(775, 329);
             this.accessibilityPanel.TabIndex = 7;
+            // 
+            // textSizeExample
+            // 
+            this.textSizeExample.AutoSize = true;
+            this.textSizeExample.Location = new System.Drawing.Point(491, 131);
+            this.textSizeExample.Name = "textSizeExample";
+            this.textSizeExample.Size = new System.Drawing.Size(61, 17);
+            this.textSizeExample.TabIndex = 8;
+            this.textSizeExample.Text = "Example";
+            // 
+            // colorBlindCheckBox
+            // 
+            this.colorBlindCheckBox.AutoSize = true;
+            this.colorBlindCheckBox.Location = new System.Drawing.Point(326, 193);
+            this.colorBlindCheckBox.Name = "colorBlindCheckBox";
+            this.colorBlindCheckBox.Size = new System.Drawing.Size(145, 21);
+            this.colorBlindCheckBox.TabIndex = 7;
+            this.colorBlindCheckBox.Text = "Colour Blind Mode";
+            this.colorBlindCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // textSizeTracker
+            // 
+            this.textSizeTracker.Location = new System.Drawing.Point(337, 120);
+            this.textSizeTracker.Name = "textSizeTracker";
+            this.textSizeTracker.Size = new System.Drawing.Size(104, 56);
+            this.textSizeTracker.TabIndex = 5;
+            this.textSizeTracker.Scroll += new System.EventHandler(this.textSizeTracker_Scroll);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.Control;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(244, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Text Size:";
+            // 
+            // accessibilityApplyBtn
+            // 
+            this.accessibilityApplyBtn.Location = new System.Drawing.Point(623, 238);
+            this.accessibilityApplyBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.accessibilityApplyBtn.Name = "accessibilityApplyBtn";
+            this.accessibilityApplyBtn.Size = new System.Drawing.Size(93, 44);
+            this.accessibilityApplyBtn.TabIndex = 2;
+            this.accessibilityApplyBtn.Text = "Apply";
+            this.accessibilityApplyBtn.UseVisualStyleBackColor = true;
+            this.accessibilityApplyBtn.Click += new System.EventHandler(this.accessibilityApplyBtn_Click);
             // 
             // accessibilityBackBtn
             // 
@@ -301,56 +378,19 @@
             // accessibilityTitleLbl
             // 
             this.accessibilityTitleLbl.AutoSize = true;
-            this.accessibilityTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accessibilityTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accessibilityTitleLbl.ForeColor = System.Drawing.SystemColors.ControlText;
             this.accessibilityTitleLbl.Location = new System.Drawing.Point(333, 54);
             this.accessibilityTitleLbl.Name = "accessibilityTitleLbl";
-            this.accessibilityTitleLbl.Size = new System.Drawing.Size(123, 24);
+            this.accessibilityTitleLbl.Size = new System.Drawing.Size(158, 29);
             this.accessibilityTitleLbl.TabIndex = 0;
             this.accessibilityTitleLbl.Text = "Assessibility";
-            // 
-            // accessibilityApplyBtn
-            // 
-            this.accessibilityApplyBtn.Location = new System.Drawing.Point(623, 238);
-            this.accessibilityApplyBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.accessibilityApplyBtn.Name = "accessibilityApplyBtn";
-            this.accessibilityApplyBtn.Size = new System.Drawing.Size(93, 44);
-            this.accessibilityApplyBtn.TabIndex = 2;
-            this.accessibilityApplyBtn.Text = "Apply";
-            this.accessibilityApplyBtn.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(299, 131);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Text Size";
-            // 
-            // textSizeTracker
-            // 
-            this.textSizeTracker.Location = new System.Drawing.Point(387, 119);
-            this.textSizeTracker.Name = "textSizeTracker";
-            this.textSizeTracker.Size = new System.Drawing.Size(104, 56);
-            this.textSizeTracker.TabIndex = 5;
-            // 
-            // colorBlindRadio
-            // 
-            this.colorBlindRadio.AutoSize = true;
-            this.colorBlindRadio.Location = new System.Drawing.Point(322, 217);
-            this.colorBlindRadio.Name = "colorBlindRadio";
-            this.colorBlindRadio.Size = new System.Drawing.Size(144, 21);
-            this.colorBlindRadio.TabIndex = 6;
-            this.colorBlindRadio.TabStop = true;
-            this.colorBlindRadio.Text = "Colour Blind Mode";
-            this.colorBlindRadio.UseVisualStyleBackColor = true;
             // 
             // UserGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize = new System.Drawing.Size(802, 370);
             this.Controls.Add(this.accessibilityPanel);
             this.Controls.Add(this.thankYouPanel);
             this.Controls.Add(this.confirmPanel);
@@ -380,7 +420,7 @@
 
         private System.Windows.Forms.Panel explanationPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label explanationlbl;
         private System.Windows.Forms.LinkLabel accessabilityLbl;
         private System.Windows.Forms.Button continueBtn;
         private System.Windows.Forms.Label explanationTitle;
@@ -398,11 +438,14 @@
         private System.Windows.Forms.Label thankYouLbl;
         private System.Windows.Forms.Label selectionErrLbl;
         private System.Windows.Forms.Panel accessibilityPanel;
-        private System.Windows.Forms.RadioButton colorBlindRadio;
         private System.Windows.Forms.TrackBar textSizeTracker;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button accessibilityApplyBtn;
         private System.Windows.Forms.Button accessibilityBackBtn;
         private System.Windows.Forms.Label accessibilityTitleLbl;
+        private System.Windows.Forms.LinkLabel voteAccessibilityLbl;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label textSizeExample;
+        private System.Windows.Forms.CheckBox colorBlindCheckBox;
     }
 }

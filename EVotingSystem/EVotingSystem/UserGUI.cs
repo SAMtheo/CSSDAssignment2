@@ -15,21 +15,32 @@ namespace EVotingSystem
     {
         List<RadioButton> candidateRadioBox = new List<RadioButton>();
         List<Candidate> candidates = new List<Candidate>();
+        Font accessibilityFont = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         Candidate selected = null;
         Election currentElection;
+
         public UserGUI()
         {
             InitializeComponent();
+            // Initialise all panel locations on top of each other
             explanationPanel.Location = new Point(13, 13);
             votePanel.Location = new Point(13, 13);
             confirmPanel.Location = new Point(13, 13);
             thankYouPanel.Location = new Point(13, 13);
             accessibilityPanel.Location = new Point(13, 13);
 
+            // Set all panels visible to false other than explanationPanel
             votePanel.Visible = false;
             confirmPanel.Visible = false;
             thankYouPanel.Visible = false;
             accessibilityPanel.Visible = false;
+
+            // setup the accessibility text size tracker
+            textSizeTracker.Minimum = 8;
+            textSizeTracker.Maximum = 14;
+            textSizeTracker.Value = 8;
+            textSizeTracker.SmallChange = 1;
+            textSizeTracker.TickFrequency = 6;
         }
 
         private void candidateButtons(List<Candidate> Candidates)
@@ -130,6 +141,18 @@ namespace EVotingSystem
 
         private void accessibilityBackBtn_Click(object sender, EventArgs e)
         {
+            accessibilityPanel.Visible = false;
+        }
+
+        private void textSizeTracker_Scroll(object sender, EventArgs e)
+        {
+            textSizeExample.Font = new Font("Microsoft Sans Serif", textSizeTracker.Value, FontStyle.Regular);
+        }
+
+        private void accessibilityApplyBtn_Click(object sender, EventArgs e)
+        {
+            Font newFont = new Font("Microsoft Sans Serif", textSizeTracker.Value, FontStyle.Regular);
+            explanationlbl.Font = newFont;
             accessibilityPanel.Visible = false;
         }
     }
