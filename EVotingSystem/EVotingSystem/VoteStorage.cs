@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EVotingSystem
 {
-    static class VoteStorage
+    static public class VoteStorage
     {
 
         static public void Vote(string candidate){

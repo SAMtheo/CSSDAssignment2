@@ -22,7 +22,6 @@ namespace EVotingSystem
             Admin admin = new Admin("Admin", "password");
             reg.AddUser(v1);
             reg.AddUser(admin);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
