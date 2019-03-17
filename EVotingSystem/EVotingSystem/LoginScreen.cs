@@ -19,10 +19,9 @@ namespace EVotingSystem
         {
             InitializeComponent();
             Voter v1 = new Voter("Robin", "password", true, "Robin", "Davies", new DateTime(1996, 9, 3));
-            Admin a1 = new Admin("admin", "password");
+            Admin admin = new Admin("Admin", "password");
             reg.AddUser(v1);
-            reg.AddUser(a1);
-
+            reg.AddUser(admin);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -60,7 +59,15 @@ namespace EVotingSystem
             errorLbl.Visible = false;
 
             if (sess.currentUser is Voter) {
-                new UserGUI().Show();
+
+                var voter = sess.currentUser as Voter;
+                if (voter.getIsEligible())
+                    new UserGUI(sess).Show();
+                else {
+                    errorLbl.Visible = true;
+                    errorLbl.Text = "This account is not eligible to vote";
+                } 
+
             } else if (sess.currentUser is Admin) { 
                 new AdminGUI().Show();
             }

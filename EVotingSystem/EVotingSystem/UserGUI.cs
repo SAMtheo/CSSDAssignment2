@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace EVotingSystem
 {
@@ -14,11 +15,15 @@ namespace EVotingSystem
     {
         List<RadioButton> candidateRadioBox = new List<RadioButton>();
         List<Candidate> candidates = new List<Candidate>();
-        Candidate selected;
+        Candidate selected = null;
         Election currentElection;
-        public UserGUI()
+        Voter currentUser;
+
+        public UserGUI(Session sess)
         {
             InitializeComponent();
+            // UserGUI is only called if the currentUser is a Voter
+            currentUser = sess.currentUser as Voter;
             explanationPanel.Location = new Point(13, 13);
             votePanel.Location = new Point(13, 13);
             confirmPanel.Location = new Point(13, 13);
@@ -86,10 +91,17 @@ namespace EVotingSystem
                     selected = candidates[i];
                 }
             }
-            updateConfirmed();
+            if (selected != null)
+            {
+                updateConfirmed();
 
-            votePanel.Visible = false;
-            confirmPanel.Visible = true;
+                votePanel.Visible = false;
+                confirmPanel.Visible = true;
+                selectionErrLbl.Visible = false;
+            }
+            else {
+                selectionErrLbl.Visible = true;
+            }
         }
 
         private void confirmBtn_Click(object sender, EventArgs e)
@@ -103,6 +115,9 @@ namespace EVotingSystem
         private void signOutLbl_Click(object sender, EventArgs e)
         {
             // end session here
+
+            // As the session ends the user has voted and is no longer eligible to vote again 
+            currentUser.setIsEligible(false);
             this.Close();
         }
 
