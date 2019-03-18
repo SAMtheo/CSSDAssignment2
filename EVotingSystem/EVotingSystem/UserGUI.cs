@@ -107,7 +107,7 @@ namespace EVotingSystem
         }
 
         /// <summary>
-        /// progresses the user from teh explanationPanel to the votePanel
+        /// progresses the user from the explanationPanel to the votePanel
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
