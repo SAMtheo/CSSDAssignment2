@@ -7,26 +7,29 @@ using System.Threading.Tasks;
 
 namespace EVotingSystem
 {
+    /// <summary>
+    /// Singleton object that processes votes, and updates the "database" with the results
+    /// </summary>
     static public class VoteStorage
     {
-
-        static public void Vote(string candidate){
-            //For this use case, election.vote must be pre-created
-            //cand:20,cand2:30,
-
+        /// <summary>
+        /// Vote method that takes the name of the candidateName as a parameter, and increments the candidateName's vote count in the database by 1.
+        /// This ensures that all votes are anonymous.
+        /// </summary>
+        /// <param name="candidateName">String representation of candidate name.</param>
+        static public void Vote(string candidateName){            
             string elecFile = "election.votes";
             Dictionary<string, int> votes = new Dictionary<string, int>();
             FileStream F = new FileStream(elecFile, FileMode.OpenOrCreate, FileAccess.Read);
             F.Close();
 
-            //open stream reader to 
             using (StreamReader sr = new StreamReader(elecFile))
             {
                 Task<string> fileContents = sr.ReadToEndAsync();
 
                 string f = fileContents.Result;
 
-                //create a list of candidate:votes pairs
+                //create a list of candidateName:votes pairs
                 string[] elections = f.Split(',');
 
                 
@@ -49,8 +52,8 @@ namespace EVotingSystem
 
                 }
 
-                //increment the votes for the passed candidate
-                votes[candidate]++;
+                //increment the votes for the passed candidateName
+                votes[candidateName]++;
             }
                 //..and write it all back out 
                 try
