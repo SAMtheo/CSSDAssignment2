@@ -16,7 +16,7 @@ namespace EVotingSystem
         /// Vote method that takes the name of the candidateName as a parameter, and increments the candidateName's vote count in the database by 1.
         /// This ensures that all votes are anonymous.
         /// </summary>
-        /// <param name="candidateName"></param>
+        /// <param name="candidateName">String representation of candidate name.</param>
         static public void Vote(string candidateName){            
             string elecFile = "election.votes";
             Dictionary<string, int> votes = new Dictionary<string, int>();
