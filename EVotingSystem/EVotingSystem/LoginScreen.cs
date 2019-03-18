@@ -29,6 +29,12 @@ namespace EVotingSystem
 
         }
 
+        /// <summary>
+        /// Reads username and password from the login screen
+        /// authenticates the username and password getting a session with the desired user
+        /// then serves the next GUI depending on the type of user 
+        /// Failed login results in a contextual error message being shown
+        /// </summary>
         private void loginBtn_Click(object sender, EventArgs e)
         {
             // get candidates for the current election
