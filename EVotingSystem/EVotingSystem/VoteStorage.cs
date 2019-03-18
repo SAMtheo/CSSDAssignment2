@@ -13,11 +13,11 @@ namespace EVotingSystem
     static public class VoteStorage
     {
         /// <summary>
-        /// Vote method that takes the name of the candidate as a parameter, and increments the candidate's vote count in the database by 1.
+        /// Vote method that takes the name of the candidateName as a parameter, and increments the candidateName's vote count in the database by 1.
         /// This ensures that all votes are anonymous.
         /// </summary>
-        /// <param name="candidate"></param>
-        static public void Vote(string candidate){            
+        /// <param name="candidateName"></param>
+        static public void Vote(string candidateName){            
             string elecFile = "election.votes";
             Dictionary<string, int> votes = new Dictionary<string, int>();
             FileStream F = new FileStream(elecFile, FileMode.OpenOrCreate, FileAccess.Read);
@@ -29,7 +29,7 @@ namespace EVotingSystem
 
                 string f = fileContents.Result;
 
-                //create a list of candidate:votes pairs
+                //create a list of candidateName:votes pairs
                 string[] elections = f.Split(',');
 
                 
@@ -52,8 +52,8 @@ namespace EVotingSystem
 
                 }
 
-                //increment the votes for the passed candidate
-                votes[candidate]++;
+                //increment the votes for the passed candidateName
+                votes[candidateName]++;
             }
                 //..and write it all back out 
                 try
