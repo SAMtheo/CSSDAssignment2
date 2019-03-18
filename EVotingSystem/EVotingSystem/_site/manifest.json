@@ -1,0 +1,284 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/mikep/CSSDAssignment2/EVotingSystem/EVotingSystem",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "LHY2ao/ypPuH0mdo4uxvyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "+CIBkSvmcGxG0AK4gwW7pg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "t7iiFrmuYmrKWisdq+lN6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "a+OF+FTOPJw8W5vr93O7oA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.AccountRegistry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.AccountRegistry.html",
+          "hash": "Qe1kdDm38Zj6aO7NWtS3iw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.Admin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.Admin.html",
+          "hash": "DZo1/MjktsNvRVx9/YNDIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.AdminGUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.AdminGUI.html",
+          "hash": "1Z+MIpolGPb4JriLd7qyEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.AuthenticationBroker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.AuthenticationBroker.html",
+          "hash": "Kw3Py6eNMjJG3ww5KLX0zw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.Candidate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.Candidate.html",
+          "hash": "AMiFm7o89TCM4uhHL8sSLA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.Election.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.Election.html",
+          "hash": "WrDkiZvbjy2mijl9izYBDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.LoginScreen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.LoginScreen.html",
+          "hash": "k7KPgV2VfSTGh0XreUqyPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.Session.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.Session.html",
+          "hash": "3L5JOK9DUMu6N/4UWdTDEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.User.html",
+          "hash": "40dBYBImfubO8hnHcQ5mTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.UserGUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.UserGUI.html",
+          "hash": "Vx+DWeDm91fXL7ZK6/ur/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.VoteStorage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.VoteStorage.html",
+          "hash": "qFZ9sIp7axQ7dRPDLc9BDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.Voter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.Voter.html",
+          "hash": "KvQqstCUL1ebrkHYrnjauA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/EVotingSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EVotingSystem.html",
+          "hash": "piyw+eY17kzpeZjzsCzR4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "fWBm9tLgdULgRDhyhIPhbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "Sg+nKmnHP++YKMT39ruhpw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 13,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
