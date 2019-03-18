@@ -6,11 +6,13 @@ The overall system has been implemented according to the design, with the flow m
 
 ### Using the Voting System
 Download, or checkout the master branch, and load into Visual Studio 2017. With the project loaded in and running, login with either a voter, or admin user. 
-#### Voter
+##### Voter
 Username: Robin
+
 Password: password
-#### Admin
+##### Admin
 Username: Admin
+
 Password: password
 
 After checking your not a robot, if logged in as a user, you're brought to a screen describing how the voting system works, and how to vote for a candidate. Selecting next, you're now able to select from the candidates, and submit your vote. Finally, the screen moves to the confirmation, where you can either go back, or successfully put your vote in. Ending the session now brings you back to the login screen.
