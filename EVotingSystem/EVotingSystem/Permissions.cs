@@ -8,7 +8,10 @@ namespace EVotingSystem
 {
     public class Permissions
     {
-        // Lookup for types of admin 
+        /// <summary>
+        /// Expose types of Admin 
+        /// Not being able to create variable admins will keep powers undercheck
+        /// </summary>
         public readonly static Dictionary<string, Permissions> ADMIN_TYPE = new Dictionary<string, Permissions>()
         {
             {"Super",  new Permissions(true, true, true, true, true) },
@@ -27,7 +30,15 @@ namespace EVotingSystem
         public readonly bool seeEligabilty;
         public readonly bool setEligabilty;
 
-        // The list of bools is bad - how would we do better?
+        /// <summary>
+        /// Private constructor
+        /// 
+        /// </summary>
+        /// <param name="seeResults"></param>
+        /// <param name="seeLocals"></param>
+        /// <param name="resetAuthAttempts"></param>
+        /// <param name="seeEligabilty"></param>
+        /// <param name="setEligabilty"></param>
         private Permissions(bool seeResults, bool seeLocals, bool resetAuthAttempts, bool seeEligabilty, bool setEligabilty)
         {
             this.seeResults = seeResults;

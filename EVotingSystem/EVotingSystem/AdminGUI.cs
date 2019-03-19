@@ -13,8 +13,15 @@ namespace EVotingSystem
 {
     public partial class AdminGUI : Form
     {
+        /// <summary>
+        /// Current user that the session belongs to
+        /// </summary>
         Admin admin;
 
+        /// <summary>
+        /// Needs a session to get the logged in user
+        /// </summary>
+        /// <param name="sess"></param>
         public AdminGUI(Session sess)
         {
             // We can assume that if this constructor has been called the current user is an admin
@@ -31,8 +38,10 @@ namespace EVotingSystem
             initaliseLanding();
 
         }
-
-        // Elements are only available if the session owner has the privilage to see them 
+        
+        /// <summary>
+        /// Initalises the landing panel based on the current users permissions
+        /// </summary>
         private void initaliseLanding()
         {
             if (admin.permissions.seeResults == true)
@@ -118,7 +127,7 @@ namespace EVotingSystem
         {
 
         }
-
+        // Navigation buttons
         private void logOutBtn_Click(object sender, EventArgs e)
         {
             // end session
@@ -152,6 +161,10 @@ namespace EVotingSystem
             initaliseResults();
         }
 
+        /// <summary>
+        /// Filteres the users in account reg then casts to Voter type
+        /// </summary>
+        /// <returns></returns>
         private List<Voter> getAllVoters()
         {
             AccountRegistry reg = AccountRegistry.Instance;
@@ -167,6 +180,9 @@ namespace EVotingSystem
             return voters;
         }
 
+        /// <summary>
+        /// Sets up voters into a DataTable for easy viewing
+        /// </summary>
         public void updateVoterView()
         {
             DataTable dt = new DataTable();
@@ -203,6 +219,10 @@ namespace EVotingSystem
             updateVoterView();
         }
 
+        /// <summary>
+        /// returns the voter based on the username 
+        /// </summary>
+        /// <returns></returns>
         private Voter getSelectedVoter()
         {
             string selectedUsername = voterView.SelectedRows[0].Cells[0].Value as string;
