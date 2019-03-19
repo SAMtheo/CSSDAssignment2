@@ -22,7 +22,7 @@ namespace EVotingSystem.Tests
             // new voter
             reg.AddUser(new Voter("test", "password", true, "", "", new DateTime()));
             // new admin
-            reg.AddUser(new Admin("admin", "password"));
+            reg.AddUser(new Admin("admin", "password", Permissions.ADMIN_TYPE["Test"]));
             
         }
 
