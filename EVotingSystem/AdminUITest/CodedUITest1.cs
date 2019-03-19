@@ -37,6 +37,22 @@ namespace AdminUITest
             
         }
 
+        [TestMethod]
+        public void CodedUITestMethod2()
+        {
+            this.UIMap.setEligAndTryLogIn();
+        }
+
+        [TestMethod]
+        public void CodedUITestMethod3()
+        {
+            // It cant do radial buttons for some reason
+            // this.UIMap.vote3();
+        }
+
+
+
+
         #region Additional test attributes
 
         // You can use the following additional attributes as you write your tests:

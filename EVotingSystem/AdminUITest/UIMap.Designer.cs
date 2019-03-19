@@ -447,6 +447,58 @@ namespace AdminUITest
             Mouse.Click(uIUserGUITitleBar, new Point(562, 5));
         }
         
+        /// <summary>
+        /// vote3 - Use 'vote3Params' to pass parameters into this method.
+        /// </summary>
+        public void vote3()
+        {
+            #region Variable Declarations
+            WinEdit uINameEdit = this.UIReleaseWindow.UIItemWindow.UIEVotingSystemexeListItem.UINameEdit;
+            WinEdit uIUsernameBoxEdit = this.UIItemWindow.UIUsernameBoxWindow.UIUsernameBoxEdit;
+            WinEdit uIPasswordBoxEdit = this.UIItemWindow.UIPasswordBoxWindow.UIPasswordBoxEdit;
+            WinCheckBox uIIamnotarobotCheckBox = this.UIIamnotarobotWindow.UIIamnotarobotCheckBox;
+            WinButton uILoginButton = this.UILoginWindow.UILoginButton;
+            WinButton uIContinueButton = this.UIContinueWindow.UIContinueButton;
+            WinRadioButton uISamRadioButton = this.UIVotePanelWindow.UISamWindow.UISamRadioButton;
+            WinButton uISubmitButton = this.UIVotePanelWindow.UISubmitWindow.UISubmitButton;
+            WinButton uIYesButton = this.UIConfirmPanelWindow.UIYesWindow.UIYesButton;
+            WinButton uIQuitButton = this.UIMicrosoftNETFrameworWindow.UIMicrosoftNETFrameworClient.UIQuitButton;
+            #endregion
+
+            // Double-Click 'Name' text box
+            Mouse.DoubleClick(uINameEdit, new Point(52, 7));
+
+            // Type 'Robin' in 'usernameBox' text box
+            uIUsernameBoxEdit.Text = this.vote3Params.UIUsernameBoxEditText;
+
+            // Type '{Tab}' in 'usernameBox' text box
+            Keyboard.SendKeys(uIUsernameBoxEdit, this.vote3Params.UIUsernameBoxEditSendKeys, ModifierKeys.None);
+
+            // Type '********' in 'passwordBox' text box
+            Keyboard.SendKeys(uIPasswordBoxEdit, this.vote3Params.UIPasswordBoxEditSendKeys, true);
+
+            // Select 'I am not a robot' check box
+            uIIamnotarobotCheckBox.Checked = this.vote3Params.UIIamnotarobotCheckBoxChecked;
+
+            // Click 'Login' button
+            Mouse.Click(uILoginButton, new Point(20, 29));
+
+            // Click 'Continue' button
+            Mouse.Click(uIContinueButton, new Point(30, 21));
+
+            // Select 'Sam' radio button
+            uISamRadioButton.Selected = this.vote3Params.UISamRadioButtonSelected;
+
+            // Click 'Submit' button
+            Mouse.Click(uISubmitButton, new Point(77, 36));
+
+            // Click 'Yes' button
+            Mouse.Click(uIYesButton, new Point(32, 25));
+
+            // Click '&Quit' button
+            Mouse.Click(uIQuitButton, new Point(34, 9));
+        }
+        
         #region Properties
         public virtual attemptLoginParams attemptLoginParams
         {
@@ -541,6 +593,18 @@ namespace AdminUITest
                     this.mseeRobinVotedParams = new seeRobinVotedParams();
                 }
                 return this.mseeRobinVotedParams;
+            }
+        }
+        
+        public virtual vote3Params vote3Params
+        {
+            get
+            {
+                if ((this.mvote3Params == null))
+                {
+                    this.mvote3Params = new vote3Params();
+                }
+                return this.mvote3Params;
             }
         }
         
@@ -651,6 +715,18 @@ namespace AdminUITest
                 return this.mUIThankYouPanelWindow;
             }
         }
+        
+        public UIMicrosoftNETFrameworWindow UIMicrosoftNETFrameworWindow
+        {
+            get
+            {
+                if ((this.mUIMicrosoftNETFrameworWindow == null))
+                {
+                    this.mUIMicrosoftNETFrameworWindow = new UIMicrosoftNETFrameworWindow();
+                }
+                return this.mUIMicrosoftNETFrameworWindow;
+            }
+        }
         #endregion
         
         #region Fields
@@ -670,6 +746,8 @@ namespace AdminUITest
         
         private seeRobinVotedParams mseeRobinVotedParams;
         
+        private vote3Params mvote3Params;
+        
         private UIReleaseWindow mUIReleaseWindow;
         
         private UIItemWindow1 mUIItemWindow;
@@ -687,6 +765,8 @@ namespace AdminUITest
         private UIConfirmPanelWindow mUIConfirmPanelWindow;
         
         private UIThankYouPanelWindow mUIThankYouPanelWindow;
+        
+        private UIMicrosoftNETFrameworWindow mUIMicrosoftNETFrameworWindow;
         #endregion
     }
     
@@ -952,6 +1032,41 @@ namespace AdminUITest
         /// Type '********' in 'passwordBox' text box
         /// </summary>
         public string UIPasswordBoxEditSendKeys = "QWwOodIXpSM441BCNCWNvH9k+8fhegdI";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'vote3'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class vote3Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'Robin' in 'usernameBox' text box
+        /// </summary>
+        public string UIUsernameBoxEditText = "Robin";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'usernameBox' text box
+        /// </summary>
+        public string UIUsernameBoxEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '********' in 'passwordBox' text box
+        /// </summary>
+        public string UIPasswordBoxEditSendKeys = "QWwOodIXpSM441BCNCWNvH9k+8fhegdI";
+        
+        /// <summary>
+        /// Select 'I am not a robot' check box
+        /// </summary>
+        public bool UIIamnotarobotCheckBoxChecked = true;
+        
+        /// <summary>
+        /// Select 'Sam' radio button
+        /// </summary>
+        public bool UISamRadioButtonSelected = true;
         #endregion
     }
     
@@ -2117,6 +2232,74 @@ namespace AdminUITest
         
         #region Fields
         private WinButton mUIEndSessionButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIMicrosoftNETFrameworWindow : WinWindow
+    {
+        
+        public UIMicrosoftNETFrameworWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Microsoft .NET Framework";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Microsoft .NET Framework");
+            #endregion
+        }
+        
+        #region Properties
+        public UIMicrosoftNETFrameworClient UIMicrosoftNETFrameworClient
+        {
+            get
+            {
+                if ((this.mUIMicrosoftNETFrameworClient == null))
+                {
+                    this.mUIMicrosoftNETFrameworClient = new UIMicrosoftNETFrameworClient(this);
+                }
+                return this.mUIMicrosoftNETFrameworClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIMicrosoftNETFrameworClient mUIMicrosoftNETFrameworClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIMicrosoftNETFrameworClient : WinClient
+    {
+        
+        public UIMicrosoftNETFrameworClient(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinControl.PropertyNames.Name] = "Microsoft .NET Framework";
+            this.WindowTitles.Add("Microsoft .NET Framework");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIQuitButton
+        {
+            get
+            {
+                if ((this.mUIQuitButton == null))
+                {
+                    this.mUIQuitButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIQuitButton.SearchProperties[WinButton.PropertyNames.Name] = "Quit";
+                    this.mUIQuitButton.WindowTitles.Add("Microsoft .NET Framework");
+                    #endregion
+                }
+                return this.mUIQuitButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIQuitButton;
         #endregion
     }
 }
