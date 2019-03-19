@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
+using System.Security.Cryptography;
 
 namespace EVotingSystem
 {
     public partial class UserSignup : Form
     {
         private bool proceed = true;
+        public string hashedPass = "";
         public UserSignup()
         {
             InitializeComponent();
@@ -106,26 +108,46 @@ namespace EVotingSystem
             }
             else label6.ForeColor = Color.Black;
 
+            user = textBox1.Text + textBox5.Text;
+            email = textBox9.Text;
 
-            sendMsg(proceed, user, email);
+            string st = sendMsg(proceed, user, email);
+
+            if (st != "")
+            {
+                using (var sha = new SHA256Managed())
+                {
+                    byte[] textData = Encoding.UTF8.GetBytes(st);
+                    byte[] hash = sha.ComputeHash(textData);
+                    hashedPass = BitConverter.ToString(hash).Replace("-", string.Empty);
+                }
+
+                //create user with user, st
+                AccountRegistry.Instance.AddUser(new Voter(user, hashedPass, true, textBox1.Text, textBox5.Text, new DateTime(10101010)));
+                this.Visible = false;
+                new LoginScreen().Show();
+
+
+            }
         }
 
 
-        public void sendMsg(bool p, string st, string em)
+        public string sendMsg(bool p, string st, string em)
         {
+            HashAlgorithm algorithm = SHA256.Create();
             if (p)
             {
                 //to login to this temp email account, go to https://mail.ionos.co.uk/ and use the below credentials. Please use carefully :)
                 var message = new MimeMessage();
                 message.From.Add(new MailboxAddress("Admin", "temp@m1k.me"));
                 message.To.Add(new MailboxAddress(st, "temp@m1k.me"));
+                //message.To.Add(new MailboxAddress(st, em));
                 message.Subject = "Voter Registration Credentials for " + st ;
-
-                string randomPass = "password" + st;
+                string password = Guid.NewGuid().ToString();
 
                 message.Body = new TextPart("plain")
                 {
-                    Text = "Password is " + randomPass
+                    Text = "Password is " + password
                 };
 
                 using (var client = new SmtpClient())
@@ -140,9 +162,12 @@ namespace EVotingSystem
                     client.Send(message);
                     client.Disconnect(true);
                 }
+                MessageBox.Show("Please check your email for your password", "Form accepted", MessageBoxButtons.OK);
+                return password;
             } else
             {
                  MessageBox.Show("Please make sure all boxes are filled","ERROR - Incomplete Form",MessageBoxButtons.OK);
+                 return "";
             }
         }
 
