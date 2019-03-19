@@ -20,12 +20,11 @@ namespace EVotingSystem
     {
         // Radio boxes created for user interaction
         List<RadioButton> candidateRadioBox = new List<RadioButton>();
-        // list of candidates created for election
-        List<Candidate> candidates = new List<Candidate>();
-        // Selected candidate to be used to send selected candidates
-        Candidate selected = null;
+        //List of selected candidates to be submitted for their given elections
+        List<Candidate> selectedCandidates = new List<Candidate>();
 
-        Election currentElection;
+        int currentElection = 0;
+        List<Election> elections = new List<Election>();
         Voter currentUser;
 
         /// <summary>
@@ -77,7 +76,7 @@ namespace EVotingSystem
         {
             Label candidateDetails = new Label();
             candidateDetails.Name = "candidateDetailsLbl";
-            candidateDetails.Text = selected.name + ": " + selected.party + " party.";
+            candidateDetails.Text = selectedCandidates[currentElection].name + ": " + selectedCandidates[currentElection].party + " party.";
             candidateDetails.Location = new Point(50, 50);
 
             voteConfirmBox.Controls.Add(candidateDetails);
@@ -91,19 +90,18 @@ namespace EVotingSystem
         private void UserGUI_Load(object sender, EventArgs e)
         {
             // Get candidates
+            List<Candidate> candidates = new List<Candidate>();
             candidates.Add(new Candidate("Sam", "1", ""));
             candidates.Add(new Candidate("Mike", "2", ""));
-
             // Get start and end dates
             DateTime start = DateTime.Now;
             DateTime end = start.AddDays(2);
-
             // create the current election
-            currentElection = new Election("Election 1", 9090, candidates, start, end);
+            elections.Add(new Election("Election 1", 9090, candidates, start, end));
 
             // update buttons based on current election
-            candidateButtons(candidates);
-            electionTitleLbl.Text = "Election: " + currentElection.electionName;
+            candidateButtons(elections[currentElection].candidates);
+            electionTitleLbl.Text = "Election: " + elections[currentElection].electionName;
         }
 
         /// <summary>
@@ -129,12 +127,12 @@ namespace EVotingSystem
             {
                 if (candidateRadioBox[i].Checked)
                 {
-                    selected = candidates[i];
+                    selectedCandidates[currentElection] = elections[currentElection].candidates[i];
                 }
             }
             
-            // only progress if there is only one candidate selected
-            if (selected != null)
+            // only progress if there is a candidate at the selected element
+            if (selectedCandidates.ElementAtOrDefault(currentElection) != null)
             {
                 updateConfirmed();
 
@@ -159,7 +157,7 @@ namespace EVotingSystem
         private void confirmBtn_Click(object sender, EventArgs e)
         {
             // send result to election
-            currentElection.vote(selected);
+            elections[currentElection].vote(selectedCandidates[currentElection]);
             // as the vote is sent, we set the currentUsers eligibility to false
             // so they cannot vote again.
             currentUser.setIsEligible(false);
