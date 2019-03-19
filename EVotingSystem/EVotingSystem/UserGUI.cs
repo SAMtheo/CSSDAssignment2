@@ -22,6 +22,7 @@ namespace EVotingSystem
         List<RadioButton> candidateRadioBox = new List<RadioButton>();
         //List of selected candidates to be submitted for their given elections
         List<Candidate> selectedCandidates = new List<Candidate>();
+        List<string> selectedCandidateCfmEntries = new List<string>();
 
         int currentElection;
         List<Election> elections = new List<Election>();
@@ -75,12 +76,7 @@ namespace EVotingSystem
         /// </summary>
         public void updateConfirmed()
         {
-            Label candidateDetails = new Label();
-            candidateDetails.Name = "candidateDetailsLbl-" + currentElection;
-            candidateDetails.Text = selectedCandidates[currentElection].name + ": " + selectedCandidates[currentElection].party + " party.";
-            candidateDetails.Location = new Point(50, 50);
-
-            voteConfirmBox.Controls.Add(candidateDetails);
+            selectedCandidateCfmEntries.Add(selectedCandidates[currentElection].name + ": " + selectedCandidates[currentElection].party + " party.");
         }
 
         /// <summary>
@@ -170,6 +166,12 @@ namespace EVotingSystem
                 }
                 else
                 {
+                    // due to a bug in datasource selection when using selectionMode 'none'
+                    // need to change the mode, source, then set back to none.
+                    electionChoices.SelectionMode = SelectionMode.One;
+                    electionChoices.DataSource = selectedCandidateCfmEntries;
+                    electionChoices.SelectionMode = SelectionMode.None;
+
                     votePanel.Visible = false;
                     confirmPanel.Visible = true;
                     selectionErrLbl.Visible = false;
@@ -248,10 +250,13 @@ namespace EVotingSystem
         /// <param name="e"></param>
         private void denyBtn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < elections.Count; i++)
-            {
-                voteConfirmBox.Controls.RemoveByKey("candidateDetailsLbl-" + i);
-            }
+            // due to a bug in datasource selection when using selectionMode 'none'
+            // need to change the mode, source, then set back to none.
+            electionChoices.SelectionMode = SelectionMode.One;
+            electionChoices.DataSource = null;
+            electionChoices.SelectionMode = SelectionMode.None;
+
+            selectedCandidateCfmEntries.Clear();
 
             confirmPanel.Visible = false;
             votePanel.Visible = true;

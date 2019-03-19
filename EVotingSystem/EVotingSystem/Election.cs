@@ -53,7 +53,7 @@ namespace EVotingSystem
         public bool vote(Candidate chosenVote) {
                 if (validateVoteTime())
                 {
-                    VoteStorage.Vote(chosenVote.name);
+                    VoteStorageV2.Vote(electionName, candidates, chosenVote.name);
                     return true;
                 }
                 else

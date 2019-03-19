@@ -70,7 +70,7 @@
     <Compile Include="UserGUI.Designer.cs">
       <DependentUpon>UserGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="VoteStorage.cs" />
+    <Compile Include="VoteStorageV2.cs" />
     <EmbeddedResource Include="AdminGUI.resx">
       <DependentUpon>AdminGUI.cs</DependentUpon>
     </EmbeddedResource>
