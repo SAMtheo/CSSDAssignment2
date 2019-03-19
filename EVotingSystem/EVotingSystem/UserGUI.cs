@@ -70,13 +70,37 @@ namespace EVotingSystem
         {
             for (int i = 0; i < Candidates.Count; i++)
             {
+                PictureBox newPic = new PictureBox();
+                newPic.Name = Candidates[i].party + "Pic";
+                newPic.Location = new Point(20, (i * 60) + 30);
+                newPic.Size = new Size(65, 60);
+                newPic.BackgroundImage = Candidates[i].photo;
+                newPic.BackgroundImageLayout = ImageLayout.Stretch;
+
+                Button newBtn = new Button();
+                newBtn.Name = Candidates[i].name + "Btn";
+                newBtn.Location = new Point(91, (i * 60) + 30);
+                newBtn.Size = new Size(138, 60);
+                newBtn.Text = Candidates[i].name + ": " + Candidates[i].party;
+                newBtn.BackColor = Candidates[i].partyColor;
+                if (Candidates[i].lightText)
+                {
+                    newBtn.ForeColor = Color.White;
+                }
+                newBtn.FlatStyle = FlatStyle.Flat;
+
                 RadioButton newChk = new RadioButton();
-                newChk.Text = Candidates[i].name;
-                newChk.Location = new Point(20, (i * 50) + 30);
+                newChk.Location = new Point(235, (i * 60) + 50);
+                newChk.Size = new Size(17, 16);
                 newChk.Name = Candidates[i].name + "Chk";
+
+                candidatesGrp.Controls.Add(newPic);
+                candidatesGrp.Controls.Add(newBtn);
                 candidatesGrp.Controls.Add(newChk);
-                votePanel.Refresh();
+
                 candidateRadioBox.Add(newChk);
+
+                votePanel.Refresh();
             }
         }
 
@@ -88,7 +112,7 @@ namespace EVotingSystem
         {
             Label candidateDetails = new Label();
             candidateDetails.Name = "candidateDetailsLbl";
-            candidateDetails.Text = selected.name + ": " + selected.party + " party.";
+            candidateDetails.Text = selected.name + ": " + selected.party;
             candidateDetails.Location = new Point(50, 50);
 
             voteConfirmBox.Controls.Add(candidateDetails);
@@ -102,8 +126,8 @@ namespace EVotingSystem
         private void UserGUI_Load(object sender, EventArgs e)
         {
             // Get candidates
-            candidates.Add(new Candidate("Sam", "Green", ""));
-            candidates.Add(new Candidate("Mike", "UKIP", ""));
+            candidates.Add(new Candidate("Sam", "Green Party", "../Debug/greenParty.png", Color.FromArgb(0,192,0), false));
+            candidates.Add(new Candidate("Mike", "UKIP", "../Debug/UKIP.png", Color.Purple, true));
 
             // Get start and end dates
             DateTime start = DateTime.Now;

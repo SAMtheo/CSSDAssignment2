@@ -89,6 +89,10 @@ namespace EVotingSystem
         public string party { get; private set; }
         // Photo of the candidate used on UI (Currently unused)
         public Bitmap photo { get; private set; }
+        // Chosen party colour in argb format
+        public Color partyColor { get; private set; }
+
+        public bool lightText { get; private set; }
 
         /// <summary>
         /// A candidate is represented by their name, party
@@ -100,10 +104,12 @@ namespace EVotingSystem
         /// The filepath for the candidates photo,
         /// converted to an actual photo in the constructor
         /// </param>
-        public Candidate(string name, string party, string photoFilePath)
+        public Candidate(string name, string party, string photoFilePath, Color partyColor, bool lightText)
         {
             this.name = name;
             this.party = party;
+            this.partyColor = partyColor;
+            this.lightText = lightText;
 
             if (System.IO.File.Exists(photoFilePath))
             {
