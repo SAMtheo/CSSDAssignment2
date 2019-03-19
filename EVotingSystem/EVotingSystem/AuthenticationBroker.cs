@@ -6,40 +6,59 @@ using System.Threading.Tasks;
 
 namespace EVotingSystem
 {
-
-    class Session
+    /// <summary>
+    /// Holds the context for the logged in user
+    /// </summary>
+    public class Session
     {
         public User currentUser;
         private string logInMessage;
 
+        /// <summary>
+        /// Base constructor for the authenticated user
+        /// </summary>
+        /// <param name="user">Authenticated user</param>
         public Session (User user)
         {
             currentUser = user;
         }
 
+        /// <summary>
+        /// Extra constructor with a contextual message
+        /// </summary>
+        /// <param name="user">Authenticated user</param>
+        /// <param name="message">Contextual message to display</param>
         public Session(User user, string message)
         {
             currentUser = user;
             this.logInMessage = message;
         }
         
+        /// <summary>
+        /// Getter for contextual message
+        /// </summary>
+        /// <returns></returns>
         public string getLogInMessage()
         {
             return logInMessage;
         }
     }
     
-    class AuthenticationBroker
+    public class AuthenticationBroker
     {
-        AccountRegistry accountRegistryInstance;
         public AuthenticationBroker () { }
 
-        // Takes username and hashed password
-        // returns new Session for user
+        /// <summary>
+        /// Takes username and hashed password
+        /// returns new Session for user
+        /// </summary>
+        /// <param name="username">username for user to log in</param>
+        /// <param name="password">hashed password for user</param>
+        /// <returns>User session</returns>
         public Session authenticate(string username, string password)
         {
             string message = "";
-            accountRegistryInstance = AccountRegistry.Instance;
+            AccountRegistry accountRegistryInstance = AccountRegistry.Instance;
             User user = findUser(accountRegistryInstance, username);
 
             if (user != null)
@@ -54,11 +73,16 @@ namespace EVotingSystem
 
             return new Session(null, message);
         }
-        
-        // return user with username from accountRegistry
+
+        /// <summary>
+        /// return user with username from accountRegistry
+        /// </summary>
+        /// <param name="accountRegistry">Account registry instance</param>
+        /// <param name="username">username to search for</param>
+        /// <returns>User in account registry with given username</returns>
         public User findUser(AccountRegistry accountRegistry,string username)
         {
-            return accountRegistryInstance.users.Find(x => x.getUsername().CompareTo(username) == 0);
+            return accountRegistry.users.Find(x => x.getUsername().CompareTo(username) == 0);
         }
 
     }

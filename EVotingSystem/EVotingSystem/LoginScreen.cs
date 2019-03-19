@@ -24,7 +24,6 @@ namespace EVotingSystem
             reg.AddUser(v1);
             reg.AddUser(v2);
             reg.AddUser(a1);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,6 +31,12 @@ namespace EVotingSystem
 
         }
 
+        /// <summary>
+        /// Reads username and password from the login screen
+        /// authenticates the username and password getting a session with the desired user
+        /// then serves the next GUI depending on the type of user 
+        /// Failed login results in a contextual error message being shown
+        /// </summary>
         private void loginBtn_Click(object sender, EventArgs e)
         {
             // get candidates for the current election
@@ -62,7 +67,15 @@ namespace EVotingSystem
             errorLbl.Visible = false;
 
             if (sess.currentUser is Voter) {
-                new UserGUI().Show();
+
+                var voter = sess.currentUser as Voter;
+                if (voter.getIsEligible())
+                    new UserGUI(sess).Show();
+                else {
+                    errorLbl.Visible = true;
+                    errorLbl.Text = "This account is not eligible to vote";
+                } 
+
             } else if (sess.currentUser is Admin) { 
                 new AdminGUI().Show();
             }
