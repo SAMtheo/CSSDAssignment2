@@ -23,8 +23,9 @@ namespace EVotingSystem
         //List of selected candidates to be submitted for their given elections
         List<Candidate> selectedCandidates = new List<Candidate>();
 
-        int currentElection = 0;
+        int currentElection;
         List<Election> elections = new List<Election>();
+
         Voter currentUser;
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace EVotingSystem
             confirmPanel.Visible = false;
             thankYouPanel.Visible = false;
         }
-        
+
         /// <summary>
         /// candidateButtons creates and adds buttons to the voting
         /// panel. The location is set for each button.
@@ -75,7 +76,7 @@ namespace EVotingSystem
         public void updateConfirmed()
         {
             Label candidateDetails = new Label();
-            candidateDetails.Name = "candidateDetailsLbl";
+            candidateDetails.Name = "candidateDetailsLbl-" + currentElection;
             candidateDetails.Text = selectedCandidates[currentElection].name + ": " + selectedCandidates[currentElection].party + " party.";
             candidateDetails.Location = new Point(50, 50);
 
@@ -99,9 +100,28 @@ namespace EVotingSystem
             // create the current election
             elections.Add(new Election("Election 1", 9090, candidates, start, end));
 
-            // update buttons based on current election
-            candidateButtons(elections[currentElection].candidates);
-            electionTitleLbl.Text = "Election: " + elections[currentElection].electionName;
+            // Get candidates
+            candidates = new List<Candidate>();
+            candidates.Add(new Candidate("Joe", "3", ""));
+            candidates.Add(new Candidate("Mike", "4", ""));
+            // Get start and end dates
+            start = DateTime.Now;
+            end = start.AddDays(2);
+            // create the current election
+            elections.Add(new Election("Election 2", 8080, candidates, start, end));
+
+            // Get candidates
+            candidates = new List<Candidate>();
+            candidates.Add(new Candidate("Robin", "5", ""));
+            candidates.Add(new Candidate("Michael", "6", ""));
+            // Get start and end dates
+            start = DateTime.Now;
+            end = start.AddDays(2);
+            // create the current election
+            elections.Add(new Election("Election 3", 7070, candidates, start, end));
+
+            currentElection = 0;
+            updateVotePanel(); // update buttons based on current election
         }
 
         /// <summary>
@@ -127,7 +147,13 @@ namespace EVotingSystem
             {
                 if (candidateRadioBox[i].Checked)
                 {
-                    selectedCandidates[currentElection] = elections[currentElection].candidates[i];
+                    if (selectedCandidates.ElementAtOrDefault(currentElection) == null)
+                    {
+                        selectedCandidates.Add(elections[currentElection].candidates[i]);
+                    } else
+                    {
+                        selectedCandidates[currentElection] = elections[currentElection].candidates[i];
+                    }
                 }
             }
             
@@ -135,16 +161,51 @@ namespace EVotingSystem
             if (selectedCandidates.ElementAtOrDefault(currentElection) != null)
             {
                 updateConfirmed();
+                if (currentElection < elections.Count - 1)
+                {
+                    currentElection++;
+                    updateVotePanel(); //Set everything up for the next voting set
 
-                votePanel.Visible = false;
-                confirmPanel.Visible = true;
-                selectionErrLbl.Visible = false;
+                    selectionErrLbl.Visible = false;
+                }
+                else
+                {
+                    votePanel.Visible = false;
+                    confirmPanel.Visible = true;
+                    selectionErrLbl.Visible = false;
+                }
             }
             // if nobody is selected show the error message
             else
             {
                 selectionErrLbl.Visible = true;
             }
+        }
+
+        /// <summary>
+        /// Updates the voting panel to reflect the current election
+        /// </summary>
+        private void updateVotePanel()
+        {
+            // load in the new candidates for the next election
+            candidateRadioBox.Clear();
+            candidatesGrp.Controls.Clear();
+            candidateButtons(elections[currentElection].candidates);
+            // pull up the new elections title
+            electionTitleLbl.Text = "Election: " + elections[currentElection].electionName;
+
+            if (selectedCandidates.ElementAtOrDefault(currentElection) != null)
+            {
+                for (int i = 0; i < candidateRadioBox.Count; i++)
+                {
+                    if (candidateRadioBox[i].Text.Equals(selectedCandidates[currentElection].name))
+                    {
+                        candidateRadioBox[i].Select();
+                    }
+                }
+            }
+
+            votePanel.Refresh();
         }
 
         /// <summary>
@@ -156,11 +217,14 @@ namespace EVotingSystem
         /// <param name="e"></param>
         private void confirmBtn_Click(object sender, EventArgs e)
         {
-            // send result to election
-            elections[currentElection].vote(selectedCandidates[currentElection]);
-            // as the vote is sent, we set the currentUsers eligibility to false
-            // so they cannot vote again.
+            // to prevent a user being able to vote again after sending the vote
+            // we set the current Users eligibility to false
             currentUser.setIsEligible(false);
+            // then we send off their choices to elections
+            for (int i = 0; i < elections.Count; i++)
+            {
+                elections[i].vote(selectedCandidates[i]);
+            }
             confirmPanel.Visible = false;
             thankYouPanel.Visible = true;
         }
@@ -184,9 +248,16 @@ namespace EVotingSystem
         /// <param name="e"></param>
         private void denyBtn_Click(object sender, EventArgs e)
         {
-            voteConfirmBox.Controls.RemoveByKey("candidateDetailsLbl");
+            for (int i = 0; i < elections.Count; i++)
+            {
+                voteConfirmBox.Controls.RemoveByKey("candidateDetailsLbl-" + i);
+            }
+
             confirmPanel.Visible = false;
             votePanel.Visible = true;
+
+            currentElection = 0;
+            updateVotePanel();
         }
     }
 }
