@@ -27,6 +27,8 @@ namespace EVotingSystem
         // font style to be applied to all text for accessibility
         Font accessibilityFont = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
 
+        bool duringVote = false;
+
         Election currentElection;
         Voter currentUser;
 
@@ -110,12 +112,32 @@ namespace EVotingSystem
         /// </summary>
         public void updateConfirmed()
         {
-            Label candidateDetails = new Label();
-            candidateDetails.Name = "candidateDetailsLbl";
-            candidateDetails.Text = selected.name + ": " + selected.party;
-            candidateDetails.Location = new Point(50, 50);
+            PictureBox newPic = new PictureBox();
+            newPic.Name = selected.party + "PicConfirm";
+            newPic.Location = new Point(20, 30);
+            newPic.Size = new Size(65, 60);
+            newPic.BackgroundImage = selected.photo;
+            newPic.BackgroundImageLayout = ImageLayout.Stretch;
 
-            voteConfirmBox.Controls.Add(candidateDetails);
+            Button newBtn = new Button();
+            newBtn.Name = selected.name + "BtnConfirm";
+            newBtn.Location = new Point(91, 30);
+            newBtn.Size = new Size(138, 60);
+            newBtn.Text = selected.name + ": " + selected.party;
+            newBtn.BackColor = selected.partyColor;
+            if (selected.lightText)
+            {
+                newBtn.ForeColor = Color.White;
+            }
+            newBtn.FlatStyle = FlatStyle.Flat;
+
+            //Label candidateDetails = new Label();
+            //candidateDetails.Name = "candidateDetailsLbl";
+            //candidateDetails.Text = selected.name + ": " + selected.party;
+            //candidateDetails.Location = new Point(50, 50);
+
+            voteConfirmBox.Controls.Add(newPic);
+            voteConfirmBox.Controls.Add(newBtn);
         }
 
         /// <summary>
@@ -148,8 +170,15 @@ namespace EVotingSystem
         /// <param name="e"></param>
         private void continueBtn_Click(object sender, EventArgs e)
         {
-            explanationPanel.Visible = false;
-            votePanel.Visible = true;
+            if (duringVote)
+            {
+                explanationPanel.Visible = false;
+            } else
+            {
+                explanationPanel.Visible = false;
+                votePanel.Visible = true;
+                duringVote = true;
+            }
         }
 
         /// <summary>
@@ -221,7 +250,9 @@ namespace EVotingSystem
         /// <param name="e"></param>
         private void denyBtn_Click(object sender, EventArgs e)
         {
-            voteConfirmBox.Controls.RemoveByKey("candidateDetailsLbl");
+            //voteConfirmBox.Controls.RemoveByKey("candidateDetailsLbl");
+            voteConfirmBox.Controls.RemoveByKey(selected.name + "BtnConfirm");
+            voteConfirmBox.Controls.RemoveByKey(selected.party + "PicConfirm");
             confirmPanel.Visible = false;
             votePanel.Visible = true;
         }
@@ -246,6 +277,11 @@ namespace EVotingSystem
             Font newFont = new Font("Microsoft Sans Serif", textSizeTracker.Value, FontStyle.Regular);
             explanationlbl.Font = newFont;
             accessibilityPanel.Visible = false;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            explanationPanel.Visible = true; 
         }
     }
 }
