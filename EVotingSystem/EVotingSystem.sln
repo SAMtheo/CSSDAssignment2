@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVotingSystem", "EVotingSys
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVotingTest", "EVotingTest\EVotingTest.csproj", "{AEC361EA-7217-4313-A351-68E19E3B9DEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminUITest", "AdminUITest\AdminUITest.csproj", "{FD531950-C6A7-4902-B3A3-386E3EFD8813}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AEC361EA-7217-4313-A351-68E19E3B9DEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEC361EA-7217-4313-A351-68E19E3B9DEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEC361EA-7217-4313-A351-68E19E3B9DEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD531950-C6A7-4902-B3A3-386E3EFD8813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD531950-C6A7-4902-B3A3-386E3EFD8813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD531950-C6A7-4902-B3A3-386E3EFD8813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD531950-C6A7-4902-B3A3-386E3EFD8813}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
