@@ -23,98 +23,99 @@ namespace EVotingSystem
             InitializeComponent();
         }
 
-        private void UserSignup_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Button1_Click(object sender, EventArgs e)
         {
+            //flag that indicate whether input is valid
             proceed = true;
+            //
             string user = "";
             string email = "";
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
+
+            //mark text as red if not filled in / valid
+            if (string.IsNullOrWhiteSpace(name.Text))
             {
                 proceed = false;
-                label1.ForeColor = Color.Red;
+                namelbl.ForeColor = Color.Red;
             }
-            else label1.ForeColor = Color.Black;
+            else namelbl.ForeColor = Color.Black;
 
-            if (string.IsNullOrWhiteSpace(textBox2.Text))
+            if (string.IsNullOrWhiteSpace(housenum.Text))
             {
                 proceed = false;
-                label3.ForeColor = Color.Red;
+                housenumlbl.ForeColor = Color.Red;
             }
-            else label3.ForeColor = Color.Black;
+            else housenumlbl.ForeColor = Color.Black;
 
-            if (string.IsNullOrWhiteSpace(textBox3.Text))
+            if (string.IsNullOrWhiteSpace(street.Text))
             {
                 proceed = false;
-                label4.ForeColor = Color.Red;
+                streetlbl.ForeColor = Color.Red;
             }
-            else label4.ForeColor = Color.Black;
+            else streetlbl.ForeColor = Color.Black;
 
-            if (string.IsNullOrWhiteSpace(textBox4.Text))
+            if (string.IsNullOrWhiteSpace(state.Text))
             {
                 proceed = false;
-                label5.ForeColor = Color.Red;
+                statelbl.ForeColor = Color.Red;
             }
-            else label5.ForeColor = Color.Black;
+            else statelbl.ForeColor = Color.Black;
 
-            if (string.IsNullOrWhiteSpace(textBox5.Text))
+            if (string.IsNullOrWhiteSpace(surname.Text))
             {
                 proceed = false;
-                label2.ForeColor = Color.Red;
+                surnamelbl.ForeColor = Color.Red;
             }
-            else label2.ForeColor = Color.Black;
+            else surnamelbl.ForeColor = Color.Black;
 
-            if (string.IsNullOrWhiteSpace(textBox6.Text))
+            if (string.IsNullOrWhiteSpace(city.Text))
             {
                 proceed = false;
-                label7.ForeColor = Color.Red;
+                citylbl.ForeColor = Color.Red;
             }
-            else label7.ForeColor = Color.Black;
+            else citylbl.ForeColor = Color.Black;
 
-            if (string.IsNullOrWhiteSpace(textBox7.Text))
+            if (string.IsNullOrWhiteSpace(zip.Text))
             {
                 proceed = false;
-                label8.ForeColor = Color.Red;
+                ziplbl.ForeColor = Color.Red;
             }
-            else label8.ForeColor = Color.Black;
+            else ziplbl.ForeColor = Color.Black;
 
-            if (string.IsNullOrWhiteSpace(textBox8.Text))
+            if (string.IsNullOrWhiteSpace(id.Text))
             {
                 proceed = false;
-                label9.ForeColor = Color.Red;
+                idlbl.ForeColor = Color.Red;
             }
-            else label9.ForeColor = Color.Black;
+            else idlbl.ForeColor = Color.Black;
 
-            if (string.IsNullOrWhiteSpace(textBox9.Text))
+            if (string.IsNullOrWhiteSpace(this.email.Text))
             {
                 proceed = false;
-                label10.ForeColor = Color.Red;
+                emailbl.ForeColor = Color.Red;
             }
-            else label10.ForeColor = Color.Black;
+            else emailbl.ForeColor = Color.Black;
 
-            if (string.IsNullOrWhiteSpace(textBox10.Text))
+            if (string.IsNullOrWhiteSpace(conf.Text))
             {
                 proceed = false;
-                label6.ForeColor = Color.Red;
+                conflbl.ForeColor = Color.Red;
             }
-            else label6.ForeColor = Color.Black;
+            else conflbl.ForeColor = Color.Black;
+            //
 
-            user = textBox1.Text + textBox5.Text;
-            email = textBox9.Text;
+            //build the user and email string
+            user = name.Text + surname.Text;
+            email = this.email.Text;
 
+            //
+
+            //email the password if, and only if, the form is complete.
             string st = sendMsg(proceed, user, email);
 
+            //..else, do nothing
             if (st != "")
             {
+                //hash the password
                 using (var sha = new SHA256Managed())
                 {
                     byte[] textData = Encoding.UTF8.GetBytes(st);
@@ -122,9 +123,10 @@ namespace EVotingSystem
                     hashedPass = BitConverter.ToString(hash).Replace("-", string.Empty);
                 }
 
-                //create user with user, st
-                AccountRegistry.Instance.AddUser(new Voter(user, hashedPass, true, textBox1.Text, textBox5.Text, new DateTime(10101010)));
+                //create user with user, st and add to database
+                AccountRegistry.Instance.AddUser(new Voter(user, hashedPass, true, name.Text, surname.Text, new DateTime(10101010)));
                 this.Visible = false;
+                //close the registration prompt and go to the login screen - for the demo 
                 new LoginScreen().Show();
 
 
@@ -134,14 +136,25 @@ namespace EVotingSystem
 
         public string sendMsg(bool p, string st, string em)
         {
-            HashAlgorithm algorithm = SHA256.Create();
+            try
+            {
+                var tmpMail = new MailboxAddress(em);
+            } catch (FormatException f)
+            {
+                MessageBox.Show("Email Invalid", "Error", MessageBoxButtons.OK);
+                email.Text = "";
+                conf.Text = "";
+                return "";
+            }
+
             if (p)
             {
+                HashAlgorithm algorithm = SHA256.Create();
                 //to login to this temp email account, go to https://mail.ionos.co.uk/ and use the below credentials. Please use carefully :)
                 var message = new MimeMessage();
                 message.From.Add(new MailboxAddress("Admin", "temp@m1k.me"));
-                message.To.Add(new MailboxAddress(st, "temp@m1k.me"));
-                //message.To.Add(new MailboxAddress(st, em));
+                //message.To.Add(new MailboxAddress(st, "temp@m1k.me"));
+                message.To.Add(new MailboxAddress(st, em));
                 message.Subject = "Voter Registration Credentials for " + st ;
                 string password = Guid.NewGuid().ToString();
 
@@ -157,6 +170,7 @@ namespace EVotingSystem
 
                     client.Connect("smtp.ionos.co.uk", 587, false);
 
+                    
                     client.Authenticate("temp@m1k.me", "password");
 
                     client.Send(message);
@@ -164,26 +178,16 @@ namespace EVotingSystem
                 }
                 MessageBox.Show("Please check your email for your password", "Form accepted", MessageBoxButtons.OK);
                 return password;
-            } else
+            } else if (conf.Text != email.Text)
+            {
+                MessageBox.Show("Make sure you correctly confirm your email address", "Incorrect Email Confirmation", MessageBoxButtons.OK);
+                return "";
+            } 
             {
                  MessageBox.Show("Please make sure all boxes are filled","ERROR - Incomplete Form",MessageBoxButtons.OK);
                  return "";
             }
         }
 
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label6_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
