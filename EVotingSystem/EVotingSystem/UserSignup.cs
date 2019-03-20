@@ -19,6 +19,41 @@ namespace EVotingSystem
     /// </summary>
     public partial class UserSignup : Form
     {
+
+        protected Color getConfLblCol()
+        {
+            return conflbl.ForeColor;
+        }
+        protected void initTextBoxes(bool pop, bool em)
+        {
+            if (pop)
+            {
+                name.Text = "name";
+                email.Text = "temp@m1k.me";
+                surname.Text = "surname";
+                housenum.Text = "1"; ;
+                street.Text = "street";
+                city.Text = "city";
+                zip.Text = "HA8 6SB";
+                id.Text = "GB1172726N";
+                if (em)
+                    conf.Text = email.Text;
+                else conf.Text = "notthesame@email.net";
+            } else
+            {
+                name.Text = "";
+                email.Text = "";
+                surname.Text = "";
+                housenum.Text = ""; ;
+                street.Text = "";
+                city.Text = "";
+                zip.Text = "";
+                id.Text = "";
+                conf.Text = email.Text;
+            }
+        }
+
+
         private bool proceed = true;
         public string hashedPass = "";
         public UserSignup()
@@ -29,7 +64,7 @@ namespace EVotingSystem
         /// <summary>
         /// Check whether all fields in the form have been filled in, turn the labels red if they have not to alert the user
         /// </summary>
-        private void checkForm()
+        protected void checkForm()
         {
             if (string.IsNullOrWhiteSpace(name.Text))
             {
@@ -110,6 +145,7 @@ namespace EVotingSystem
             string email = "";
 
             //mark text as red if not filled in / valid
+
             checkForm();
             //
 
@@ -152,18 +188,12 @@ namespace EVotingSystem
         /// <returns></returns>
         public string sendMsg(bool p, string st, string em)
         {
-            //use the ctor of MailboxAddres to check if email is valid. Throws a FormatException if it isnt 
-            try
+            if (email.Text != conf.Text)
             {
-                var tmpMail = new MailboxAddress(em);
-            } catch (FormatException f)
-            {
-                MessageBox.Show("Email Invalid", "Error", MessageBoxButtons.OK);
-                email.Text = "";
-                conf.Text = "";
+                conflbl.ForeColor = Color.Red;
+                MessageBox.Show("Emails do not match. Please make sure email is confirmed correctly", "Form rejected", MessageBoxButtons.OK);
                 return "";
             }
-
             // if everything is valid, lets send the email andf store the user
             if (p)
             {
@@ -181,18 +211,27 @@ namespace EVotingSystem
                     Text = "Password is " + password
                 };
 
-                using (var client = new SmtpClient())
+
+                try
                 {
-                    // For demo-purposes, accept all SSL certificates (in case the server supports STARTTLS)
-                    client.ServerCertificateValidationCallback = (s, c, h, e_) => true;
 
-                    client.Connect("smtp.ionos.co.uk", 587, false);
+                    using (var client = new SmtpClient())
+                    {
+                        // For demo-purposes, accept all SSL certificates (in case the server supports STARTTLS)
+                        client.ServerCertificateValidationCallback = (s, c, h, e_) => true;
 
-                    
-                    client.Authenticate("temp@m1k.me", "password");
+                        client.Connect("smtp.ionos.co.uk", 587, false);
 
-                    client.Send(message);
-                    client.Disconnect(true);
+
+                        client.Authenticate("temp@m1k.me", "password");
+
+                        client.Send(message);
+                        client.Disconnect(true);
+                    }
+                } catch (MailKit.Net.Smtp.SmtpCommandException e)
+                {
+                    MessageBox.Show("Email invalid! Please enter a valid email", "Form rejected", MessageBoxButtons.OK);
+                    return "";
                 }
                 MessageBox.Show("Registered! Please check your email for your password", "Form accepted", MessageBoxButtons.OK);
                 return password;
