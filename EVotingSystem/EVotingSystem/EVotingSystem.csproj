@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\packages\BouncyCastle.1.8.2\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit">
+      <HintPath>..\packages\MailKit.2.1.3\lib\net45\MailKit.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeKit">
+      <HintPath>..\packages\MimeKit.2.1.3\lib\net45\MimeKit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountRegistry.cs" />
+    <Compile Include="AdminGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGUI.Designer.cs">
+      <DependentUpon>AdminGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="AuthenticationBroker.cs" />
     <Compile Include="Election.cs" />
     <Compile Include="LoginScreen.cs">
@@ -64,6 +79,16 @@
     <Compile Include="UserGUI.Designer.cs">
       <DependentUpon>UserGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserSignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserSignup.Designer.cs">
+      <DependentUpon>UserSignup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VoteStorage.cs" />
+    <EmbeddedResource Include="AdminGUI.resx">
+      <DependentUpon>AdminGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +103,9 @@
     </Compile>
     <EmbeddedResource Include="UserGUI.resx">
       <DependentUpon>UserGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserSignup.resx">
+      <DependentUpon>UserSignup.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

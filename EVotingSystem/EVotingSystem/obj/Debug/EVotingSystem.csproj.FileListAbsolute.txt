@@ -9,3 +9,22 @@ C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssig
 C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.pdb
 C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.LoginScreen.resources
 C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.UserGUI.resources
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.csprojAssemblyReference.cache
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.AdminGUI.resources
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.LoginScreen.resources
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.Properties.Resources.resources
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.UserGUI.resources
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.UserSignup.resources
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.csproj.GenerateResource.cache
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.csproj.CoreCompileInputs.cache
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.exe
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.pdb
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\bin\Debug\EVotingSystem.exe.config
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\bin\Debug\EVotingSystem.exe
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\bin\Debug\EVotingSystem.pdb
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\bin\Debug\MailKit.dll
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\bin\Debug\MimeKit.dll
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\bin\Debug\MailKit.xml
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\bin\Debug\MimeKit.xml
+C:\Users\mikep\Desktop\CSSDAssignment2-feature-user-reg\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.csproj.CopyComplete
