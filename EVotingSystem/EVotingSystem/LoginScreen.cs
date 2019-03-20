@@ -25,7 +25,8 @@ namespace EVotingSystem
             Admin super = new Admin("Super", "password", Permissions.ADMIN_TYPE["Super"]);
             Admin onSite = new Admin("Site", "password", Permissions.ADMIN_TYPE["OnSite"]);
             Admin auditor = new Admin("Auditor", "password", Permissions.ADMIN_TYPE["Auditor"]);
-            //Admin test = new Admin("Test", "password", Permissions.ADMIN_TYPE["Test"]);
+            Admin test = new Admin("Test", "password", Permissions.ADMIN_TYPE["Test"]);
+            Admin auth = new Admin("Auth", "password", Permissions.ADMIN_TYPE["AuthReseter"]);
 
 
             reg.AddUser(v1);
@@ -35,7 +36,8 @@ namespace EVotingSystem
             reg.AddUser(super);
             reg.AddUser(onSite);
             reg.AddUser(auditor);
-            //reg.AddUser(test);
+            reg.AddUser(auth);
+            reg.AddUser(test);
 
             // locking account for demo purposes
             for (int i = 0; i < 4; i++)

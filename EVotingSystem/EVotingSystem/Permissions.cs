@@ -16,6 +16,7 @@ namespace EVotingSystem
         {
             {"Super",  new Permissions(true, true, true, true, true) },
             {"OnSite", new Permissions(false, true, true, true, true)},
+            {"AuthReseter", new Permissions(false,true,true,false,false) },
             {"Auditor",new Permissions(true,false, false, false, false)},
             {"None",new Permissions(false,false, false, false, false)},
             {"Test", new Permissions(false,true,false,false, false)}
