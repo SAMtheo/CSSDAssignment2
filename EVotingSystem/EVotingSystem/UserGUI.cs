@@ -28,6 +28,7 @@ namespace EVotingSystem
         Font accessibilityFont = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
 
         bool duringVote = false;
+        bool colorBlindMode = false;
 
         Election currentElection;
         Voter currentUser;
@@ -85,16 +86,18 @@ namespace EVotingSystem
                 newBtn.Size = new Size(138, 60);
                 newBtn.Text = Candidates[i].name + ": " + Candidates[i].party;
                 newBtn.BackColor = Candidates[i].partyColor;
-                if (Candidates[i].lightText)
-                {
-                    newBtn.ForeColor = Color.White;
-                }
                 newBtn.FlatStyle = FlatStyle.Flat;
 
                 RadioButton newChk = new RadioButton();
                 newChk.Location = new Point(235, (i * 60) + 50);
                 newChk.Size = new Size(17, 16);
                 newChk.Name = Candidates[i].name + "Chk";
+                if (Candidates[i].lightText)
+                {
+                    newBtn.ForeColor = Color.White;
+                }
+
+                newBtn.Click += delegate (object sender, EventArgs e) { buttonClick(sender, e, newChk); };
 
                 candidatesGrp.Controls.Add(newPic);
                 candidatesGrp.Controls.Add(newBtn);
@@ -104,6 +107,11 @@ namespace EVotingSystem
 
                 votePanel.Refresh();
             }
+        }
+
+        void buttonClick(object sender, EventArgs e, RadioButton candidateRadio)
+        {
+            candidateRadio.Checked = true;
         }
 
         /// <summary>
@@ -124,10 +132,18 @@ namespace EVotingSystem
             newBtn.Location = new Point(91, 30);
             newBtn.Size = new Size(138, 60);
             newBtn.Text = selected.name + ": " + selected.party;
-            newBtn.BackColor = selected.partyColor;
-            if (selected.lightText)
+            if (colorBlindMode)
             {
-                newBtn.ForeColor = Color.White;
+                newBtn.BackColor = Color.LightGray;
+                newBtn.ForeColor = Color.Black;
+            }
+            else
+            {
+                newBtn.BackColor = selected.partyColor;
+                if (selected.lightText)
+                {
+                    newBtn.ForeColor = Color.White;
+                }
             }
             newBtn.FlatStyle = FlatStyle.Flat;
 
@@ -250,7 +266,6 @@ namespace EVotingSystem
         /// <param name="e"></param>
         private void denyBtn_Click(object sender, EventArgs e)
         {
-            //voteConfirmBox.Controls.RemoveByKey("candidateDetailsLbl");
             voteConfirmBox.Controls.RemoveByKey(selected.name + "BtnConfirm");
             voteConfirmBox.Controls.RemoveByKey(selected.party + "PicConfirm");
             confirmPanel.Visible = false;
@@ -260,6 +275,7 @@ namespace EVotingSystem
         private void accessabilityLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             accessibilityPanel.Visible = true;
+            accessibilityPanel.BringToFront();
         }
 
         private void accessibilityBackBtn_Click(object sender, EventArgs e)
@@ -276,12 +292,69 @@ namespace EVotingSystem
         {
             Font newFont = new Font("Microsoft Sans Serif", textSizeTracker.Value, FontStyle.Regular);
             explanationlbl.Font = newFont;
+            if (colorBlindCheckBox.Checked)
+            {
+                colorBlindMode = true;
+                foreach (Control btn in candidatesGrp.Controls.Cast<Control>().OrderBy(c => c.TabIndex))
+                {
+                    if (btn is Button)
+                    {
+                        btn.BackColor = Color.LightGray;
+                        btn.ForeColor = Color.Black;
+                    }
+                }
+                foreach (Control btn in voteConfirmBox.Controls.Cast<Control>().OrderBy(c => c.TabIndex))
+                {
+                    if (btn is Button)
+                    {
+                        btn.BackColor = Color.LightGray;
+                        btn.ForeColor = Color.Black;
+                    }
+                }
+            }
+            else
+            {
+                colorBlindMode = false;
+                int index = 0;
+                foreach (Control btn in candidatesGrp.Controls.Cast<Control>().OrderBy(c => c.TabIndex))
+                {
+                    if (btn is Button)
+                    {
+                        btn.BackColor = candidates[index].partyColor;
+                        if (candidates[index].lightText)
+                        {
+                            btn.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            btn.ForeColor = Color.Black;
+                        }
+                        index++;
+                    }
+                }
+                foreach (Control btn in voteConfirmBox.Controls.Cast<Control>().OrderBy(c => c.TabIndex))
+                {
+                    if (btn is Button)
+                    {
+                        btn.BackColor = selected.partyColor;
+                        if (selected.lightText)
+                        {
+                            btn.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            btn.ForeColor = Color.Black;
+                        }
+                    }
+                }
+            }
             accessibilityPanel.Visible = false;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void helpLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            explanationPanel.Visible = true; 
+            explanationPanel.Visible = true;
+            explanationPanel.BringToFront();
         }
     }
 }

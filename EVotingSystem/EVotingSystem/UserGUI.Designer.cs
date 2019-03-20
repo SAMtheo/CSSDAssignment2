@@ -28,21 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserGUI));
             this.explanationPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.explanationlbl = new System.Windows.Forms.Label();
-            this.accessabilityLbl = new System.Windows.Forms.LinkLabel();
             this.continueBtn = new System.Windows.Forms.Button();
             this.explanationTitle = new System.Windows.Forms.Label();
+            this.accessabilityLbl = new System.Windows.Forms.LinkLabel();
             this.votePanel = new System.Windows.Forms.Panel();
-            this.voteAccessibilityLbl = new System.Windows.Forms.LinkLabel();
             this.selectionErrLbl = new System.Windows.Forms.Label();
             this.candidatesGrp = new System.Windows.Forms.GroupBox();
             this.electionTitleLbl = new System.Windows.Forms.Label();
             this.submitBtn = new System.Windows.Forms.Button();
+            this.helpLbl = new System.Windows.Forms.LinkLabel();
             this.confirmPanel = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.voteConfirmBox = new System.Windows.Forms.GroupBox();
             this.denyBtn = new System.Windows.Forms.Button();
             this.confirmBtn = new System.Windows.Forms.Button();
@@ -58,13 +56,6 @@
             this.accessibilityApplyBtn = new System.Windows.Forms.Button();
             this.accessibilityBackBtn = new System.Windows.Forms.Button();
             this.accessibilityTitleLbl = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.explanationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.votePanel.SuspendLayout();
@@ -72,15 +63,12 @@
             this.thankYouPanel.SuspendLayout();
             this.accessibilityPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textSizeTracker)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // explanationPanel
             // 
             this.explanationPanel.Controls.Add(this.pictureBox1);
             this.explanationPanel.Controls.Add(this.explanationlbl);
-            this.explanationPanel.Controls.Add(this.accessabilityLbl);
             this.explanationPanel.Controls.Add(this.continueBtn);
             this.explanationPanel.Controls.Add(this.explanationTitle);
             this.explanationPanel.Location = new System.Drawing.Point(13, 14);
@@ -109,17 +97,6 @@
             this.explanationlbl.Text = "To Vote:\r\nSelect the check box displaying your desired candidate,\r\nThen select th" +
     "e \'Submit\' button.";
             // 
-            // accessabilityLbl
-            // 
-            this.accessabilityLbl.AutoSize = true;
-            this.accessabilityLbl.Location = new System.Drawing.Point(12, 300);
-            this.accessabilityLbl.Name = "accessabilityLbl";
-            this.accessabilityLbl.Size = new System.Drawing.Size(89, 17);
-            this.accessabilityLbl.TabIndex = 2;
-            this.accessabilityLbl.TabStop = true;
-            this.accessabilityLbl.Text = "Accessability";
-            this.accessabilityLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.accessabilityLbl_LinkClicked);
-            // 
             // continueBtn
             // 
             this.continueBtn.Location = new System.Drawing.Point(651, 272);
@@ -136,16 +113,25 @@
             this.explanationTitle.AutoSize = true;
             this.explanationTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.explanationTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.explanationTitle.Location = new System.Drawing.Point(323, 23);
+            this.explanationTitle.Location = new System.Drawing.Point(308, 23);
             this.explanationTitle.Name = "explanationTitle";
             this.explanationTitle.Size = new System.Drawing.Size(164, 29);
             this.explanationTitle.TabIndex = 0;
             this.explanationTitle.Text = "How To Vote";
             // 
+            // accessabilityLbl
+            // 
+            this.accessabilityLbl.AutoSize = true;
+            this.accessabilityLbl.Location = new System.Drawing.Point(25, 345);
+            this.accessabilityLbl.Name = "accessabilityLbl";
+            this.accessabilityLbl.Size = new System.Drawing.Size(89, 17);
+            this.accessabilityLbl.TabIndex = 2;
+            this.accessabilityLbl.TabStop = true;
+            this.accessabilityLbl.Text = "Accessability";
+            this.accessabilityLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.accessabilityLbl_LinkClicked);
+            // 
             // votePanel
             // 
-            this.votePanel.Controls.Add(this.linkLabel1);
-            this.votePanel.Controls.Add(this.voteAccessibilityLbl);
             this.votePanel.Controls.Add(this.selectionErrLbl);
             this.votePanel.Controls.Add(this.candidatesGrp);
             this.votePanel.Controls.Add(this.electionTitleLbl);
@@ -155,17 +141,6 @@
             this.votePanel.Name = "votePanel";
             this.votePanel.Size = new System.Drawing.Size(775, 329);
             this.votePanel.TabIndex = 5;
-            // 
-            // voteAccessibilityLbl
-            // 
-            this.voteAccessibilityLbl.AutoSize = true;
-            this.voteAccessibilityLbl.Location = new System.Drawing.Point(14, 302);
-            this.voteAccessibilityLbl.Name = "voteAccessibilityLbl";
-            this.voteAccessibilityLbl.Size = new System.Drawing.Size(89, 17);
-            this.voteAccessibilityLbl.TabIndex = 5;
-            this.voteAccessibilityLbl.TabStop = true;
-            this.voteAccessibilityLbl.Text = "Accessability";
-            this.voteAccessibilityLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.accessabilityLbl_LinkClicked);
             // 
             // selectionErrLbl
             // 
@@ -208,13 +183,23 @@
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(220, 86);
             this.submitBtn.TabIndex = 1;
-            this.submitBtn.Text = "Submit";
+            this.submitBtn.Text = "Continue";
             this.submitBtn.UseVisualStyleBackColor = true;
             this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
+            // helpLbl
+            // 
+            this.helpLbl.AutoSize = true;
+            this.helpLbl.Location = new System.Drawing.Point(739, 345);
+            this.helpLbl.Name = "helpLbl";
+            this.helpLbl.Size = new System.Drawing.Size(37, 17);
+            this.helpLbl.TabIndex = 6;
+            this.helpLbl.TabStop = true;
+            this.helpLbl.Text = "Help";
+            this.helpLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.helpLbl_LinkClicked);
+            // 
             // confirmPanel
             // 
-            this.confirmPanel.Controls.Add(this.linkLabel2);
             this.confirmPanel.Controls.Add(this.voteConfirmBox);
             this.confirmPanel.Controls.Add(this.denyBtn);
             this.confirmPanel.Controls.Add(this.confirmBtn);
@@ -224,17 +209,6 @@
             this.confirmPanel.Name = "confirmPanel";
             this.confirmPanel.Size = new System.Drawing.Size(775, 329);
             this.confirmPanel.TabIndex = 5;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(12, 302);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(89, 17);
-            this.linkLabel2.TabIndex = 6;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Accessability";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.accessabilityLbl_LinkClicked);
             // 
             // voteConfirmBox
             // 
@@ -274,7 +248,7 @@
             this.confirmTitleLbl.AutoSize = true;
             this.confirmTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmTitleLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.confirmTitleLbl.Location = new System.Drawing.Point(219, 54);
+            this.confirmTitleLbl.Location = new System.Drawing.Point(190, 54);
             this.confirmTitleLbl.Name = "confirmTitleLbl";
             this.confirmTitleLbl.Size = new System.Drawing.Size(398, 29);
             this.confirmTitleLbl.TabIndex = 0;
@@ -306,7 +280,7 @@
             this.thankYouLbl.AutoSize = true;
             this.thankYouLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thankYouLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.thankYouLbl.Location = new System.Drawing.Point(340, 96);
+            this.thankYouLbl.Location = new System.Drawing.Point(325, 96);
             this.thankYouLbl.Name = "thankYouLbl";
             this.thankYouLbl.Size = new System.Drawing.Size(145, 29);
             this.thankYouLbl.TabIndex = 0;
@@ -392,101 +366,19 @@
             this.accessibilityTitleLbl.AutoSize = true;
             this.accessibilityTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accessibilityTitleLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.accessibilityTitleLbl.Location = new System.Drawing.Point(333, 54);
+            this.accessibilityTitleLbl.Location = new System.Drawing.Point(314, 54);
             this.accessibilityTitleLbl.Name = "accessibilityTitleLbl";
             this.accessibilityTitleLbl.Size = new System.Drawing.Size(158, 29);
             this.accessibilityTitleLbl.TabIndex = 0;
             this.accessibilityTitleLbl.Text = "Assessibility";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.radioButton1.Location = new System.Drawing.Point(1123, 873);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(17, 16);
-            this.radioButton1.TabIndex = 8;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(979, 851);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 60);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Sam: Green Party";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(908, 851);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(65, 60);
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(908, 917);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(65, 60);
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Purple;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(979, 917);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 60);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Mike: UKIP";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.radioButton2.Location = new System.Drawing.Point(1123, 939);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(17, 16);
-            this.radioButton2.TabIndex = 11;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(723, 303);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(37, 17);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Help";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // UserGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1839, 1055);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.helpLbl);
+            this.Controls.Add(this.accessabilityLbl);
             this.Controls.Add(this.accessibilityPanel);
             this.Controls.Add(this.thankYouPanel);
             this.Controls.Add(this.confirmPanel);
@@ -508,8 +400,6 @@
             this.accessibilityPanel.ResumeLayout(false);
             this.accessibilityPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textSizeTracker)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -542,16 +432,8 @@
         private System.Windows.Forms.Button accessibilityApplyBtn;
         private System.Windows.Forms.Button accessibilityBackBtn;
         private System.Windows.Forms.Label accessibilityTitleLbl;
-        private System.Windows.Forms.LinkLabel voteAccessibilityLbl;
-        private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Label textSizeExample;
         private System.Windows.Forms.CheckBox colorBlindCheckBox;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel helpLbl;
     }
 }
