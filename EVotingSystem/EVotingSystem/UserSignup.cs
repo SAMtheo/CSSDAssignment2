@@ -14,6 +14,9 @@ using System.Security.Cryptography;
 
 namespace EVotingSystem
 {
+    /// <summary>
+    /// A registration form that would be used by any eligible voter to recieve their voting credentials.
+    /// </summary>
     public partial class UserSignup : Form
     {
         private bool proceed = true;
@@ -23,15 +26,11 @@ namespace EVotingSystem
             InitializeComponent();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Check whether all fields in the form have been filled in, turn the labels red if they have not to alert the user
+        /// </summary>
+        private void checkForm()
         {
-            //flag that indicate whether input is valid
-            proceed = true;
-            //
-            string user = "";
-            string email = "";
-
-            //mark text as red if not filled in / valid
             if (string.IsNullOrWhiteSpace(name.Text))
             {
                 proceed = false;
@@ -101,6 +100,17 @@ namespace EVotingSystem
                 conflbl.ForeColor = Color.Red;
             }
             else conflbl.ForeColor = Color.Black;
+        }
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            //flag that indicate whether input is valid
+            proceed = true;
+            //
+            string user = "";
+            string email = "";
+
+            //mark text as red if not filled in / valid
+            checkForm();
             //
 
             //build the user and email string
@@ -133,9 +143,16 @@ namespace EVotingSystem
             }
         }
 
-
+        /// <summary>
+        /// check if the form is valid i.e. all fields are filled in / emails are valid, and if so, generate and send the password via email to the user, whilst hashing their password and "storing" the user in the "database"
+        /// </summary>
+        /// <param name="p">Boolean representing whether the data is valuid</param>
+        /// <param name="st">Username string</param>
+        /// <param name="em">Email String</param>
+        /// <returns></returns>
         public string sendMsg(bool p, string st, string em)
         {
+            //use the ctor of MailboxAddres to check if email is valid. Throws a FormatException if it isnt 
             try
             {
                 var tmpMail = new MailboxAddress(em);
@@ -147,13 +164,14 @@ namespace EVotingSystem
                 return "";
             }
 
+            // if everything is valid, lets send the email andf store the user
             if (p)
             {
                 HashAlgorithm algorithm = SHA256.Create();
                 //to login to this temp email account, go to https://mail.ionos.co.uk/ and use the below credentials. Please use carefully :)
                 var message = new MimeMessage();
                 message.From.Add(new MailboxAddress("Admin", "temp@m1k.me"));
-                //message.To.Add(new MailboxAddress(st, "temp@m1k.me"));
+                //message.To.Add(new MailboxAddress(st, "temp@m1k.me")); //debug
                 message.To.Add(new MailboxAddress(st, em));
                 message.Subject = "Voter Registration Credentials for " + st ;
                 string password = Guid.NewGuid().ToString();
@@ -176,7 +194,7 @@ namespace EVotingSystem
                     client.Send(message);
                     client.Disconnect(true);
                 }
-                MessageBox.Show("Please check your email for your password", "Form accepted", MessageBoxButtons.OK);
+                MessageBox.Show("Registered! Please check your email for your password", "Form accepted", MessageBoxButtons.OK);
                 return password;
             } else if (conf.Text != email.Text)
             {
