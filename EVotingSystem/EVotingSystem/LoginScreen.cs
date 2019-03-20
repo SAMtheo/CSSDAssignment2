@@ -28,16 +28,25 @@ namespace EVotingSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
+			passwordBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckEnter);
+		}
 
-        }
+		private void CheckEnter(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			if (e.KeyChar == (char)13)
+			{
+				// Enter key pressed
+				loginBtn.PerformClick();
+			}
+		}
 
-        /// <summary>
-        /// Reads username and password from the login screen
-        /// authenticates the username and password getting a session with the desired user
-        /// then serves the next GUI depending on the type of user 
-        /// Failed login results in a contextual error message being shown
-        /// </summary>
-        private void loginBtn_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Reads username and password from the login screen
+		/// authenticates the username and password getting a session with the desired user
+		/// then serves the next GUI depending on the type of user 
+		/// Failed login results in a contextual error message being shown
+		/// </summary>
+		private void loginBtn_Click(object sender, EventArgs e)
         {
             // get candidates for the current election
             string user = usernameBox.Text;
