@@ -40,12 +40,15 @@
             this.logOutBtn = new System.Windows.Forms.Button();
             this.landingTitle = new System.Windows.Forms.Label();
             this.onSitePanel = new System.Windows.Forms.Panel();
+            this.setIneligibleBtn = new System.Windows.Forms.Button();
+            this.unlockBtn = new System.Windows.Forms.Button();
             this.voterView = new System.Windows.Forms.DataGridView();
             this.onSiteBack = new System.Windows.Forms.Button();
             this.onSiteTitle = new System.Windows.Forms.Label();
-            this.unlockBtn = new System.Windows.Forms.Button();
-            this.setIneligibleBtn = new System.Windows.Forms.Button();
             this.accountRegistryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.resultPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.landingPanel.SuspendLayout();
@@ -171,6 +174,9 @@
             // 
             // onSitePanel
             // 
+            this.onSitePanel.Controls.Add(this.label2);
+            this.onSitePanel.Controls.Add(this.searchBtn);
+            this.onSitePanel.Controls.Add(this.searchBox);
             this.onSitePanel.Controls.Add(this.setIneligibleBtn);
             this.onSitePanel.Controls.Add(this.unlockBtn);
             this.onSitePanel.Controls.Add(this.voterView);
@@ -181,6 +187,26 @@
             this.onSitePanel.Name = "onSitePanel";
             this.onSitePanel.Size = new System.Drawing.Size(581, 268);
             this.onSitePanel.TabIndex = 3;
+            // 
+            // setIneligibleBtn
+            // 
+            this.setIneligibleBtn.Location = new System.Drawing.Point(373, 197);
+            this.setIneligibleBtn.Name = "setIneligibleBtn";
+            this.setIneligibleBtn.Size = new System.Drawing.Size(139, 23);
+            this.setIneligibleBtn.TabIndex = 6;
+            this.setIneligibleBtn.Text = "Set Ineligible";
+            this.setIneligibleBtn.UseVisualStyleBackColor = true;
+            this.setIneligibleBtn.Click += new System.EventHandler(this.setIneligibleBtn_Click);
+            // 
+            // unlockBtn
+            // 
+            this.unlockBtn.Location = new System.Drawing.Point(373, 168);
+            this.unlockBtn.Name = "unlockBtn";
+            this.unlockBtn.Size = new System.Drawing.Size(139, 23);
+            this.unlockBtn.TabIndex = 5;
+            this.unlockBtn.Text = "Reset Auth attempts";
+            this.unlockBtn.UseVisualStyleBackColor = true;
+            this.unlockBtn.Click += new System.EventHandler(this.unlockBtn_Click);
             // 
             // voterView
             // 
@@ -196,7 +222,7 @@
             this.voterView.RowHeadersVisible = false;
             this.voterView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.voterView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.voterView.Size = new System.Drawing.Size(266, 150);
+            this.voterView.Size = new System.Drawing.Size(255, 202);
             this.voterView.TabIndex = 4;
             // 
             // onSiteBack
@@ -221,35 +247,41 @@
             this.onSiteTitle.TabIndex = 0;
             this.onSiteTitle.Text = "OnSite ";
             // 
-            // unlockBtn
-            // 
-            this.unlockBtn.Location = new System.Drawing.Point(364, 51);
-            this.unlockBtn.Name = "unlockBtn";
-            this.unlockBtn.Size = new System.Drawing.Size(139, 23);
-            this.unlockBtn.TabIndex = 5;
-            this.unlockBtn.Text = "Reset Auth attempts";
-            this.unlockBtn.UseVisualStyleBackColor = true;
-            this.unlockBtn.Click += new System.EventHandler(this.unlockBtn_Click);
-            // 
-            // setIneligibleBtn
-            // 
-            this.setIneligibleBtn.Location = new System.Drawing.Point(364, 178);
-            this.setIneligibleBtn.Name = "setIneligibleBtn";
-            this.setIneligibleBtn.Size = new System.Drawing.Size(139, 23);
-            this.setIneligibleBtn.TabIndex = 6;
-            this.setIneligibleBtn.Text = "Set Ineligible";
-            this.setIneligibleBtn.UseVisualStyleBackColor = true;
-            this.setIneligibleBtn.Click += new System.EventHandler(this.setIneligibleBtn_Click);
-            // 
             // accountRegistryBindingSource
             // 
             this.accountRegistryBindingSource.DataSource = typeof(EVotingSystem.AccountRegistry);
+            // 
+            // searchBox
+            // 
+            this.searchBox.Location = new System.Drawing.Point(373, 51);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(139, 20);
+            this.searchBox.TabIndex = 7;
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(373, 77);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(139, 23);
+            this.searchBtn.TabIndex = 8;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(417, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Search usernames";
             // 
             // AdminGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 295);
+            this.ClientSize = new System.Drawing.Size(601, 290);
             this.Controls.Add(this.onSitePanel);
             this.Controls.Add(this.landingPanel);
             this.Controls.Add(this.resultPanel);
@@ -288,5 +320,8 @@
         private System.Windows.Forms.DataGridView voterView;
         private System.Windows.Forms.Button unlockBtn;
         private System.Windows.Forms.Button setIneligibleBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.TextBox searchBox;
     }
 }

@@ -150,6 +150,13 @@ namespace EVotingSystem
         {
             landingPanel.Visible = false;
             onSitePanel.Visible = true;
+
+            if(!admin.permissions.setEligabilty)
+                setIneligibleBtn.Visible = false;
+
+            if (!admin.permissions.resetAuthAttempts)
+                unlockBtn.Visible = false;
+
             updateVoterView();
 
         }
@@ -165,7 +172,7 @@ namespace EVotingSystem
         /// Filteres the users in account reg then casts to Voter type
         /// </summary>
         /// <returns></returns>
-        private List<Voter> getAllVoters()
+        public List<Voter> getAllVoters()
         {
             AccountRegistry reg = AccountRegistry.Instance;
 
@@ -183,12 +190,12 @@ namespace EVotingSystem
         /// <summary>
         /// Sets up voters into a DataTable for easy viewing
         /// </summary>
-        public void updateVoterView()
+        private void updateVoterView()
         {
             DataTable dt = new DataTable();
             // Everything an admin is allowed to know
             dt.Columns.Add("Voter", typeof(string));
-            dt.Columns.Add("isEligable", typeof(bool));
+            dt.Columns.Add("Can Vote", typeof(bool));
             dt.Columns.Add("Locked", typeof(bool));
 
             var voters = getAllVoters();
@@ -209,13 +216,15 @@ namespace EVotingSystem
         private void unlockBtn_Click(object sender, EventArgs e)
         {
             // can only select rows and only 1 so this is safe
-            getSelectedVoter().resetAuthAttempts();
+            string selectedVoter = voterView.SelectedRows[0].Cells[0].Value as string;
+            getSelectedVoter(AccountRegistry.Instance, selectedVoter).resetAuthAttempts();
             updateVoterView();
         }
 
-        private void setIneligibleBtn_Click(object sender, EventArgs e)
+        public void setIneligibleBtn_Click(object sender, EventArgs e)
         {
-            getSelectedVoter().setIsEligible(false);
+            string selectedVoter = voterView.SelectedRows[0].Cells[0].Value as string;
+            getSelectedVoter(AccountRegistry.Instance, selectedVoter).setIsEligible(false);
             updateVoterView();
         }
 
@@ -223,11 +232,17 @@ namespace EVotingSystem
         /// returns the voter based on the username 
         /// </summary>
         /// <returns></returns>
-        private Voter getSelectedVoter()
+        public Voter getSelectedVoter(AccountRegistry reg, string selectedUsername)
         {
-            string selectedUsername = voterView.SelectedRows[0].Cells[0].Value as string;
-            AccountRegistry reg = AccountRegistry.Instance;
             return reg.users.Find(x => x.getUsername() == selectedUsername) as Voter;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = voterView.DataSource;
+            bs.Filter = "Voter" + " like '%" + searchBox.Text + "%'";
+            voterView.DataSource = bs;
         }
     }
 }
