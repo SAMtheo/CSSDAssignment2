@@ -25,15 +25,13 @@ namespace AdminUITest
         [TestMethod]
         public void CodedUITestMethod1()
         {
-            // Must have the release folder open in a windows explorer AFAIK
-            // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
+            // Must have the release folder open in a windows explorer
             this.UIMap.attemptLogin();
             this.UIMap.loginAsSuper();
             this.UIMap.resetAuth();
             this.UIMap.successLogin();
             this.UIMap.close();
-
-            this.UIMap.setEligAndTryLogIn();
+            
             
         }
 
@@ -41,13 +39,6 @@ namespace AdminUITest
         public void CodedUITestMethod2()
         {
             this.UIMap.setEligAndTryLogIn();
-        }
-
-        [TestMethod]
-        public void CodedUITestMethod3()
-        {
-            // It cant do radial buttons for some reason
-            // this.UIMap.vote3();
         }
 
 
