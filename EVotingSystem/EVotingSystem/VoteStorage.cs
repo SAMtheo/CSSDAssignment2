@@ -29,6 +29,8 @@ namespace EVotingSystem
 
                 string f = fileContents.Result;
 
+                f = SecureStorage.Decrypt(f, "OuUCPMirRGHqeLCUPcoK");
+
                 //create a list of candidateName:votes pairs
                 string[] elections = f.Split(',');
 
@@ -55,26 +57,28 @@ namespace EVotingSystem
                 //increment the votes for the passed candidateName
                 votes[candidateName]++;
             }
-                //..and write it all back out 
-                try
+
+            string newRes = "";
+            //..and write it all back out 
+            try
                 {
                     using (StreamWriter s = new StreamWriter(elecFile, false))
                     {
                     bool isFirst = true;
                         foreach (KeyValuePair<string, int> k in votes)
                         {
-                        string newRes = "";
+                        
                         if (isFirst)
                         {
-                            newRes = k.Key + ":" + k.Value;
+                            newRes += k.Key + ":" + k.Value;
                             isFirst = false;
                         } else
                         {
-                            newRes = "," + k.Key + ":" + k.Value;
+                            newRes += "," + k.Key + ":" + k.Value;
                         }
-                            s.Write(newRes);
                         }
-                    }
+                    s.Write(SecureStorage.Encrypt(newRes, "OuUCPMirRGHqeLCUPcoK"));
+                }
                 } catch (Exception e) {
                     throw e;
                 }

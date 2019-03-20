@@ -41,6 +41,11 @@ namespace EVotingSystem
             {
                 Task<string> fileContents = sr.ReadToEndAsync();
                 string f = fileContents.Result;
+
+                f = SecureStorage.Decrypt(f, "OuUCPMirRGHqeLCUPcoK");
+
+                Console.WriteLine(f);
+
                 //create a list of candidate:votes pairs
                 string[] elections = f.Split(',');
 
