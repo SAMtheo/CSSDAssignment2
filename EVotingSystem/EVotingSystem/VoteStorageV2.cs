@@ -9,14 +9,29 @@ namespace EVotingSystem
     /// </summary>
     static public class VoteStorageV2
     {
+
         /// <summary>
         /// Vote method that takes the name of the candidateName as a parameter, and increments the candidateName's vote count in the database by 1.
         /// This ensures that all votes are anonymous.
         /// </summary>
-        /// <param name="candidateName">String representation of candidate name.</param>
-        static public void Vote(string electionName, List<Candidate> candidates , string selectedCandidateName)
+        /// <param name="electionName">The name of the current election</param>
+        /// <param name="candidates">The candidates of the current election</param>
+        /// <param name="selectedCandidateName">Selected candidate of the current election</param>
+        static public void Vote (string electionName, List<Candidate> candidates, string selectedCandidateName)
         {
             string elecFile = "elections.votes";
+            Vote(elecFile, electionName, candidates, selectedCandidateName);
+        }
+
+        /// <summary>
+        /// RUN FOR TESTS ONLY - Allows file input for the vote overload above
+        /// </summary>
+        /// <param name="elecFile">The required file to write to for elections</param>
+        /// <param name="electionName">The name of the current election</param>
+        /// <param name="candidates">The candidates of the current election</param>
+        /// <param name="selectedCandidateName">Selected candidate of the current election</param>
+        static public void Vote(string elecFile, string electionName, List<Candidate> candidates , string selectedCandidateName)
+        {
             List<String> fileContents = new List<string>();
 
             if (File.Exists(elecFile)) {
@@ -86,7 +101,16 @@ namespace EVotingSystem
             File.WriteAllLines(elecFile, fileContents.ToArray());
         }
 
-        private static List<string> createNewElectionInFile(List<string> fileContents, 
+        /// <summary>
+        /// Accessable for TESTING only
+        /// Creates a new election in the file storage context
+        /// </summary>
+        /// <param name="fileContents">Contents of the "file"</param>
+        /// <param name="electionName">Name of the current election</param>
+        /// <param name="candidates">List of candidates from the current election</param>
+        /// <param name="selectedCandidateName">Selected candidate of the current election</param>
+        /// <returns></returns>
+        public static List<string> createNewElectionInFile(List<string> fileContents, 
             string electionName, List<Candidate> candidates, string selectedCandidateName)
         {
             fileContents.Add(electionName);
