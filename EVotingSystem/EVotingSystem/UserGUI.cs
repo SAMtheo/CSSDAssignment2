@@ -62,6 +62,9 @@ namespace EVotingSystem
             textSizeTracker.Value = 8;
             textSizeTracker.SmallChange = 1;
             textSizeTracker.TickFrequency = 6;
+
+			howToPictureBox.BackgroundImage = Image.FromFile("../Debug/how_to_image.png");
+			howToPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
         }
         
         /// <summary>

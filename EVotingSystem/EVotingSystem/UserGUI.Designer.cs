@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
 			this.explanationPanel = new System.Windows.Forms.Panel();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.howToPictureBox = new System.Windows.Forms.PictureBox();
 			this.explanationlbl = new System.Windows.Forms.Label();
 			this.continueBtn = new System.Windows.Forms.Button();
 			this.explanationTitle = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
 			this.accessibilityBackBtn = new System.Windows.Forms.Button();
 			this.accessibilityTitleLbl = new System.Windows.Forms.Label();
 			this.explanationPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.howToPictureBox)).BeginInit();
 			this.votePanel.SuspendLayout();
 			this.confirmPanel.SuspendLayout();
 			this.thankYouPanel.SuspendLayout();
@@ -67,7 +67,7 @@
 			// 
 			// explanationPanel
 			// 
-			this.explanationPanel.Controls.Add(this.pictureBox1);
+			this.explanationPanel.Controls.Add(this.howToPictureBox);
 			this.explanationPanel.Controls.Add(this.explanationlbl);
 			this.explanationPanel.Controls.Add(this.continueBtn);
 			this.explanationPanel.Controls.Add(this.explanationTitle);
@@ -77,14 +77,15 @@
 			this.explanationPanel.Size = new System.Drawing.Size(775, 329);
 			this.explanationPanel.TabIndex = 0;
 			// 
-			// pictureBox1
+			// howToPictureBox
 			// 
-			this.pictureBox1.Location = new System.Drawing.Point(437, 81);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(276, 174);
-			this.pictureBox1.TabIndex = 4;
-			this.pictureBox1.TabStop = false;
+			this.howToPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.howToPictureBox.Location = new System.Drawing.Point(429, 98);
+			this.howToPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.howToPictureBox.Name = "howToPictureBox";
+			this.howToPictureBox.Size = new System.Drawing.Size(315, 146);
+			this.howToPictureBox.TabIndex = 4;
+			this.howToPictureBox.TabStop = false;
 			// 
 			// explanationlbl
 			// 
@@ -95,7 +96,7 @@
 			this.explanationlbl.Size = new System.Drawing.Size(358, 51);
 			this.explanationlbl.TabIndex = 3;
 			this.explanationlbl.Text = "To Vote:\r\nSelect the check box displaying your desired candidate,\r\nThen select th" +
-    "e \'Submit\' button.";
+    "e \'Continue\' button.";
 			// 
 			// continueBtn
 			// 
@@ -170,7 +171,7 @@
 			this.electionTitleLbl.AutoSize = true;
 			this.electionTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.electionTitleLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.electionTitleLbl.Location = new System.Drawing.Point(288, 25);
+			this.electionTitleLbl.Location = new System.Drawing.Point(238, 25);
 			this.electionTitleLbl.Name = "electionTitleLbl";
 			this.electionTitleLbl.Size = new System.Drawing.Size(27, 29);
 			this.electionTitleLbl.TabIndex = 2;
@@ -376,7 +377,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(801, 374);
+			this.ClientSize = new System.Drawing.Size(801, 372);
 			this.Controls.Add(this.helpLbl);
 			this.Controls.Add(this.accessabilityLbl);
 			this.Controls.Add(this.accessibilityPanel);
@@ -390,7 +391,7 @@
 			this.Load += new System.EventHandler(this.UserGUI_Load);
 			this.explanationPanel.ResumeLayout(false);
 			this.explanationPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.howToPictureBox)).EndInit();
 			this.votePanel.ResumeLayout(false);
 			this.votePanel.PerformLayout();
 			this.confirmPanel.ResumeLayout(false);
@@ -408,7 +409,7 @@
         #endregion
 
         private System.Windows.Forms.Panel explanationPanel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox howToPictureBox;
         private System.Windows.Forms.Label explanationlbl;
         private System.Windows.Forms.LinkLabel accessabilityLbl;
         private System.Windows.Forms.Button continueBtn;
