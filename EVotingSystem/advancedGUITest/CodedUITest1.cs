@@ -23,10 +23,22 @@ namespace advancedGUITest
 		}
 
 		[TestMethod]
-		public void CodedUITestMethod1()
+		public void Task1()
 		{
 			// To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
 			this.UIMap.Task1_votingForSam();
+		}
+
+		[TestMethod]
+		public void Task2()
+		{
+			this.UIMap.Test2();
+		}
+
+		[TestMethod]
+		public void Task3()
+		{
+			this.UIMap.Test3();
 		}
 
 		#region Additional test attributes

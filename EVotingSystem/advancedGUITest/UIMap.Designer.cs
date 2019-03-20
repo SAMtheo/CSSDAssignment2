@@ -85,6 +85,136 @@ namespace advancedGUITest
             Mouse.Click(uICloseButton, new Point(26, 24));
         }
         
+        /// <summary>
+        /// Test2 - Use 'Test2Params' to pass parameters into this method.
+        /// </summary>
+        public void Test2()
+        {
+            #region Variable Declarations
+            WinEdit uINameEdit = this.UIDebugWindow.UIItemWindow.UIEVotingSystemListItem.UINameEdit;
+            WinEdit uIUsernameBoxEdit = this.UIItemWindow.UIUsernameBoxWindow.UIUsernameBoxEdit;
+            WinEdit uIPasswordBoxEdit = this.UIItemWindow.UIPasswordBoxWindow.UIPasswordBoxEdit;
+            WinCheckBox uIIamnotarobotCheckBox = this.UIIamnotarobotWindow.UIIamnotarobotCheckBox;
+            WinButton uILoginButton = this.UILoginWindow.UILoginButton;
+            WinButton uIContinueButton = this.UIContinueWindow.UIContinueButton;
+            WinButton uIMikeUKIPButton = this.UIVotePanelWindow.UIMikeUKIPWindow.UIMikeUKIPButton;
+            WinButton uIContinueButton1 = this.UIVotePanelWindow.UIContinueWindow.UIContinueButton;
+            WinButton uINOButton = this.UIConfirmPanelWindow.UINOWindow.UINOButton;
+            WinButton uISamGreenPartyButton = this.UIVotePanelWindow.UISamGreenPartyWindow.UISamGreenPartyButton;
+            WinHyperlink uIAccessabilityHyperlink = this.UIAccessabilityWindow.UIAccessabilityText.UIAccessabilityHyperlink;
+            WinCheckBox uIColourBlindModeCheckBox = this.UIAccessibilityPanelWindow.UIColourBlindModeWindow.UIColourBlindModeCheckBox;
+            WinButton uIApplyButton = this.UIAccessibilityPanelWindow.UIApplyWindow.UIApplyButton;
+            WinButton uIYesButton = this.UIConfirmPanelWindow.UIYesWindow.UIYesButton;
+            WinButton uIEndSessionButton = this.UIThankYouPanelWindow.UIEndSessionWindow.UIEndSessionButton;
+            WinButton uICloseButton = this.UIItemWindow.UILoginScreenWindow.UILoginScreenTitleBar.UICloseButton;
+            #endregion
+
+            // Double-Click 'Name' text box
+            Mouse.DoubleClick(uINameEdit, new Point(77, 9));
+
+            // Type 'Sam' in 'usernameBox' text box
+            uIUsernameBoxEdit.Text = this.Test2Params.UIUsernameBoxEditText;
+
+            // Type '{Tab}' in 'usernameBox' text box
+            Keyboard.SendKeys(uIUsernameBoxEdit, this.Test2Params.UIUsernameBoxEditSendKeys, ModifierKeys.None);
+
+            // Type '********' in 'passwordBox' text box
+            Keyboard.SendKeys(uIPasswordBoxEdit, this.Test2Params.UIPasswordBoxEditSendKeys, true);
+
+            // Select 'I am not a robot' check box
+            uIIamnotarobotCheckBox.Checked = this.Test2Params.UIIamnotarobotCheckBoxChecked;
+
+            // Click 'Login' button
+            Mouse.Click(uILoginButton, new Point(43, 29));
+
+            // Click 'Continue' button
+            Mouse.Click(uIContinueButton, new Point(83, 30));
+
+            // Click 'Mike: UKIP' button
+            Mouse.Click(uIMikeUKIPButton, new Point(63, 29));
+
+            // Click 'Continue' button
+            Mouse.Click(uIContinueButton1, new Point(91, 63));
+
+            // Click 'No' button
+            Mouse.Click(uINOButton, new Point(65, 20));
+
+            // Click 'Sam: Green Party' button
+            Mouse.Click(uISamGreenPartyButton, new Point(101, 37));
+
+            // Click 'Continue' button
+            Mouse.Click(uIContinueButton1, new Point(54, 45));
+
+            // Click 'Accessability' link
+            Mouse.Click(uIAccessabilityHyperlink, new Point(79, 4));
+
+            // Select 'Colour Blind Mode' check box
+            uIColourBlindModeCheckBox.Checked = this.Test2Params.UIColourBlindModeCheckBoxChecked;
+
+            // Click 'Apply' button
+            Mouse.Click(uIApplyButton, new Point(7, 17));
+
+            // Click 'Yes' button
+            Mouse.Click(uIYesButton, new Point(40, 12));
+
+            // Click 'End Session' button
+            Mouse.Click(uIEndSessionButton, new Point(97, 28));
+
+            // Click 'Close' button
+            Mouse.Click(uICloseButton, new Point(56, 15));
+        }
+        
+        /// <summary>
+        /// Test3 - Use 'Test3Params' to pass parameters into this method.
+        /// </summary>
+        public void Test3()
+        {
+            #region Variable Declarations
+            WinEdit uINameEdit = this.UIDebugWindow.UIItemWindow.UIEVotingSystemListItem.UINameEdit;
+            WinEdit uIUsernameBoxEdit = this.UIItemWindow.UIUsernameBoxWindow.UIUsernameBoxEdit;
+            WinEdit uIPasswordBoxEdit = this.UIItemWindow.UIPasswordBoxWindow.UIPasswordBoxEdit;
+            WinCheckBox uIIamnotarobotCheckBox = this.UIIamnotarobotWindow.UIIamnotarobotCheckBox;
+            WinButton uILoginButton = this.UILoginWindow.UILoginButton;
+            WinRowHeader uIItemRowHeader = this.UIAdminGUIWindow.UIDataGridView1Window.UIDataGridViewTable.UIRow0Row.UIItemRowHeader;
+            WinRowHeader uIItemRowHeader1 = this.UIAdminGUIWindow.UIDataGridView1Window.UIDataGridViewTable.UIRow2Row.UIItemRowHeader;
+            WinButton uICloseButton = this.UIAdminGUIWindow.UIAdminGUITitleBar.UICloseButton;
+            WinButton uICloseButton1 = this.UIItemWindow.UILoginScreenWindow.UILoginScreenTitleBar.UICloseButton;
+            #endregion
+
+            // Double-Click 'Name' text box
+            Mouse.DoubleClick(uINameEdit, new Point(3, 20));
+
+            // Type 'Admin' in 'usernameBox' text box
+            uIUsernameBoxEdit.Text = this.Test3Params.UIUsernameBoxEditText;
+
+            // Type '{Tab}' in 'usernameBox' text box
+            Keyboard.SendKeys(uIUsernameBoxEdit, this.Test3Params.UIUsernameBoxEditSendKeys, ModifierKeys.None);
+
+            // Type '********' in 'passwordBox' text box
+            Keyboard.SendKeys(uIPasswordBoxEdit, this.Test3Params.UIPasswordBoxEditSendKeys, true);
+
+            // Select 'I am not a robot' check box
+            uIIamnotarobotCheckBox.Checked = this.Test3Params.UIIamnotarobotCheckBoxChecked;
+
+            // Click 'Login' button
+            Mouse.Click(uILoginButton, new Point(32, 10));
+
+            // Click row header
+            Mouse.Click(uIItemRowHeader, new Point(16, 19));
+
+            // Click row header
+            Mouse.Click(uIItemRowHeader1, new Point(15, 19));
+
+            // Click row header
+            Mouse.Click(uIItemRowHeader, new Point(17, 20));
+
+            // Click 'Close' button
+            Mouse.Click(uICloseButton, new Point(17, 23));
+
+            // Click 'Close' button
+            Mouse.Click(uICloseButton1, new Point(17, 9));
+        }
+        
         #region Properties
         public virtual Task1_votingForSamParams Task1_votingForSamParams
         {
@@ -95,6 +225,30 @@ namespace advancedGUITest
                     this.mTask1_votingForSamParams = new Task1_votingForSamParams();
                 }
                 return this.mTask1_votingForSamParams;
+            }
+        }
+        
+        public virtual Test2Params Test2Params
+        {
+            get
+            {
+                if ((this.mTest2Params == null))
+                {
+                    this.mTest2Params = new Test2Params();
+                }
+                return this.mTest2Params;
+            }
+        }
+        
+        public virtual Test3Params Test3Params
+        {
+            get
+            {
+                if ((this.mTest3Params == null))
+                {
+                    this.mTest3Params = new Test3Params();
+                }
+                return this.mTest3Params;
             }
         }
         
@@ -193,10 +347,50 @@ namespace advancedGUITest
                 return this.mUIThankYouPanelWindow;
             }
         }
+        
+        public UIAccessabilityWindow UIAccessabilityWindow
+        {
+            get
+            {
+                if ((this.mUIAccessabilityWindow == null))
+                {
+                    this.mUIAccessabilityWindow = new UIAccessabilityWindow();
+                }
+                return this.mUIAccessabilityWindow;
+            }
+        }
+        
+        public UIAccessibilityPanelWindow UIAccessibilityPanelWindow
+        {
+            get
+            {
+                if ((this.mUIAccessibilityPanelWindow == null))
+                {
+                    this.mUIAccessibilityPanelWindow = new UIAccessibilityPanelWindow();
+                }
+                return this.mUIAccessibilityPanelWindow;
+            }
+        }
+        
+        public UIAdminGUIWindow UIAdminGUIWindow
+        {
+            get
+            {
+                if ((this.mUIAdminGUIWindow == null))
+                {
+                    this.mUIAdminGUIWindow = new UIAdminGUIWindow();
+                }
+                return this.mUIAdminGUIWindow;
+            }
+        }
         #endregion
         
         #region Fields
         private Task1_votingForSamParams mTask1_votingForSamParams;
+        
+        private Test2Params mTest2Params;
+        
+        private Test3Params mTest3Params;
         
         private UIDebugWindow mUIDebugWindow;
         
@@ -213,6 +407,12 @@ namespace advancedGUITest
         private UIConfirmPanelWindow mUIConfirmPanelWindow;
         
         private UIThankYouPanelWindow mUIThankYouPanelWindow;
+        
+        private UIAccessabilityWindow mUIAccessabilityWindow;
+        
+        private UIAccessibilityPanelWindow mUIAccessibilityPanelWindow;
+        
+        private UIAdminGUIWindow mUIAdminGUIWindow;
         #endregion
     }
     
@@ -238,6 +438,71 @@ namespace advancedGUITest
         /// Type '********' in 'passwordBox' text box
         /// </summary>
         public string UIPasswordBoxEditSendKeys = "QWwOodIXpSM441BCNCWNvH9k+8fhegdI";
+        
+        /// <summary>
+        /// Select 'I am not a robot' check box
+        /// </summary>
+        public bool UIIamnotarobotCheckBoxChecked = true;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'Test2'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class Test2Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'Sam' in 'usernameBox' text box
+        /// </summary>
+        public string UIUsernameBoxEditText = "Sam";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'usernameBox' text box
+        /// </summary>
+        public string UIUsernameBoxEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '********' in 'passwordBox' text box
+        /// </summary>
+        public string UIPasswordBoxEditSendKeys = "5cnbomlTtBROcgTC6o3ODPoU51/lvdxAqHWV1SGp1wE=";
+        
+        /// <summary>
+        /// Select 'I am not a robot' check box
+        /// </summary>
+        public bool UIIamnotarobotCheckBoxChecked = true;
+        
+        /// <summary>
+        /// Select 'Colour Blind Mode' check box
+        /// </summary>
+        public bool UIColourBlindModeCheckBoxChecked = true;
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'Test3'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class Test3Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'Admin' in 'usernameBox' text box
+        /// </summary>
+        public string UIUsernameBoxEditText = "Admin";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'usernameBox' text box
+        /// </summary>
+        public string UIUsernameBoxEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '********' in 'passwordBox' text box
+        /// </summary>
+        public string UIPasswordBoxEditSendKeys = "O2hJgXr0kalqZnVpQVcb/RMUsjQJtg3DIz3XpsRZFd8=";
         
         /// <summary>
         /// Select 'I am not a robot' check box
@@ -674,12 +939,26 @@ namespace advancedGUITest
                 return this.mUIContinueWindow;
             }
         }
+        
+        public UIMikeUKIPWindow UIMikeUKIPWindow
+        {
+            get
+            {
+                if ((this.mUIMikeUKIPWindow == null))
+                {
+                    this.mUIMikeUKIPWindow = new UIMikeUKIPWindow(this);
+                }
+                return this.mUIMikeUKIPWindow;
+            }
+        }
         #endregion
         
         #region Fields
         private UISamGreenPartyWindow mUISamGreenPartyWindow;
         
         private UIContinueWindow1 mUIContinueWindow;
+        
+        private UIMikeUKIPWindow mUIMikeUKIPWindow;
         #endregion
     }
     
@@ -752,6 +1031,40 @@ namespace advancedGUITest
     }
     
     [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIMikeUKIPWindow : WinWindow
+    {
+        
+        public UIMikeUKIPWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "MikeBtn";
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIMikeUKIPButton
+        {
+            get
+            {
+                if ((this.mUIMikeUKIPButton == null))
+                {
+                    this.mUIMikeUKIPButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIMikeUKIPButton.SearchProperties[WinButton.PropertyNames.Name] = "Mike: UKIP";
+                    #endregion
+                }
+                return this.mUIMikeUKIPButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIMikeUKIPButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
     public class UIConfirmPanelWindow : WinWindow
     {
         
@@ -775,10 +1088,24 @@ namespace advancedGUITest
                 return this.mUIYesWindow;
             }
         }
+        
+        public UINOWindow UINOWindow
+        {
+            get
+            {
+                if ((this.mUINOWindow == null))
+                {
+                    this.mUINOWindow = new UINOWindow(this);
+                }
+                return this.mUINOWindow;
+            }
+        }
         #endregion
         
         #region Fields
         private UIYesWindow mUIYesWindow;
+        
+        private UINOWindow mUINOWindow;
         #endregion
     }
     
@@ -813,6 +1140,40 @@ namespace advancedGUITest
         
         #region Fields
         private WinButton mUIYesButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UINOWindow : WinWindow
+    {
+        
+        public UINOWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "denyBtn";
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UINOButton
+        {
+            get
+            {
+                if ((this.mUINOButton == null))
+                {
+                    this.mUINOButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUINOButton.SearchProperties[WinButton.PropertyNames.Name] = "No";
+                    #endregion
+                }
+                return this.mUINOButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUINOButton;
         #endregion
     }
     
@@ -878,6 +1239,418 @@ namespace advancedGUITest
         
         #region Fields
         private WinButton mUIEndSessionButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIAccessabilityWindow : WinWindow
+    {
+        
+        public UIAccessabilityWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Accessability";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.STATIC", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("Accessability");
+            #endregion
+        }
+        
+        #region Properties
+        public UIAccessabilityText UIAccessabilityText
+        {
+            get
+            {
+                if ((this.mUIAccessabilityText == null))
+                {
+                    this.mUIAccessabilityText = new UIAccessabilityText(this);
+                }
+                return this.mUIAccessabilityText;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIAccessabilityText mUIAccessabilityText;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIAccessabilityText : WinText
+    {
+        
+        public UIAccessabilityText(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinText.PropertyNames.Name] = "Accessability";
+            this.WindowTitles.Add("Accessability");
+            #endregion
+        }
+        
+        #region Properties
+        public WinHyperlink UIAccessabilityHyperlink
+        {
+            get
+            {
+                if ((this.mUIAccessabilityHyperlink == null))
+                {
+                    this.mUIAccessabilityHyperlink = new WinHyperlink(this);
+                    #region Search Criteria
+                    this.mUIAccessabilityHyperlink.SearchProperties[WinHyperlink.PropertyNames.Name] = "Accessability";
+                    this.mUIAccessabilityHyperlink.WindowTitles.Add("Accessability");
+                    #endregion
+                }
+                return this.mUIAccessabilityHyperlink;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinHyperlink mUIAccessabilityHyperlink;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIAccessibilityPanelWindow : WinWindow
+    {
+        
+        public UIAccessibilityPanelWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.AccessibleName] = "Thank You!";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            #endregion
+        }
+        
+        #region Properties
+        public UIColourBlindModeWindow UIColourBlindModeWindow
+        {
+            get
+            {
+                if ((this.mUIColourBlindModeWindow == null))
+                {
+                    this.mUIColourBlindModeWindow = new UIColourBlindModeWindow(this);
+                }
+                return this.mUIColourBlindModeWindow;
+            }
+        }
+        
+        public UIApplyWindow UIApplyWindow
+        {
+            get
+            {
+                if ((this.mUIApplyWindow == null))
+                {
+                    this.mUIApplyWindow = new UIApplyWindow(this);
+                }
+                return this.mUIApplyWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIColourBlindModeWindow mUIColourBlindModeWindow;
+        
+        private UIApplyWindow mUIApplyWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIColourBlindModeWindow : WinWindow
+    {
+        
+        public UIColourBlindModeWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "colorBlindCheckBox";
+            #endregion
+        }
+        
+        #region Properties
+        public WinCheckBox UIColourBlindModeCheckBox
+        {
+            get
+            {
+                if ((this.mUIColourBlindModeCheckBox == null))
+                {
+                    this.mUIColourBlindModeCheckBox = new WinCheckBox(this);
+                    #region Search Criteria
+                    this.mUIColourBlindModeCheckBox.SearchProperties[WinCheckBox.PropertyNames.Name] = "Colour Blind Mode";
+                    #endregion
+                }
+                return this.mUIColourBlindModeCheckBox;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCheckBox mUIColourBlindModeCheckBox;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIApplyWindow : WinWindow
+    {
+        
+        public UIApplyWindow(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "accessibilityApplyBtn";
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UIApplyButton
+        {
+            get
+            {
+                if ((this.mUIApplyButton == null))
+                {
+                    this.mUIApplyButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUIApplyButton.SearchProperties[WinButton.PropertyNames.Name] = "Apply";
+                    #endregion
+                }
+                return this.mUIApplyButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUIApplyButton;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIAdminGUIWindow : WinWindow
+    {
+        
+        public UIAdminGUIWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "AdminGUI";
+            this.SearchProperties.Add(new PropertyExpression(WinWindow.PropertyNames.ClassName, "WindowsForms10.Window", PropertyExpressionOperator.Contains));
+            this.WindowTitles.Add("AdminGUI");
+            #endregion
+        }
+        
+        #region Properties
+        public UIDataGridView1Window UIDataGridView1Window
+        {
+            get
+            {
+                if ((this.mUIDataGridView1Window == null))
+                {
+                    this.mUIDataGridView1Window = new UIDataGridView1Window(this);
+                }
+                return this.mUIDataGridView1Window;
+            }
+        }
+        
+        public UIAdminGUITitleBar UIAdminGUITitleBar
+        {
+            get
+            {
+                if ((this.mUIAdminGUITitleBar == null))
+                {
+                    this.mUIAdminGUITitleBar = new UIAdminGUITitleBar(this);
+                }
+                return this.mUIAdminGUITitleBar;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIDataGridView1Window mUIDataGridView1Window;
+        
+        private UIAdminGUITitleBar mUIAdminGUITitleBar;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIDataGridView1Window : WinWindow
+    {
+        
+        public UIDataGridView1Window(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlName] = "dataGridView1";
+            this.WindowTitles.Add("AdminGUI");
+            #endregion
+        }
+        
+        #region Properties
+        public UIDataGridViewTable UIDataGridViewTable
+        {
+            get
+            {
+                if ((this.mUIDataGridViewTable == null))
+                {
+                    this.mUIDataGridViewTable = new UIDataGridViewTable(this);
+                }
+                return this.mUIDataGridViewTable;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIDataGridViewTable mUIDataGridViewTable;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIDataGridViewTable : WinTable
+    {
+        
+        public UIDataGridViewTable(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinTable.PropertyNames.Name] = "DataGridView";
+            this.WindowTitles.Add("AdminGUI");
+            #endregion
+        }
+        
+        #region Properties
+        public UIRow0Row UIRow0Row
+        {
+            get
+            {
+                if ((this.mUIRow0Row == null))
+                {
+                    this.mUIRow0Row = new UIRow0Row(this);
+                }
+                return this.mUIRow0Row;
+            }
+        }
+        
+        public UIRow2Row UIRow2Row
+        {
+            get
+            {
+                if ((this.mUIRow2Row == null))
+                {
+                    this.mUIRow2Row = new UIRow2Row(this);
+                }
+                return this.mUIRow2Row;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIRow0Row mUIRow0Row;
+        
+        private UIRow2Row mUIRow2Row;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIRow0Row : WinRow
+    {
+        
+        public UIRow0Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinRow.PropertyNames.Value] = "Sam;7";
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("AdminGUI");
+            #endregion
+        }
+        
+        #region Properties
+        public WinRowHeader UIItemRowHeader
+        {
+            get
+            {
+                if ((this.mUIItemRowHeader == null))
+                {
+                    this.mUIItemRowHeader = new WinRowHeader(this);
+                    #region Search Criteria
+                    this.mUIItemRowHeader.WindowTitles.Add("AdminGUI");
+                    #endregion
+                }
+                return this.mUIItemRowHeader;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinRowHeader mUIItemRowHeader;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIRow2Row : WinRow
+    {
+        
+        public UIRow2Row(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinRow.PropertyNames.Value] = "(Create New)";
+            this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+            this.WindowTitles.Add("AdminGUI");
+            #endregion
+        }
+        
+        #region Properties
+        public WinRowHeader UIItemRowHeader
+        {
+            get
+            {
+                if ((this.mUIItemRowHeader == null))
+                {
+                    this.mUIItemRowHeader = new WinRowHeader(this);
+                    #region Search Criteria
+                    this.mUIItemRowHeader.WindowTitles.Add("AdminGUI");
+                    #endregion
+                }
+                return this.mUIItemRowHeader;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinRowHeader mUIItemRowHeader;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIAdminGUITitleBar : WinTitleBar
+    {
+        
+        public UIAdminGUITitleBar(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.WindowTitles.Add("AdminGUI");
+            #endregion
+        }
+        
+        #region Properties
+        public WinButton UICloseButton
+        {
+            get
+            {
+                if ((this.mUICloseButton == null))
+                {
+                    this.mUICloseButton = new WinButton(this);
+                    #region Search Criteria
+                    this.mUICloseButton.SearchProperties[WinButton.PropertyNames.Name] = "Close";
+                    this.mUICloseButton.WindowTitles.Add("AdminGUI");
+                    #endregion
+                }
+                return this.mUICloseButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinButton mUICloseButton;
         #endregion
     }
 }
