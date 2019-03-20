@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVotingSystem", "EVotingSys
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVotingTest", "EVotingTest\EVotingTest.csproj", "{AEC361EA-7217-4313-A351-68E19E3B9DEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EVotingSystemTests", "EVotingSystemTests\EVotingSystemTests.csproj", "{CDCBFE1A-B687-4168-B40F-49C0D0627A1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AEC361EA-7217-4313-A351-68E19E3B9DEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEC361EA-7217-4313-A351-68E19E3B9DEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEC361EA-7217-4313-A351-68E19E3B9DEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDCBFE1A-B687-4168-B40F-49C0D0627A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDCBFE1A-B687-4168-B40F-49C0D0627A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDCBFE1A-B687-4168-B40F-49C0D0627A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDCBFE1A-B687-4168-B40F-49C0D0627A1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
