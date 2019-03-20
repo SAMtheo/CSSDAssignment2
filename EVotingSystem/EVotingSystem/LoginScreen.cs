@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,13 +16,45 @@ namespace EVotingSystem
         AccountRegistry reg = AccountRegistry.Instance;
         AuthenticationBroker authBroker = new AuthenticationBroker();
 
+        private const String initialElectionData = "Sam:2,Mike:2";
+        private string[] initialUserData   = new string[] { "Robin:Password", "Admin:Password" };
+
         public LoginScreen()
         {
             InitializeComponent();
+
+            createEncryptedDatabase();
+            // TODO: Decrypt file.
+            // TODO: Add users from decrypted file.
             Voter v1 = new Voter("Robin", "password", true, "Robin", "Davies", new DateTime(1996, 9, 3));
             Admin admin = new Admin("Admin", "password");
             reg.AddUser(v1);
             reg.AddUser(admin);
+        }
+
+        private void createEncryptedDatabase()
+        {
+            String votePath = "elections.votes";
+            String userPath = "users.dat";
+
+            if (!File.Exists(votePath))
+            {
+                using (StreamWriter sw = File.AppendText(votePath))
+                {
+                    sw.WriteLine(SecureStorage.Encrypt(initialElectionData, "OuUCPMirRGHqeLCUPcoK"));
+                }
+            }
+
+            if (!File.Exists(userPath))
+            {
+                using (StreamWriter sw = File.AppendText(userPath))
+                {
+                    foreach (var user in initialUserData)
+                    {
+                        sw.WriteLine(SecureStorage.Encrypt(user, "OuUCPMirRGHqeLCUPcoK"));
+                    }
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
