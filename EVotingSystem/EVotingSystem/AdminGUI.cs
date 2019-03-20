@@ -44,8 +44,6 @@ namespace EVotingSystem
 
                 f = SecureStorage.Decrypt(f, "OuUCPMirRGHqeLCUPcoK");
 
-                Console.WriteLine(f);
-
                 //create a list of candidate:votes pairs
                 string[] elections = f.Split(',');
 
