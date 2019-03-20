@@ -91,15 +91,15 @@ namespace EVotingSystem
         private void UserGUI_Load(object sender, EventArgs e)
         {
             // Get candidates
-            candidates.Add(new Candidate("Sam", "Green", ""));
-            candidates.Add(new Candidate("Mike", "UKIP", ""));
+            candidates.Add(new Candidate("Sam", "1", ""));
+            candidates.Add(new Candidate("Mike", "2", ""));
 
             // Get start and end dates
             DateTime start = DateTime.Now;
             DateTime end = start.AddDays(2);
 
             // create the current election
-            currentElection = new Election("Sheffield Mayor Election", 9090, candidates, start, end);
+            currentElection = new Election("Election 1", 9090, candidates, start, end);
 
             // update buttons based on current election
             candidateButtons(candidates);
