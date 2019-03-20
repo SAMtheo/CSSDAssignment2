@@ -16,25 +16,41 @@ namespace EVotingSystem
         AccountRegistry reg = AccountRegistry.Instance;
         AuthenticationBroker authBroker = new AuthenticationBroker();
 
-        private const String initialElectionData = "Sam:2,Mike:2";
-        private string[] initialUserData   = new string[] { "Robin:Password", "Admin:Password" };
+        private const String initialElectionData = "Sam:0,Mike:0";
+        private string[] initialUserData   = new string[] { "Robin:Password:Voter", "Admin:Password:Admin" };
 
         public LoginScreen()
         {
+            String line;
+
             InitializeComponent();
 
             createEncryptedDatabase();
-            // TODO: Decrypt file.
-            // TODO: Add users from decrypted file.
-            Voter v1 = new Voter("Robin", "password", true, "Robin", "Davies", new DateTime(1996, 9, 3));
-            Admin admin = new Admin("Admin", "password");
-            reg.AddUser(v1);
-            reg.AddUser(admin);
+
+            System.IO.StreamReader file = new System.IO.StreamReader("users.dat");
+            while ((line = file.ReadLine()) != null)
+            {
+                line = SecureStorage.Decrypt(line, "OuUCPMirRGHqeLCUPcoK");
+
+                string[] userSplit = line.Split(':');
+
+                if (userSplit[2].Equals("Voter"))
+                {
+                    reg.AddUser(new Voter(userSplit[0], userSplit[1], true, "Example", "User", new DateTime(1996, 9, 3)));
+                } else if (userSplit[2].Equals("Admin"))
+                {
+                    reg.AddUser(new Admin(userSplit[0], userSplit[1]));
+                }
+            }
         }
 
+        /// <summary>
+        /// Create the initial encrypted database for use by the system. If the files exist, assume the data exists
+        /// already.
+        /// </summary>
         private void createEncryptedDatabase()
         {
-            String votePath = "elections.votes";
+            String votePath = "election.votes";
             String userPath = "users.dat";
 
             if (!File.Exists(votePath))

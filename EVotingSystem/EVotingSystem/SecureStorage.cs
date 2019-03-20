@@ -105,6 +105,10 @@ namespace EVotingSystem
             }
         }
 
+        /// <summary>
+        /// Creates the randomness needed for secure encryption.
+        /// </summary>
+        /// <returns></returns>
         private static byte[] Generate256BitsOfRandomEntropy()
         {
             var randomBytes = new byte[32]; // 32 Bytes will give us 256 bits.
