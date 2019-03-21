@@ -18,8 +18,8 @@ namespace EVotingSystem
     /// </summary>
     public partial class UserGUI : Form
     {
-        // Radio boxes created for user interaction
-        List<RadioButton> candidateRadioBox = new List<RadioButton>();
+        // CheckBoxes created for user interaction
+        List<CheckBox> candidateCheckBoxes = new List<CheckBox>();
         //List of selected candidates to be submitted for their given elections
         List<Candidate> selectedCandidates = new List<Candidate>();
         List<string> selectedCandidateCfmEntries = new List<string>();
@@ -60,15 +60,38 @@ namespace EVotingSystem
         {
             for (int i = 0; i < Candidates.Count; i++)
             {
-                RadioButton newChk = new RadioButton();
+                CheckBox newChk = new CheckBox();
                 newChk.Text = Candidates[i].name;
                 newChk.Location = new Point(20, (i * 50) + 30);
                 newChk.Name = Candidates[i].name + "Chk";
+                newChk.Click += new EventHandler(chkBtn_Click);
                 candidatesGrp.Controls.Add(newChk);
                 votePanel.Refresh();
-                candidateRadioBox.Add(newChk);
+                candidateCheckBoxes.Add(newChk);
             }
         }
+
+        /// <summary>
+        /// One of the new checkbox buttons was clicked
+        /// This method allows only one checkbox button to be clicked at any given time
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkBtn_Click(object sender, EventArgs e)
+        {
+            CheckBox activeCheckBox = sender as CheckBox;
+            foreach (CheckBox checkBox in candidateCheckBoxes)
+            {
+                if (checkBox == activeCheckBox)
+                {
+                    checkBox.Checked = true;
+                } else
+                {
+                    checkBox.Checked = false;
+                }
+            }
+        }
+
 
         /// <summary>
         /// updateConfirmed sets the labels for the selected candidate
@@ -139,9 +162,9 @@ namespace EVotingSystem
         /// <param name="e"></param>
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i< candidateRadioBox.Count; i++)
+            for (int i = 0; i< candidateCheckBoxes.Count; i++)
             {
-                if (candidateRadioBox[i].Checked)
+                if (candidateCheckBoxes[i].Checked)
                 {
                     if (selectedCandidates.ElementAtOrDefault(currentElection) == null)
                     {
@@ -190,7 +213,7 @@ namespace EVotingSystem
         private void updateVotePanel()
         {
             // load in the new candidates for the next election
-            candidateRadioBox.Clear();
+            candidateCheckBoxes.Clear();
             candidatesGrp.Controls.Clear();
             candidateButtons(elections[currentElection].candidates);
             // pull up the new elections title
@@ -198,11 +221,11 @@ namespace EVotingSystem
 
             if (selectedCandidates.ElementAtOrDefault(currentElection) != null)
             {
-                for (int i = 0; i < candidateRadioBox.Count; i++)
+                for (int i = 0; i < candidateCheckBoxes.Count; i++)
                 {
-                    if (candidateRadioBox[i].Text.Equals(selectedCandidates[currentElection].name))
+                    if (candidateCheckBoxes[i].Text.Equals(selectedCandidates[currentElection].name))
                     {
-                        candidateRadioBox[i].Select();
+                        candidateCheckBoxes[i].Checked = true;
                     }
                 }
             }
