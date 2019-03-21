@@ -64,7 +64,8 @@ namespace EVotingSystem
                 newChk.Text = Candidates[i].name;
                 newChk.Location = new Point(20, (i * 50) + 30);
                 newChk.Name = Candidates[i].name + "Chk";
-                newChk.Click += new EventHandler(chkBtn_Click);
+                //newChk.Click += new EventHandler(chkBtn_Click);
+                newChk.Click += delegate (object sender, EventArgs e) { chkBtn_Click(sender, e, newChk); };
                 candidatesGrp.Controls.Add(newChk);
                 votePanel.Refresh();
                 candidateCheckBoxes.Add(newChk);
@@ -77,9 +78,9 @@ namespace EVotingSystem
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void chkBtn_Click(object sender, EventArgs e)
+        private void chkBtn_Click(object sender, EventArgs e, CheckBox activeCheckBox)
         {
-            CheckBox activeCheckBox = sender as CheckBox;
+            //CheckBox activeCheckBox = sender as CheckBox;
             foreach (CheckBox checkBox in candidateCheckBoxes)
             {
                 if (checkBox == activeCheckBox)
