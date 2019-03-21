@@ -9,3 +9,15 @@ C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssig
 C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.pdb
 C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.LoginScreen.resources
 C:\Users\samth\Documents\currentWork\Case Studies and Software Designs\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.UserGUI.resources
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\bin\Debug\EVotingSystem.exe.config
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\bin\Debug\EVotingSystem.exe
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\bin\Debug\EVotingSystem.pdb
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.csprojAssemblyReference.cache
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.AdminGUI.resources
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.LoginScreen.resources
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.Properties.Resources.resources
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.UserGUI.resources
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.csproj.GenerateResource.cache
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.csproj.CoreCompileInputs.cache
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.exe
+D:\rdavi\Documents\GitHub\CSSDAssignment2\EVotingSystem\EVotingSystem\obj\Debug\EVotingSystem.pdb
