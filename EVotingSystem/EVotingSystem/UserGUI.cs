@@ -63,7 +63,7 @@ namespace EVotingSystem
             textSizeTracker.SmallChange = 1;
             textSizeTracker.TickFrequency = 6;
 
-			howToPictureBox.BackgroundImage = Image.FromFile("../Debug/how_to_image.png");
+			howToPictureBox.BackgroundImage = Image.FromFile("./how_to_image.png");
 			howToPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
         }
         
@@ -167,8 +167,8 @@ namespace EVotingSystem
         private void UserGUI_Load(object sender, EventArgs e)
         {
             // Get candidates
-            candidates.Add(new Candidate("Sam", "Green Party", "../Debug/greenParty.png", Color.FromArgb(0,192,0), false));
-            candidates.Add(new Candidate("Mike", "UKIP", "../Debug/UKIP.png", Color.Purple, true));
+            candidates.Add(new Candidate("Sam", "Green Party", "./greenParty.png", Color.FromArgb(0,192,0), false));
+            candidates.Add(new Candidate("Mike", "UKIP", "./UKIP.png", Color.Purple, true));
 
             // Get start and end dates
             DateTime start = DateTime.Now;
