@@ -22,9 +22,13 @@ Logging in as admin allows you to view the total votes for the candidates in an 
 The class diagram showed additional powers and permissions for administrator accounts. These powers were not required for the base version so I have added them.
 
 Additions include:
+
 Permission class,
+
 Expansion to the AdminGUI,
+
 Unit tests for methods in AdminGUI,
+
 Automated UI testing for new features
 
 Admin users now have a Permission field. When a admin is constructed pass in one of the premade ADMIN_TYPES to give that role. Roles are currently "Super", "OnSite", "AuthReseter", "Auditor", "None", and "Test". 
