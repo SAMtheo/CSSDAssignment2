@@ -40,15 +40,15 @@
             this.logOutBtn = new System.Windows.Forms.Button();
             this.landingTitle = new System.Windows.Forms.Label();
             this.onSitePanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
             this.setIneligibleBtn = new System.Windows.Forms.Button();
             this.unlockBtn = new System.Windows.Forms.Button();
             this.voterView = new System.Windows.Forms.DataGridView();
             this.onSiteBack = new System.Windows.Forms.Button();
             this.onSiteTitle = new System.Windows.Forms.Label();
             this.accountRegistryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.searchBox = new System.Windows.Forms.TextBox();
-            this.searchBtn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.resultPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.landingPanel.SuspendLayout();
@@ -188,6 +188,32 @@
             this.onSitePanel.Size = new System.Drawing.Size(581, 268);
             this.onSitePanel.TabIndex = 3;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(417, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Search usernames";
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(373, 77);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(139, 23);
+            this.searchBtn.TabIndex = 8;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // searchBox
+            // 
+            this.searchBox.Location = new System.Drawing.Point(373, 51);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(139, 20);
+            this.searchBox.TabIndex = 7;
+            // 
             // setIneligibleBtn
             // 
             this.setIneligibleBtn.Location = new System.Drawing.Point(373, 197);
@@ -251,42 +277,17 @@
             // 
             this.accountRegistryBindingSource.DataSource = typeof(EVotingSystem.AccountRegistry);
             // 
-            // searchBox
-            // 
-            this.searchBox.Location = new System.Drawing.Point(373, 51);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(139, 20);
-            this.searchBox.TabIndex = 7;
-            // 
-            // searchBtn
-            // 
-            this.searchBtn.Location = new System.Drawing.Point(373, 77);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(139, 23);
-            this.searchBtn.TabIndex = 8;
-            this.searchBtn.Text = "Search";
-            this.searchBtn.UseVisualStyleBackColor = true;
-            this.searchBtn.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(417, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Search usernames";
-            // 
             // AdminGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 290);
+            this.ClientSize = new System.Drawing.Size(598, 295);
             this.Controls.Add(this.onSitePanel);
             this.Controls.Add(this.landingPanel);
             this.Controls.Add(this.resultPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminGUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminGUI";
             this.resultPanel.ResumeLayout(false);
             this.resultPanel.PerformLayout();
