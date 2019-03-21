@@ -12,6 +12,7 @@ using MailKit;
 using MimeKit;
 using System.Security.Cryptography;
 
+//Individual work, Michael Pressburg 25043694
 namespace EVotingSystem
 {
     /// <summary>
@@ -136,24 +137,34 @@ namespace EVotingSystem
             }
             else conflbl.ForeColor = Color.Black;
         }
+
+        protected string hashPW(string st)
+        {
+            using (var sha = new SHA256Managed())
+            {
+                byte[] textData = Encoding.UTF8.GetBytes(st);
+                byte[] hash = sha.ComputeHash(textData);
+                return BitConverter.ToString(hash).Replace("-", string.Empty);
+            }
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
             //flag that indicate whether input is valid
             proceed = true;
-            //
+            
             string user = "";
             string email = "";
 
             //mark text as red if not filled in / valid
 
             checkForm();
-            //
+            
 
             //build the user and email string
             user = name.Text + surname.Text;
             email = this.email.Text;
 
-            //
+            
 
             //email the password if, and only if, the form is complete.
             string st = sendMsg(proceed, user, email);
@@ -162,12 +173,7 @@ namespace EVotingSystem
             if (st != "")
             {
                 //hash the password
-                using (var sha = new SHA256Managed())
-                {
-                    byte[] textData = Encoding.UTF8.GetBytes(st);
-                    byte[] hash = sha.ComputeHash(textData);
-                    hashedPass = BitConverter.ToString(hash).Replace("-", string.Empty);
-                }
+                hashedPass = hashPW(st);
 
                 //create user with user, st and add to database
                 AccountRegistry.Instance.AddUser(new Voter(user, hashedPass, true, name.Text, surname.Text, new DateTime(10101010)));
@@ -214,7 +220,7 @@ namespace EVotingSystem
 
                 try
                 {
-
+                    //create a client to speak to the email server over smtp
                     using (var client = new SmtpClient())
                     {
                         // For demo-purposes, accept all SSL certificates (in case the server supports STARTTLS)
